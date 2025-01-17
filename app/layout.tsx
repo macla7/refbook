@@ -47,31 +47,32 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        "text-black bg-white dark:text-white dark:bg-black",
+        "text-black bg-white text-black bg-stone-100",
         GeistSans.variable,
         GeistMono.variable
       )}
     >
-      <body className="antialiased mx-12 mt-8">
-        <div className="grid grid-cols-4 gap-4">
-          <nav className="col-span-4">
+      <body className="antialiased mx-12 py-8 flex h-dvh">
+        <div className="grid grid-cols-4 grid-rows-[100px_1fr] gap-4 grow">
+          <nav className="col-span-4 bg-sky-950 h-24">
             <Navbar />
           </nav>
 
-          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 col-span-3">
+          <main className="col-span-3 bg-yellow-200">
             {children}
 
             {/* No idea what these two components show... so just gonna leave them there for a second */}
             <Analytics />
             <SpeedInsights />
           </main>
-          <aside>
+          <aside className="bg-sky-950">
             <p>where the user sidebar thingo will go...</p>
           </aside>
 
+          {/* 
           <footer className="col-span-4">
             <Footer />
-          </footer>
+          </footer> */}
         </div>
       </body>
     </html>
