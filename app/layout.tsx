@@ -52,14 +52,27 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+      <body className="antialiased mx-12 mt-8">
+        <div className="grid grid-cols-4 gap-4">
+          <nav className="col-span-4">
+            <Navbar />
+          </nav>
+
+          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 col-span-3">
+            {children}
+
+            {/* No idea what these two components show... so just gonna leave them there for a second */}
+            <Analytics />
+            <SpeedInsights />
+          </main>
+          <aside>
+            <p>where the user sidebar thingo will go...</p>
+          </aside>
+
+          <footer className="col-span-4">
+            <Footer />
+          </footer>
+        </div>
       </body>
     </html>
   );
