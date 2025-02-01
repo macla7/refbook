@@ -7,6 +7,9 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
 import { baseUrl } from "./sitemap";
+import ConfigureAmplifyClientSide from "app/config";
+import RequireAuth from "./components/RequireAuth";
+import AuthGuard from "./components/AuthGuard";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -53,6 +56,8 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased mx-12 py-8 flex h-dvh">
+        <ConfigureAmplifyClientSide />
+
         <div className="grid grid-cols-4 grid-rows-[100px_1fr] gap-4 grow">
           <nav className="col-span-4 bg-sky-950 h-24">
             <Navbar />
