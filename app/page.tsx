@@ -1,26 +1,41 @@
 "use client";
 
-import { BlogPosts } from "app/components/posts";
-import { Authenticator } from "@aws-amplify/ui-react";
-import "@aws-amplify/ui-react/styles.css";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { getCurrentUser } from "aws-amplify/auth";
 
 export default function Page() {
+  const [user, setUser] = useState<any>(null);
+  const router = useRouter(); // Next.js router for navigation
+
+  useEffect(() => {
+    async function checkUser() {
+      try {
+        const currentUser = await getCurrentUser();
+        setUser(currentUser);
+      } catch (error) {
+        console.error("User not authenticated, redirecting...");
+        router.push("/auth"); // Redirect to authentication page
+      }
+    }
+
+    checkUser();
+  }, [router]); // Run once on mount
+
   return (
-    // <Authenticator>
-    //   {({ signOut, user }) => (
-    //     <div>
-    //       <h1>Welcome {user?.username}</h1>
-    //       <button onClick={signOut}>Sign out</button>
-    //     </div>
-    //   )}
-    // </Authenticator>
     <section>
       <h1 className="text-3xl font-bold">Hello world!</h1>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         Just making some adjustments, WOOORK!!!!
       </h1>
 
-      <div className="my-8">{/* <BlogPosts /> */}</div>
+      {user ? (
+        <div>
+          <p>Welcome, {user.username}!</p>
+        </div>
+      ) : (
+        <p>Redirecting to login...</p>
+      )}
     </section>
   );
 }

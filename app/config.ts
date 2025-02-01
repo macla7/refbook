@@ -16,6 +16,9 @@ Amplify.configure(
   { ssr: true }
 );
 
-export default function ConfigureAmplifyClientSide() {
-  return null;
-}
+// export default function ConfigureAmplifyClientSide() {
+//   console.log("bingo");
+//   console.log("Amplify Config:", Amplify.getConfig());
+
+//   return null;
+// }

@@ -5,7 +5,7 @@ import "@aws-amplify/ui-react/styles.css";
 
 export default function AuthPage() {
   return (
-    <Authenticator>
+    <Authenticator socialProviders={["amazon", "apple", "facebook", "google"]}>
       {({ signOut, user }) => (
         <div>
           <h1>Welcome {user?.username}</h1>
