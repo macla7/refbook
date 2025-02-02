@@ -35,7 +35,7 @@ export default function Page() {
         {
           method: "GET",
           headers: {
-            Authorization: `Bearer test`,
+            Authorization: `Bearer ${jwtToken}`,
           },
         }
       );
