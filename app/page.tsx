@@ -6,6 +6,7 @@ import { getCurrentUser } from "aws-amplify/auth";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { UsersList } from "./components/usersList";
 import { TestimonialsList } from "./components/testimonialsList";
+import { TestimonialForm } from "./components/testimonialForm";
 
 export default function Page() {
   const [user, setUser] = useState<any>(null);
@@ -103,7 +104,7 @@ export default function Page() {
           body: JSON.stringify({
             message: "This guy is a great guy!",
             subjectUserId: "123", // Example: ID of the person the testimonial is about
-            AuthorId: userId, // ✅ Automatically assign the user's Cognito ID
+            authorId: userId, // ✅ Automatically assign the user's Cognito ID
           }),
         }
       );
@@ -143,6 +144,10 @@ export default function Page() {
         Testimonials List here
       </h2>
       <TestimonialsList />
+      <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+        Testimonials List here
+      </h2>
+      <TestimonialForm />
       {user ? (
         <div>
           <p>Welcome, {user.username}!</p>
