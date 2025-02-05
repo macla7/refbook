@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { getCurrentUser } from "aws-amplify/auth";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { UsersList } from "./components/usersList";
+import { TestimonialsList } from "./components/testimonialsList";
 
 export default function Page() {
   const [user, setUser] = useState<any>(null);
@@ -114,16 +115,8 @@ export default function Page() {
     }
   }
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []); // Run once on mount
-
   return (
     <section>
-      <h1 className="text-3xl font-bold">Hello world!</h1>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Just making some adjustments, WOOORK!!!!
-      </h1>
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         onClick={fetchData}
@@ -142,7 +135,14 @@ export default function Page() {
       >
         Make a testimonal
       </button>
+      <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+        Users List here
+      </h2>
       <UsersList />
+      <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+        Testimonials List here
+      </h2>
+      <TestimonialsList />
       {user ? (
         <div>
           <p>Welcome, {user.username}!</p>
