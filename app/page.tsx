@@ -118,36 +118,16 @@ export default function Page() {
 
   return (
     <section>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={fetchData}
-      >
-        Fetch Users Data
-      </button>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={fetchTestimonials}
-      >
-        Fetch Testimonials Data
-      </button>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={makeATestimonial}
-      >
-        Make a testimonal
-      </button>
-      <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        Users List here
-      </h2>
-      <UsersList />
-      <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        Testimonials List here
-      </h2>
-      <TestimonialsList />
-
       {user ? (
         <div>
-          <p>Welcome, {user.username}!</p>
+          <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+            Users List here
+          </h2>
+          <UsersList />
+          <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+            Testimonials List here
+          </h2>
+          <TestimonialsList />
         </div>
       ) : (
         <p>Redirecting to login...</p>

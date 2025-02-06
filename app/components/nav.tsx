@@ -1,17 +1,20 @@
+"use client";
+
 import Link from "next/link";
+import { signOut } from "aws-amplify/auth";
+import { useRouter } from "next/router";
+
 const navItems = {
   "/": {
     name: "home",
   },
-  "/blog": {
-    name: "blog",
-  },
-  "https://vercel.com/templates/next.js/portfolio-starter-kit": {
-    name: "deploy",
+  "/auth": {
+    name: "Auth",
   },
 };
 
 export function Navbar() {
+  // const router = useRouter();
   return (
     <aside className="-ml-[8px] mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
@@ -32,6 +35,14 @@ export function Navbar() {
               );
             })}
           </div>
+          <button
+            onClick={() => {
+              signOut();
+              // router.push("auth");
+            }}
+          >
+            Sign Out here baby
+          </button>
         </nav>
       </div>
     </aside>
