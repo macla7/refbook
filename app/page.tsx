@@ -144,10 +144,7 @@ export default function Page() {
         Testimonials List here
       </h2>
       <TestimonialsList />
-      <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        Testimonials List here
-      </h2>
-      <TestimonialForm />
+
       {user ? (
         <div>
           <p>Welcome, {user.username}!</p>

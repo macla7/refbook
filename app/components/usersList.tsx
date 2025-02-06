@@ -40,7 +40,10 @@ export function UsersList() {
     <ul>
       {users.map((user) => (
         <li key={user.id}>
-          <Link className="flex flex-col space-y-1 mb-4" href={`/blog/}`}>
+          <Link
+            className="flex flex-col space-y-1 mb-4"
+            href={`/user/${user.id}`}
+          >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
               <p className="w-[100px] tabular-nums">{user.email}</p>
               <p className=" tracking-tight">{user.id}</p>

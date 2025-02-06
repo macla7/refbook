@@ -4,7 +4,7 @@ import { fetchAuthSession } from "aws-amplify/auth";
 import { useState, useEffect } from "react";
 import { Testimonial } from "app/types";
 
-export function TestimonialForm() {
+export function TestimonialForm(params: { subjectUserId: string }) {
   const [message, setMessage] = useState("");
 
   async function putTestimonial() {
@@ -36,7 +36,7 @@ export function TestimonialForm() {
           },
           body: JSON.stringify({
             message: message,
-            subjectUserId: "123", // Example: ID of the person the testimonial is about
+            subjectUserId: params.subjectUserId, // Example: ID of the person the testimonial is about
             authorId: userId, // ✅ Automatically assign the user's Cognito ID
           }),
         }
