@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
-import { TestimonialForm } from "app/components/testimonialForm";
+import { TestimonialForm } from "app/(content)/components/testimonialForm";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
