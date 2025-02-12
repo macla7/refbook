@@ -19,7 +19,11 @@ export function TestimonialsList() {
       console.log("sessssssion issss :", session);
       console.log("jwtToken issss :", jwtToken);
       const response = await fetch(
+<<<<<<< HEAD
         String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
+=======
+        "https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/testimonials",
+>>>>>>> 3276f26 (testimonials fuck around)
         {
           method: "GET",
           headers: {
@@ -31,6 +35,32 @@ export function TestimonialsList() {
       const data = await response.json();
       setTestimonials(data);
       console.log(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  async function deleteTestimonial(id) {
+    try {
+      const session = await fetchAuthSession();
+      const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
+
+      console.log("sessssssion issss :", session);
+      console.log("jwtToken issss :", jwtToken);
+      const response = await fetch(
+        `https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/testimonials/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      console.log(data);
+      fetchData;
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -54,6 +84,13 @@ export function TestimonialsList() {
               <p className=" tracking-tight">{testimonal.message}</p>
             </div>
           </Link>
+          <button
+            type="submit"
+            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            onClick={() => deleteTestimonial(testimonal.id)}
+          >
+            delete
+          </button>
         </li>
       ))}
     </ul>

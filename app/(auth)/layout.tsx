@@ -53,14 +53,12 @@ export default async function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased mx-12 py-8 flex h-dvh">
-        <div className="grid grid-cols-4 grid-rows-[100px_1fr] gap-4 grow">
-          {children}
+      <body className="antialiased mx-12 py-8 flex h-dvh justify-center">
+        {children}
 
-          {/* No idea what these two components show... so just gonna leave them there for a second */}
-          <Analytics />
-          <SpeedInsights />
-        </div>
+        {/* No idea what these two components show... so just gonna leave them there for a second */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

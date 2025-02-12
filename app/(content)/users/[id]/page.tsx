@@ -73,7 +73,7 @@ export default function Page({ params }: { params: { id: string } }) {
       <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
         Testimonials Form here
       </h2>
-      <TestimonialForm subjectUserId={userId} />
+      <TestimonialForm subjectUserId={userId} subjectUserEmail={user.email} />
     </>
   );
 }

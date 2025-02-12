@@ -39,7 +39,24 @@ export default function AuthPage() {
   }, [router]); // Runs once when the component mounts
 
   return (
-    <Authenticator socialProviders={["amazon", "apple", "facebook", "google"]}>
+    <Authenticator
+      socialProviders={["amazon", "apple", "facebook", "google"]}
+      formFields={{
+        signIn: {
+          username: {
+            label: "Email Address or Phone Number", // Change the label of the username field
+            placeholder: "Enter your Email or Phone here",
+          },
+        },
+        signUp: {
+          username: {
+            label: "Email Address or Phone Number", // Change the label of the username field
+            placeholder: "Enter your Email or Phone here",
+          },
+        },
+      }}
+      signUpAttributes={["name"]}
+    >
       {({ signOut, user }) => {
         return <div>Loading...</div>;
       }}

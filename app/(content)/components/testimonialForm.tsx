@@ -4,7 +4,10 @@ import { fetchAuthSession } from "aws-amplify/auth";
 import { useState, useEffect } from "react";
 import { Testimonial } from "app/types";
 
-export function TestimonialForm(params: { subjectUserId: string }) {
+export function TestimonialForm(params: {
+  subjectUserId: string;
+  subjectUserEmail: string;
+}) {
   const [message, setMessage] = useState("");
 
   async function putTestimonial() {
@@ -27,7 +30,11 @@ export function TestimonialForm(params: { subjectUserId: string }) {
 
       // 🔥 Send PUT request with AuthorId set to the user's Cognito ID
       const response = await fetch(
+<<<<<<< HEAD
         String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
+=======
+        "https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/testimonials",
+>>>>>>> 3276f26 (testimonials fuck around)
         {
           method: "PUT",
           headers: {
@@ -38,6 +45,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
             message: message,
             subjectUserId: params.subjectUserId, // Example: ID of the person the testimonial is about
             authorId: userId, // ✅ Automatically assign the user's Cognito ID
+            subjectUserEmail: params.subjectUserEmail,
           }),
         }
       );
