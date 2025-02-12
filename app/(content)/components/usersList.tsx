@@ -19,11 +19,7 @@ export function UsersList() {
       console.log("sessssssion issss :", session);
       console.log("jwtToken issss :", jwtToken);
       const response = await fetch(
-<<<<<<< HEAD
         String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/users",
-=======
-        "https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/users",
->>>>>>> 3276f26 (testimonials fuck around)
         {
           method: "GET",
           headers: {
