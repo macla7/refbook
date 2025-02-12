@@ -60,11 +60,7 @@ export default function Page() {
       console.log("sessssssion issss :", session);
       console.log("jwtToken issss :", jwtToken);
       const response = await fetch(
-<<<<<<< HEAD
         String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
-=======
-        "https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/testimonials",
->>>>>>> 3276f26 (testimonials fuck around)
         {
           method: "GET",
           headers: {
@@ -100,11 +96,7 @@ export default function Page() {
 
       // 🔥 Send PUT request with AuthorId set to the user's Cognito ID
       const response = await fetch(
-<<<<<<< HEAD
         String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
-=======
-        "https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/testimonials",
->>>>>>> 3276f26 (testimonials fuck around)
         {
           method: "PUT",
           headers: {
