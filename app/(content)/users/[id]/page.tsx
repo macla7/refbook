@@ -28,7 +28,7 @@ export default function Page({ params }: { params: { id: string } }) {
       console.log("jwtToken issss :", jwtToken);
 
       const response = await fetch(
-        `https://qf3cucadwb.execute-api.ap-southeast-2.amazonaws.com/users/${userId}`,
+        String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + `/users/${userId}`,
         {
           method: "GET",
           headers: {

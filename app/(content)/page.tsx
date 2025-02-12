@@ -34,7 +34,7 @@ export default function Page() {
       console.log("sessssssion issss :", session);
       console.log("jwtToken issss :", jwtToken);
       const response = await fetch(
-        "https://qf3cucadwb.execute-api.ap-southeast-2.amazonaws.com/users",
+        String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/users",
         {
           method: "GET",
           headers: {
@@ -58,7 +58,7 @@ export default function Page() {
       console.log("sessssssion issss :", session);
       console.log("jwtToken issss :", jwtToken);
       const response = await fetch(
-        "https://qf3cucadwb.execute-api.ap-southeast-2.amazonaws.com/testimonials",
+        String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
         {
           method: "GET",
           headers: {
@@ -94,7 +94,7 @@ export default function Page() {
 
       // 🔥 Send PUT request with AuthorId set to the user's Cognito ID
       const response = await fetch(
-        "https://qf3cucadwb.execute-api.ap-southeast-2.amazonaws.com/testimonials",
+        String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
         {
           method: "PUT",
           headers: {
