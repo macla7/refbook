@@ -1,8 +1,5 @@
-import Link from "next/link";
-// import { getAllUsers } from "app/user/utils";
 import { fetchAuthSession } from "aws-amplify/auth";
-import { useState, useEffect } from "react";
-import { Testimonial } from "app/types";
+import { useState } from "react";
 
 export function TestimonialForm(params: {
   subjectUserId: string;
@@ -26,9 +23,6 @@ export function TestimonialForm(params: {
       const userId = tokenPayload.sub; // Cognito User ID (Unique ID for the user)
       const authorName = tokenPayload.name;
 
-      console.log("User ID:", userId);
-      console.log("JWT Token:", jwtToken);
-
       // 🔥 Send PUT request with AuthorId set to the user's Cognito ID
       const response = await fetch(
         String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
@@ -49,7 +43,8 @@ export function TestimonialForm(params: {
       );
 
       const data = await response.json();
-      console.log(data);
+      setMessage("");
+      console.log("response from server:", data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -98,9 +93,9 @@ export function TestimonialForm(params: {
           Cancel
         </button>
         <button
-          type="submit"
+          type="button"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          onClick={putTestimonial}
+          onClick={(e) => putTestimonial()}
         >
           Save
         </button>

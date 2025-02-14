@@ -24,9 +24,6 @@ export default function Page({ params }: { params: { id: string } }) {
         return;
       }
 
-      console.log("sessssssion issss :", session);
-      console.log("jwtToken issss :", jwtToken);
-
       const response = await fetch(
         String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + `/users/${userId}`,
         {
@@ -52,7 +49,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
       const data = JSON.parse(text);
       setUser(data);
-      console.log(data);
+      console.log("response from server:", data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

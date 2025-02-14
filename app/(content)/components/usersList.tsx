@@ -16,8 +16,6 @@ export function UsersList() {
       const session = await fetchAuthSession();
       const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
 
-      console.log("sessssssion issss :", session);
-      console.log("jwtToken issss :", jwtToken);
       const response = await fetch(
         String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/users",
         {
@@ -30,7 +28,7 @@ export function UsersList() {
 
       const data = await response.json();
       setUsers(data);
-      console.log(data);
+      console.log("response from server:", data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -41,8 +39,6 @@ export function UsersList() {
       const session = await fetchAuthSession();
       const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
 
-      console.log("sessssssion issss :", session);
-      console.log("jwtToken issss :", jwtToken);
       const response = await fetch(
         `https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/users/${id}`,
         {
@@ -55,7 +51,7 @@ export function UsersList() {
 
       const data = await response.json();
       setUsers(data);
-      console.log(data);
+      console.log("response from server:", data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

@@ -1,22 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import { User } from "app/types";
-import { AuthUser } from "aws-amplify/auth";
 import { getCurrentUser } from "aws-amplify/auth";
 import { Hub } from "aws-amplify/utils";
 
 export default function AuthPage() {
-  const [user, setUser] = useState<AuthUser>();
   const router = useRouter(); // Next.js router for navigation
 
   // If a login occurs, redirect to "/"
   Hub.listen("auth", (data) => {
-    console.log(data);
-    console.log("logginnnnnnnnnnnnnnnnng in");
+    console.log("Auth event has occured, so redirecting to root.");
     router.push("/");
   });
 
@@ -27,7 +23,6 @@ export default function AuthPage() {
       try {
         const currentUser = await getCurrentUser();
         if (currentUser) {
-          setUser(currentUser);
           router.push("/"); // Redirect if already logged in
         }
       } catch (error) {

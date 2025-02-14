@@ -17,7 +17,6 @@ Amplify.configure(
 );
 
 // export default function ConfigureAmplifyClientSide() {
-//   console.log("bingo");
 //   console.log("Amplify Config:", Amplify.getConfig());
 
 //   return null;
