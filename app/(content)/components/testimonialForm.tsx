@@ -24,6 +24,7 @@ export function TestimonialForm(params: {
       // 🔥 Decode the JWT Token to extract the Cognito User ID (sub)
       const tokenPayload = JSON.parse(atob(jwtToken.split(".")[1])); // Decode JWT payload
       const userId = tokenPayload.sub; // Cognito User ID (Unique ID for the user)
+      const authorName = tokenPayload.name;
 
       console.log("User ID:", userId);
       console.log("JWT Token:", jwtToken);
@@ -41,6 +42,7 @@ export function TestimonialForm(params: {
             message: message,
             subjectUserId: params.subjectUserId, // Example: ID of the person the testimonial is about
             authorId: userId, // ✅ Automatically assign the user's Cognito ID
+            authorName: authorName,
             subjectUserEmail: params.subjectUserEmail,
           }),
         }

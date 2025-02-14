@@ -71,8 +71,8 @@ export function TestimonialsList() {
             href={`/testimonial/}`}
           >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="w-[100px] tabular-nums">
-                Author is: {testimonal.authorId}
+              <p className="w-[50px] tabular-nums">
+                By: {testimonal.authorName}
               </p>
               <p className=" tracking-tight">
                 About: {testimonal.subjectUserId}
