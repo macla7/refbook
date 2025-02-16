@@ -1,5 +1,6 @@
 import { fetchAuthSession } from "aws-amplify/auth";
 import { useState } from "react";
+import { putTestimonial } from "app/api/testimonials";
 
 export function TestimonialForm(params: {
   subjectUserId: string;
@@ -7,47 +8,10 @@ export function TestimonialForm(params: {
 }) {
   const [message, setMessage] = useState("");
 
-  async function putTestimonial() {
-    try {
-      // 🔥 Fetch the authentication session
-      const session = await fetchAuthSession();
-      const jwtToken = session.tokens?.idToken?.toString();
-
-      if (!jwtToken) {
-        console.error("No authentication token found.");
-        return;
-      }
-
-      // 🔥 Decode the JWT Token to extract the Cognito User ID (sub)
-      const tokenPayload = JSON.parse(atob(jwtToken.split(".")[1])); // Decode JWT payload
-      const userId = tokenPayload.sub; // Cognito User ID (Unique ID for the user)
-      const authorName = tokenPayload.name;
-
-      // 🔥 Send PUT request with AuthorId set to the user's Cognito ID
-      const response = await fetch(
-        String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${jwtToken}`,
-          },
-          body: JSON.stringify({
-            message: message,
-            subjectUserId: params.subjectUserId, // Example: ID of the person the testimonial is about
-            authorId: userId, // ✅ Automatically assign the user's Cognito ID
-            authorName: authorName,
-            subjectUserEmail: params.subjectUserEmail,
-          }),
-        }
-      );
-
-      const data = await response.json();
-      setMessage("");
-      console.log("response from server:", data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+  async function formAction() {
+    const session = await fetchAuthSession();
+    putTestimonial(session, message, params);
+    setMessage("");
   }
 
   return (
@@ -95,7 +59,7 @@ export function TestimonialForm(params: {
         <button
           type="button"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          onClick={(e) => putTestimonial()}
+          onClick={(e) => formAction()}
         >
           Save
         </button>
