@@ -35,10 +35,6 @@ export default function rootPage() {
             Users List here
           </h2>
           <UsersList />
-          <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-            Testimonials List here
-          </h2>
-          <TestimonialsList />
         </div>
       ) : (
         <p>Redirecting to login...</p>

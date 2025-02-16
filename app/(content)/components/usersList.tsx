@@ -34,7 +34,6 @@ export function UsersList() {
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 justify-between">
               <p className="w-[50] tabular-nums">{user.name}</p>
               <p className="w-[50] tabular-nums">{user.email}</p>
-              <p className="tracking-tight">{user.id}</p>
             </div>
           </Link>
           <button

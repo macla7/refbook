@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Testimonial } from "app/types";
 import { getTestimonials, deleteTestimonial } from "app/api/testimonials";
 
-export function TestimonialsList() {
+export function TestimonialsList(params: { subjectUserId: string }) {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export function TestimonialsList() {
 
   async function fetchData() {
     const session = await fetchAuthSession();
-    setTestimonials(await getTestimonials(session));
+    setTestimonials(await getTestimonials(session, params.subjectUserId));
   }
 
   async function deleteAction(id) {
@@ -34,9 +34,6 @@ export function TestimonialsList() {
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
               <p className="w-[50px] tabular-nums">
                 By: {testimonal.authorName}
-              </p>
-              <p className=" tracking-tight">
-                About: {testimonal.subjectUserId}
               </p>
               <p className=" tracking-tight">{testimonal.message}</p>
             </div>

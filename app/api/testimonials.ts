@@ -40,12 +40,19 @@ export async function putTestimonial(session, message, formParams) {
   }
 }
 
-export async function getTestimonials(session) {
+export async function getTestimonials(session, userId) {
   try {
     const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
 
+    if (!userId) {
+      console.error("User ID is missing from the path.");
+      return [];
+    }
+
     const response = await fetch(
-      String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
+      `${String(
+        process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE
+      )}/testimonials?subjectUserId=${encodeURIComponent(userId)}`,
       {
         method: "GET",
         headers: {
@@ -54,8 +61,11 @@ export async function getTestimonials(session) {
       }
     );
 
-    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(`Failed to fetch: ${response.statusText}`);
+    }
 
+    const data = await response.json();
     console.log("response from server:", data);
     return data;
   } catch (error) {

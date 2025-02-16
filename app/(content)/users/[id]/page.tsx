@@ -6,6 +6,7 @@ import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
 import { TestimonialForm } from "app/(content)/components/testimonialForm";
 import { getUser } from "app/api/users";
+import { TestimonialsList } from "app/(content)/components/testimonialsList";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
@@ -23,19 +24,22 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <>
       <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        User Profile
+        {user.name}
       </h2>
       <div className="flex flex-col space-y-1 mb-4">
-        <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
+        <div className="w-full">
           <p className="w-[100px] tabular-nums">{user.email}</p>
-          <p className=" tracking-tight">{user.id}</p>
         </div>
       </div>
 
-      <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        Testimonials Form here
-      </h2>
+      <h3 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
+        Testimonials Form
+      </h3>
       <TestimonialForm subjectUserId={userId} subjectUserEmail={user.email} />
+      <h3 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
+        Testimonials
+      </h3>
+      <TestimonialsList subjectUserId={userId} />
     </>
   );
 }
