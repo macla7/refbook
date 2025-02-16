@@ -5,6 +5,7 @@ import { fetchAuthSession } from "aws-amplify/auth";
 import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
 import { TestimonialForm } from "app/(content)/components/testimonialForm";
+import { getUser } from "app/api/users";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
@@ -15,44 +16,8 @@ export default function Page({ params }: { params: { id: string } }) {
   }, []);
 
   async function fetchData() {
-    try {
-      const session = await fetchAuthSession();
-      const jwtToken = session.tokens?.idToken?.toString();
-
-      if (!jwtToken) {
-        console.error("No authentication token found.");
-        return;
-      }
-
-      const response = await fetch(
-        String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + `/users/${userId}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${jwtToken}`,
-          },
-        }
-      );
-
-      // ✅ Check if the response is OK (200-299 range)
-      if (!response.ok) {
-        throw new Error(
-          `Server error: ${response.status} ${response.statusText}`
-        );
-      }
-
-      // ✅ Check if response has content before parsing JSON
-      const text = await response.text();
-      if (!text) {
-        throw new Error("Empty response from server.");
-      }
-
-      const data = JSON.parse(text);
-      setUser(data);
-      console.log("response from server:", data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    const session = await fetchAuthSession();
+    setUser(await getUser(session, userId));
   }
 
   return (

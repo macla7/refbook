@@ -3,6 +3,7 @@ import Link from "next/link";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { useState, useEffect } from "react";
 import { Testimonial } from "app/types";
+import { getTestimonials, deleteTestimonial } from "app/api/testimonials";
 
 export function TestimonialsList() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -12,50 +13,14 @@ export function TestimonialsList() {
   }, []);
 
   async function fetchData() {
-    try {
-      const session = await fetchAuthSession();
-      const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
-
-      const response = await fetch(
-        String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/testimonials",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${jwtToken}`,
-          },
-        }
-      );
-
-      const data = await response.json();
-      setTestimonials(data);
-      console.log("response from server:", data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    const session = await fetchAuthSession();
+    setTestimonials(await getTestimonials(session));
   }
 
-  async function deleteTestimonial(id) {
-    try {
-      const session = await fetchAuthSession();
-      const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
-
-      const response = await fetch(
-        `https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/testimonials/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${jwtToken}`,
-          },
-        }
-      );
-
-      const data = await response.json();
-
-      console.log("response from server:", data);
-      fetchData;
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+  async function deleteAction(id) {
+    const session = await fetchAuthSession();
+    await deleteTestimonial(session, id);
+    fetchData();
   }
 
   return (
@@ -79,7 +44,7 @@ export function TestimonialsList() {
           <button
             type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            onClick={() => deleteTestimonial(testimonal.id)}
+            onClick={() => deleteAction(testimonal.id)}
           >
             delete
           </button>

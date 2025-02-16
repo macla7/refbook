@@ -3,6 +3,7 @@ import Link from "next/link";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { useState, useEffect } from "react";
 import { User } from "app/types";
+import { deleteUser, getUsers } from "app/api/users";
 
 export function UsersList() {
   const [users, setUsers] = useState<User[]>([]);
@@ -12,49 +13,14 @@ export function UsersList() {
   }, []);
 
   async function fetchData() {
-    try {
-      const session = await fetchAuthSession();
-      const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
-
-      const response = await fetch(
-        String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/users",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${jwtToken}`,
-          },
-        }
-      );
-
-      const data = await response.json();
-      setUsers(data);
-      console.log("response from server:", data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    const session = await fetchAuthSession();
+    setUsers(await getUsers(session));
   }
 
-  async function deleteUser(id) {
-    try {
-      const session = await fetchAuthSession();
-      const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
-
-      const response = await fetch(
-        `https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/users/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${jwtToken}`,
-          },
-        }
-      );
-
-      const data = await response.json();
-      setUsers(data);
-      console.log("response from server:", data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+  async function deleteAction(id) {
+    const session = await fetchAuthSession();
+    await deleteUser(session, id);
+    fetchData();
   }
 
   return (
@@ -74,7 +40,7 @@ export function UsersList() {
           <button
             type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            onClick={() => deleteUser(user.id)}
+            onClick={() => deleteAction(user.id)}
           >
             delete
           </button>
