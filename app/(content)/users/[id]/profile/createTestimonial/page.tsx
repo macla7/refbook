@@ -24,22 +24,9 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <>
       <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        {user.name}
-      </h2>
-      <div className="flex flex-col space-y-1 mb-4">
-        <div className="w-full">
-          <p className="w-[100px] tabular-nums">{user.email}</p>
-        </div>
-      </div>
-
-      <h3 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
         Testimonials Form
-      </h3>
+      </h2>
       <TestimonialForm subjectUserId={userId} subjectUserEmail={user.email} />
-      <h3 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
-        Testimonials
-      </h3>
-      <TestimonialsList subjectUserId={userId} />
     </>
   );
 }
