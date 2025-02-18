@@ -59,16 +59,13 @@ export default async function RootLayout({
             <Navbar />
           </nav>
 
-          <main className="col-span-3 bg-yellow-200">
+          <main className="col-span-4 flex">
             {children}
 
             {/* No idea what these two components show... so just gonna leave them there for a second */}
             <Analytics />
             <SpeedInsights />
           </main>
-          <aside className="bg-sky-950">
-            <p>where the user sidebar thingo will go...</p>
-          </aside>
 
           {/* 
           <footer className="col-span-4">

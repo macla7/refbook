@@ -28,10 +28,10 @@ export default function rootPage() {
   }, [router]); // Run once on mount
 
   return (
-    <section>
+    <section className="p-8 grow bg-yellow-200">
       {user ? (
         <div>
-          <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+          <h2 className="py-8 text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight ">
             Users List here
           </h2>
           <UsersList />
