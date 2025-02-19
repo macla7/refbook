@@ -26,17 +26,6 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <div className="grid grid-cols-4 gap-4 grow bg-yellow-200">
       <div className="col-span-3 justify-items-center">
-        <h2 className="my-4 text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-          {user.name}
-        </h2>
-
-        <Link
-          className="rounded-md bg-indigo-600 px-3 py-2 my-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          href={`/users/${user.id}/createTestimonial`}
-        >
-          Create Testimonial
-        </Link>
-
         <h3 className="my-4 text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
           Testimonials
         </h3>
@@ -45,7 +34,7 @@ export default function Page({ params }: { params: { id: string } }) {
       </div>
 
       <div className="col-span-1 bg-red-200">
-        <Sidebar />
+        <Sidebar user={user} />
       </div>
     </div>
   );
