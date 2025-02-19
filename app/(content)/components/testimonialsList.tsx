@@ -24,13 +24,13 @@ export function TestimonialsList(params: { subjectUserId: string }) {
     fetchData();
   }
   return (
-    <ul className="grid grid-cols-2 gap-10 p-20 place-content-center">
+    <ul className="grid lg:grid-cols-2 md:grid-cols-1 gap-10 p-20 place-content-center">
       {testimonials.map((testimonal) => (
         <li key={testimonal.id}>
           <TestimonialCard testimonial={testimonal} />
           <button
             type="submit"
-            className="rounded-md bg-our-green px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-green focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-our-green px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-lavender focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             onClick={() => deleteAction(testimonal.id)}
           >
             delete

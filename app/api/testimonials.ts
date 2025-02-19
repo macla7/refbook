@@ -79,7 +79,7 @@ export async function deleteTestimonial(session, id) {
     const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
 
     const response = await fetch(
-      `https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/testimonials/${id}`,
+      String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + `/testimonials/${id}`,
       {
         method: "DELETE",
         headers: {
