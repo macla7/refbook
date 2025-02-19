@@ -53,7 +53,7 @@ export default async function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased  flex h-dvh">
+      <body className="antialiased  flex h-dvh mx-2.5 my-3.5">
         <div className="grid grid-cols-4 grid-rows-[100px_1fr] gap-4 grow">
           <nav className="col-span-4 bg-our-blue h-24">
             <Navbar />
