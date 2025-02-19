@@ -11,7 +11,7 @@ export default function TestimonialCard({
       className="flex flex-col md:flex-row items-center bg-white border border-white shadow-sm hover:bg-gray-100 h-[200px] w-[400px] overflow-hidden"
     >
       {/* SVG Container - Takes 1/3 width */}
-      <div className="flex-[1] flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 p-2 w-full">
+      <div className="flex-[1] flex flex-col items-center justify-center bg-gray-100 p-2 w-full">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
