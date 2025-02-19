@@ -5,4 +5,7 @@ export interface Testimonial {
   subjectUserId: string;
   subjectUserName: string; // ✅ Store the subject user’s name at creation
   message: string;
+  authorPostion: string;
+  authorConnection: string;
+  authorWorkplace: string;
 }
