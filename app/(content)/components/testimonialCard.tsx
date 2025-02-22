@@ -1,7 +1,6 @@
 import { Testimonial } from "app/types";
 import { useState } from "react";
 
-
 export default function TestimonialCard({
   testimonial,
 }: {
@@ -47,7 +46,7 @@ export default function TestimonialCard({
 
       {/* Modal Component */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-our-silver/50 ">
+        <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/50 ">
           <div className="relative p-4 w-full max-w-2xl bg-white rounded-lg">
             {/* Modal Body */}
             <div className="flex-[1] flex flex-col items-center justify-center bg-gray-100 p-2 w-full">

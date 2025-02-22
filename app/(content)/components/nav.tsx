@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { signOut } from "aws-amplify/auth";
 import { useRouter } from "next/router";
+import { DP } from "./dp";
 
 const navItems = {
   "/": {
-    name: "home",
+    name: "Home",
   },
   "/auth": {
     name: "Auth",
@@ -16,35 +17,35 @@ const navItems = {
 export function Navbar() {
   // const router = useRouter();
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
+    <nav
+      className="flex h-full flex-row justify-between items-center mx-3"
+      id="nav"
+    >
+      <h1 className=" px-4 py-2 text-7xl font-bold rounded-full bg-our-gold text-our-pink  ">
+        Champ Stamp
+      </h1>
+      <div className="flex flex-row items-center">
+        {Object.entries(navItems).map(([path, { name }]) => {
+          return (
+            <Link
+              className="mx-1 rounded-md bg-our-cyan px-6 py-3 my-2 text-lg font-semibold  hover:bg-our-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              key={path}
+              href={path}
+            >
+              {name}
+            </Link>
+          );
+        })}
+        <DP />
+        {/* <button
+          onClick={() => {
+            signOut();
+            // router.push("auth");
+          }}
         >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-                >
-                  {name}
-                </Link>
-              );
-            })}
-          </div>
-          <button
-            onClick={() => {
-              signOut();
-              // router.push("auth");
-            }}
-          >
-            Sign Out here baby
-          </button>
-        </nav>
+          Sign Out here baby
+        </button> */}
       </div>
-    </aside>
+    </nav>
   );
 }
