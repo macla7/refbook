@@ -20,7 +20,10 @@ export default function TestimonialCard({
         <div className="flex-[1] flex flex-col items-center justify-center p-2 w-full">
           <DP />
           <p className="text-xs font-medium text-gray-700 w-full text-center">
-            {testimonial.authorName}
+            {testimonial.authorName}, {testimonial.authorConnection}
+          </p>
+          <p className="text-xs font-medium text-gray-700 w-full text-center">
+            {testimonial.authorPostion} at {testimonial.authorWorkplace}
           </p>
         </div>
 
@@ -35,43 +38,50 @@ export default function TestimonialCard({
       {/* Modal Component */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/50 ">
-          <div className="relative p-4 w-full max-w-2xl bg-white rounded-lg">
-            {/* Modal Body */}
-            <div className="flex-[1] flex flex-col items-center justify-center bg-gray-100 p-2 w-full">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-12"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-              </svg>
-              <p className="text-xs font-medium text-gray-700 w-full text-center">
-                {testimonial.authorName}
-              </p>
-            </div>
-
-            {/* Text Container - 2/3 width */}
-            <div className="flex-[2] flex flex-col justify-between p-2 leading-normal w-full">
-              <p className="text-xs text-gray-700 dark:text-gray-400 line-clamp-10">
-                {testimonial.message}
-              </p>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+          <div className="p-4 w-full max-w-2xl bg-white rounded-lg">
+            <div className="flex items-center">
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="button"
+                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-6 h-6 ms-auto inline-flex justify-center items-center"
+                data-modal-hide="default-modal"
               >
-                Close
+                <svg
+                  className="w-3 h-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  />
+                </svg>
+                <span className="sr-only">Close modal</span>
               </button>
+            </div>
+            <div className="flex flex-col md:flex-row items-center ">
+              <div className="flex-[1] flex flex-col items-center justify-center">
+                <DP />
+                <p className="text-m font-medium text-gray-700 w-full text-center">
+                  {testimonial.authorName}, {testimonial.authorConnection}
+                </p>
+                {/* <div className="flex items-center p-4 md:p-5">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Close
+                </button>
+              </div> */}
+              </div>
+              <p className=" flex-[2] flex flex-col justify-between p-2 leading-normal w-full text-xs text-gray-700 dark:text-gray-400">
+                {testimonial.message}
+              </p>
             </div>
           </div>
         </div>
