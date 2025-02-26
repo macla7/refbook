@@ -22,7 +22,7 @@ export default function TestimonialCard({
       {/* Button to Open Modal */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex flex-col md:flex-row items-center border border-gray-100 rounded-md hover:bg-gray-100 lg:h-[200px] lg:w-[400px] overflow-hidden overflow-hidden shadow-lg"
+        className="flex flex-col md:flex-row items-center border border-gray-100 rounded-sm hover:bg-gray-100 lg:h-[200px] lg:w-[400px] overflow-hidden overflow-hidden shadow-lg"
       >
         {/* SVG Container - 1/3 width */}
         <div className="flex-[1] flex flex-col items-center justify-center p-2 w-full">
@@ -46,12 +46,12 @@ export default function TestimonialCard({
       {/* Modal Component */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/50 ">
-          <div className="p-4 w-full max-w-2xl bg-white rounded-lg">
+          <div className="p-4 w-full max-w-2xl bg-white rounded-sm">
             <div className="flex items-center">
               <button
                 onClick={() => setIsOpen(false)}
                 type="button"
-                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-6 h-6 ms-auto inline-flex justify-center items-center"
+                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-sm text-sm w-6 h-6 ms-auto inline-flex justify-center items-center"
                 data-modal-hide="default-modal"
               >
                 <svg
@@ -73,7 +73,7 @@ export default function TestimonialCard({
               </button>
               <button
                 type="submit"
-                className="rounded-md bg-our-pink px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-cyan focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={() => deleteAction(testimonial.id)}
               >
                 delete
@@ -88,7 +88,7 @@ export default function TestimonialCard({
                 {/* <div className="flex items-center p-4 md:p-5">
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Close
                 </button>

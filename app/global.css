@@ -3,12 +3,15 @@
 @theme {
   --color-our-blue: #45506b;
   --color-our-green: #ebff59;
-  --color-our-lavender: #e6e6fa;
-  --color-our-bone: #e3dac9;
+  --color-our-lavender: #dffcff;
+  --color-our-bone: #e6e6e6;
   --color-our-silver: #b0bbbf;
-  --color-our-cyan: #2ff3e0;
-  --color-our-gold: #f8d210;
-  --color-our-pink: #fa26a0;
+  --color-eg-blue: #592ada;
+  --color-red: #711c1c;
+  --color-our-nav: var(--color-our-lavender);
+  --color-our-sidebar: var(--color-our-lavender);
+  --color-our-sec: #1f2125;
+  --color-our-pink: var(--color-red);
   --color-our-chili: #f51720;
 }
 
@@ -73,11 +76,11 @@ html {
 }
 
 .prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
+  @apply bg-neutral-50 dark:bg-neutral-900 rounded-sm overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg;
+  @apply px-1 py-0.5 rounded-sm;
 }
 
 .prose pre code {

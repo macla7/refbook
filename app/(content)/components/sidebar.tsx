@@ -11,7 +11,7 @@ export function Sidebar({ user }: { user: User }) {
   // const router = useRouter();
   return (
     <aside className="grid justify-items-center">
-      <div className="mt-8 w-64 h-64 rounded-full overflow-hidden border-4 border-transparent bg-gradient-to-r from-our-pink via-our-gold to-our-pink ">
+      <div className="mt-8 w-64 h-64 rounded-full overflow-hidden border-transparent bg-gradient-to-r from-our-pink via-our-sec to-our-pink ">
         <Image
           src={defaultImage}
           alt="Default Profile"
@@ -23,7 +23,7 @@ export function Sidebar({ user }: { user: User }) {
 
       <h2 className="mt-8 text-2xl/7 font-bold text-gray-900 ">{user.name}</h2>
       <Link
-        className="rounded-md bg-our-gold px-3 py-2 my-2 text-sm font-semibold shadow-xs hover:bg-our-cyan focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        className="rounded-sm bg-our-sec px-3 py-2 my-2 text-sm font-semibold shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         href={`/users/${user.id}/createTestimonial`}
       >
         Create Testimonial

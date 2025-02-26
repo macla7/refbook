@@ -24,8 +24,8 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="grid grid-cols-4 gap-4 grow mx-2 mb-2 ">
-      <div className="col-span-3 justify-items-center white">
+    <div className="grid grid-cols-4 gap-2 grow mx-0 ">
+      <div className="col-span-3 justify-items-center rounded-sm bg-gradient-to-br from-white via-white to-our-lavender">
         <h3 className="my-4 text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
           Testimonials
         </h3>
@@ -33,7 +33,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <TestimonialsList subjectUserId={userId} />
       </div>
 
-      <div className="col-span-1 bg-our-cyan rounded-md">
+      <div className="col-span-1 bg-our-sidebar rounded-sm">
         <Sidebar user={user} />
       </div>
     </div>

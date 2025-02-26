@@ -10,7 +10,7 @@ import defaultImage from "app/assets/default-image-2.png";
 export function DP() {
   // const router = useRouter();
   return (
-    <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-transparent bg-gradient-to-r from-our-pink via-our-gold to-our-pink ">
+    <div className="w-20 h-20 rounded-full overflow-hidden  border-transparent bg-gradient-to-r from-our-pink via-our-sec to-our-pink ">
       <div className="w-full h-full rounded-full bg-white">
         <Image
           src={defaultImage}

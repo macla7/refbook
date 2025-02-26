@@ -39,7 +39,7 @@ export function TestimonialForm(params: {
                   name="about"
                   id="about"
                   rows={3}
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   onChange={(e) => setMessage(e.target.value)}
                   value={message}
                 ></textarea>
@@ -59,7 +59,7 @@ export function TestimonialForm(params: {
 
         <button
           type="button"
-          className="rounded-md bg-our-pink px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-cyan focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           onClick={(e) => formAction()}
         >
           Save
