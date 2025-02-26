@@ -24,12 +24,8 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="grid grid-cols-4 gap-2 grow mx-0 ">
+    <div className="grid grid-cols-4 gap-1 grow mx-0 ">
       <div className="col-span-3 justify-items-center rounded-sm bg-white">
-        <h3 className="my-4 text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
-          Testimonials
-        </h3>
-
         <TestimonialsList subjectUserId={userId} />
       </div>
 

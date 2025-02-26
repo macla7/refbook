@@ -4,18 +4,19 @@
   --color-our-blue: #45506b;
   --color-our-green: #ebff59;
   --color-our-cyan: #dffcff;
-  --color-ourBone: #f7f7f7;
+  --color-ourBone: #e8eef1;
   --color-our-silver: #b0bbbf;
-  --color-eg-blue: #592ada;
+  --color-egBlue: #592ada;
+  --color-ourGold: #f8d210;
   --color-red: #711c1c;
-  --color-tennis-green: #EBFF59;
+  --color-tennis-green: #ebff59;
   --color-peach: #ffcc99;
-  --color-our-nav: var(--color-ourBone);
-  --color-our-sidebar: var(--color-ourBone);
+  --color-our-nav: var(--color-ourGold);
+  --color-our-sidebar: var(--color-white);
   --color-our-sec: #1f2125;
   --color-our-pink: var(--color-red);
   --color-our-chili: #f51720;
-  --color-gaps:var(--color-eg-blue);
+  --color-gaps: var(--color-ourGold);
 }
 
 ::selection {

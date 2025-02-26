@@ -54,7 +54,7 @@ export default async function RootLayout({
       )}
     >
       <body className="antialiased  flex h-dvh ">
-        <div className="grid grid-cols-4 grid-rows-[125px_1fr] gap-2 grow">
+        <div className="grid grid-cols-4 grid-rows-[125px_1fr] gap-1 grow">
           <nav className="col-span-4 bg-our-nav h-24 h-full ">
             <Navbar />
           </nav>
