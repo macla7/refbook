@@ -22,7 +22,7 @@ export default function TestimonialCard({
       {/* Button to Open Modal */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex flex-col md:flex-row items-center border bg-white border-gray-100 rounded-sm hover:bg-gray-100 lg:h-[200px] lg:w-[400px] overflow-hidden overflow-hidden shadow-lg"
+        className="flex flex-col md:flex-row items-center border bg-white border-gray-100 rounded-sm hover:bg-gray-100 lg:h-[200px] lg:w-[400px] overflow-hidden shadow-lg"
       >
         {/* SVG Container - 1/3 width */}
         <div className="flex-[1] flex flex-col items-center justify-center p-2 w-full">
@@ -45,7 +45,7 @@ export default function TestimonialCard({
 
       {/* Modal Component */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/50 ">
+        <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/30 ">
           <div className="p-4 w-full max-w-2xl bg-white rounded-sm">
             <div className="flex items-center">
               <button
