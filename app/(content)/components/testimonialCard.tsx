@@ -1,6 +1,8 @@
 import { Testimonial } from "app/types";
 import { useState } from "react";
 import { DP } from "./dp";
+import { fetchAuthSession } from "aws-amplify/auth";
+import { deleteTestimonial } from "app/api/testimonials";
 
 export default function TestimonialCard({
   testimonial,
@@ -9,12 +11,18 @@ export default function TestimonialCard({
 }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  async function deleteAction(id) {
+    const session = await fetchAuthSession();
+    await deleteTestimonial(session, id);
+    setIsOpen(true);
+  }
+
   return (
     <>
       {/* Button to Open Modal */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex flex-col md:flex-row items-center bg-white border border-gray-100 rounded-md shadow-sm hover:bg-gray-100 lg:h-[200px] lg:w-[400px] overflow-hidden"
+        className="flex flex-col md:flex-row items-center border border-gray-100 rounded-md hover:bg-gray-100 lg:h-[200px] lg:w-[400px] overflow-hidden overflow-hidden shadow-lg"
       >
         {/* SVG Container - 1/3 width */}
         <div className="flex-[1] flex flex-col items-center justify-center p-2 w-full">
@@ -71,6 +79,13 @@ export default function TestimonialCard({
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Close
+              </button>
+              <button
+                type="submit"
+                className="rounded-md bg-our-pink px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-cyan focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={() => deleteAction(testimonial.id)}
+              >
+                delete
               </button>
             </div>
           </div>

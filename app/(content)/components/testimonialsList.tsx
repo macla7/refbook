@@ -18,23 +18,11 @@ export function TestimonialsList(params: { subjectUserId: string }) {
     setTestimonials(await getTestimonials(session, params.subjectUserId));
   }
 
-  async function deleteAction(id) {
-    const session = await fetchAuthSession();
-    await deleteTestimonial(session, id);
-    fetchData();
-  }
   return (
     <ul className="grid lg:grid-cols-2 md:grid-cols-1 gap-10 p-20 place-content-center">
-      {testimonials.map((testimonal) => (
-        <li key={testimonal.id}>
-          <TestimonialCard testimonial={testimonal} />
-          <button
-            type="submit"
-            className="rounded-md bg-our-pink px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-cyan focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            onClick={() => deleteAction(testimonal.id)}
-          >
-            delete
-          </button>
+      {testimonials.map((testimonial) => (
+        <li key={testimonial.id}>
+          <TestimonialCard testimonial={testimonial} />
         </li>
       ))}
     </ul>
