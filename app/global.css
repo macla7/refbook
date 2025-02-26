@@ -3,16 +3,19 @@
 @theme {
   --color-our-blue: #45506b;
   --color-our-green: #ebff59;
-  --color-our-lavender: #dffcff;
-  --color-our-bone: #e6e6e6;
+  --color-our-cyan: #dffcff;
+  --color-ourBone: #f7f7f7;
   --color-our-silver: #b0bbbf;
   --color-eg-blue: #592ada;
   --color-red: #711c1c;
-  --color-our-nav: var(--color-our-lavender);
-  --color-our-sidebar: var(--color-our-lavender);
+  --color-tennis-green: #EBFF59;
+  --color-peach: #ffcc99;
+  --color-our-nav: var(--color-ourBone);
+  --color-our-sidebar: var(--color-ourBone);
   --color-our-sec: #1f2125;
   --color-our-pink: var(--color-red);
   --color-our-chili: #f51720;
+  --color-gaps:var(--color-eg-blue);
 }
 
 ::selection {

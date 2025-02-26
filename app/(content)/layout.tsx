@@ -48,7 +48,7 @@ export default async function RootLayout({
     <html
       lang="en"
       className={cx(
-        "text-black bg-eg-blue text-black ",
+        "text-black bg-gaps text-black ",
         GeistSans.variable,
         GeistMono.variable
       )}
