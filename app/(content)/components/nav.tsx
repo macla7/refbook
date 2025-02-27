@@ -24,7 +24,9 @@ export function Navbar() {
     async function checkUser() {
       try {
         const currentUser = await getCurrentUser();
-        setIsActive(true);
+        if (currentUser) {
+          setIsActive(true);
+        }
       } catch (error) {
         setIsActive(false);
       }
@@ -33,12 +35,12 @@ export function Navbar() {
     checkUser();
   }, [router]); // Run once on mount
 
-  function handleClick(){
-    if(isActive){
-      router.push("/users")
+  function handleClick() {
+    if (!isActive) {
+      router.push("/auth");
     } else {
       signOut();
-      router.push("/auth")
+      router.push("/");
     }
   }
 
@@ -62,7 +64,11 @@ export function Navbar() {
             </Link>
           );
         })}
-        <DP />
+        <div className="w-20 h-20">
+          {" "}
+          <DP />
+        </div>
+
         <button
           type="button"
           className="mx-1 rounded-sm bg-our-nav px-6 py-3 my-2 text-lg font-semibold  hover:bg-our-sec focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

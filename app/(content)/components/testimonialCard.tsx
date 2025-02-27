@@ -26,7 +26,9 @@ export default function TestimonialCard({
       >
         {/* SVG Container - 1/3 width */}
         <div className="flex-[1] flex flex-col items-center justify-center p-2 w-full">
-          <DP />
+          <div className="w-20 h-20">
+            <DP />
+          </div>
           <p className="text-xs font-medium text-gray-700 w-full text-center">
             {testimonial.authorName}, {testimonial.authorConnection}
           </p>

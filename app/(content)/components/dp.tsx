@@ -10,16 +10,16 @@ import defaultImage from "app/assets/default-image-2.png";
 export function DP() {
   // const router = useRouter();
   return (
-    <div className="w-20 h-20 rounded-full overflow-hidden  border-transparent bg-gradient-to-r from-our-pink via-our-sec to-our-pink ">
-      <div className="w-full h-full rounded-full bg-white">
-        <Image
+    <div className={"w-full h-full rounded-full overflow-hidden border-transparent bg-egBlue"}>
+      {/* <Image
           src={defaultImage}
           alt="Default Profile"
           width={80}
           height={80}
           className="object-cover rounded-full"
-        />
-      </div>
+        /> */}
+
+      <div className=" w-full h-full bg-[radial-gradient(circle_farthest-corner_at_center,var(--tw-gradient-from),var(--tw-gradient-to))] from-blue-500 to-purple-500 animate-pulse"></div>
     </div>
   );
 }

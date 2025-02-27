@@ -6,19 +6,21 @@ import { useRouter } from "next/router";
 import { User } from "app/types";
 import Image from "next/image";
 import defaultImage from "app/assets/default-image-2.png";
+import { DP } from "./dp";
 
 export function Sidebar({ user }: { user: User }) {
   // const router = useRouter();
   return (
     <aside className="grid justify-items-center">
-      <div className="mt-8 w-64 h-64 rounded-full overflow-hidden border-transparent bg-gradient-to-r from-our-pink via-our-sec to-our-pink ">
-        <Image
+      <div className="mt-8 w-64 h-64 rounded-full overflow-hidden border-transparent ">
+        {/* <Image
           src={defaultImage}
           alt="Default Profile"
           width={256} // Adjust width/height as per your needs
           height={256}
           className="object-cover"
-        />
+        /> */}
+        <DP />
       </div>
 
       <h2 className="mt-8 text-2xl/7 font-bold text-gray-900 ">{user.name}</h2>
