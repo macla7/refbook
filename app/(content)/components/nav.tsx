@@ -21,9 +21,14 @@ export function Navbar() {
       className="flex h-full flex-row justify-between items-center mx-3 "
       id="nav"
     >
-      <h1 className=" px-4 py-2 text-7xl font-bold rounded-full text-black  ">
-        (&nbsp;&nbsp;) (&nbsp;&nbsp;) Champ Stamp
-      </h1>
+      <div className="flex items-center h-full">
+        <h1 className="px-4 py-2 text-6xl font-bold rounded-full text-black">
+          (&nbsp;&nbsp;) (&nbsp;&nbsp;)
+        </h1>
+        <h1 className="px-4 pb-2 py-4 text-7xl font-bold rounded-full text-black">
+          Rango
+        </h1>
+      </div>
       <div className="flex flex-row items-center">
         <form className="w-sm mr-8">
           <div className="flex">
