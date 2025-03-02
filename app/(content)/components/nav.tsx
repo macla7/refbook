@@ -56,7 +56,7 @@ export function Navbar() {
         <h1 className="px-4 py-2 text-6xl font-bold rounded-full text-black">
           (&nbsp;&nbsp;) (&nbsp;&nbsp;)
         </h1>
-        <h1 className="px-4 pb-2 py-4 text-7xl font-bold rounded-full text-black">
+        <h1 className="px-4 pb-2 py-4 text-6xl font-bold rounded-full text-black">
           Rango
         </h1>
       </div>
@@ -83,7 +83,7 @@ export function Navbar() {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
                     d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"

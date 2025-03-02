@@ -34,7 +34,7 @@ export function DP() {
     images[Math.floor(Math.random() * images.length)];
 
   return (
-    <div className="w-20 h-20 rounded-full overflow-hidden border-transparent bg-gradient-to-r from-our-pink via-our-sec to-our-pink">
+    <div className="w-full h-full rounded-full overflow-hidden border-transparent bg-gradient-to-r from-our-pink via-our-sec to-our-pink">
       <div className="w-full h-full rounded-full bg-white">
         <Image
           src={getRandomImage()}
