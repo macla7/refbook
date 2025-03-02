@@ -14,23 +14,20 @@ export default function rootPage() {
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
 
-  useEffect(() => {
-    async function checkUser() {
-      try {
-        const currentUser = await getCurrentUser();
-        router.push("/users");
-      } catch (error) {
-
-      }
-    }
-
-    checkUser();
-  }, [router]); // Run once on mount
-
-
   return (
     <>
-      <div>Landing Page</div>
+      <div className="flex items-center justify-left w-[100%] h-[100%]">
+        <div className="w-[150px] h-full skew-x-12 bg-gradient-to-b from-ourGold to-ourGold2">
+          {" "}
+        </div>
+        <div className="w-[150px] h-full skew-x-12 bg-gradient-to-b from-ourGold2 to-ourGold">
+          {" "}
+        </div>
+        <div className="w-[150px] h-full skew-x-12 bg-gradient-to-b from-ourGold to-ourGold2">
+          {" "}
+        </div>
+        <p className="text-6xl p-12">Landing Page</p>
+      </div>
     </>
   );
 }
