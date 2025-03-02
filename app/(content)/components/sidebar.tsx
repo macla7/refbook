@@ -5,7 +5,8 @@ import { signOut } from "aws-amplify/auth";
 import { useRouter } from "next/router";
 import { User } from "app/types";
 import Image from "next/image";
-import defaultImage from "assets/default-image-1.jpeg";
+import defaultImage from "app/assets/default-image-2.png";
+import { DP } from "./dp";
 
 export function Sidebar({ user }: { user: User }) {
   // const router = useRouter();
@@ -14,19 +15,21 @@ export function Sidebar({ user }: { user: User }) {
   console.log(user);
   return (
     <aside className="grid justify-items-center">
-      <div className="mt-8 w-64 h-64 rounded-full overflow-hidden border-transparent bg-gradient-to-r from-our-pink via-our-sec to-our-pink ">
-        <Image
+      <div className="mt-8 w-64 h-64 rounded-full overflow-hidden border-transparent ">
+        {/* <Image
           src={defaultImage}
           alt="Default Profile"
           width={256} // Adjust width/height as per your needs
           height={256}
           className="object-cover"
-        />
+        /> */}
+        <DP />
       </div>
 
       <h2 className="mt-8 text-2xl/7 font-bold text-gray-900 ">{user.name}</h2>
       <Link
-        className="rounded-sm bg-ourGold px-3 py-2 my-2 text-sm font-semibold shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        className="rounded-sm bg-ourGold px-3 py-2 my-2 text-sm font-semibold shadow-xs  
+        hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         href={`/users/${user.id}/createTestimonial`}
       >
         Create Testimonial

@@ -22,11 +22,10 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <>
-      <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        Testimonials Form
-      </h2>
-      <TestimonialForm subjectUserId={userId} subjectUserEmail={user.email} />
-    </>
+    <div className="flex justify-end">
+      <div className="flex[1]">
+        <TestimonialForm subjectUserId={userId} subjectUserEmail={user.email} />
+      </div>
+    </div>
   );
 }
