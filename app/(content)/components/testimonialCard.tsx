@@ -3,6 +3,8 @@ import { useState } from "react";
 import { DP } from "./dp";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { deleteTestimonial } from "app/api/testimonials";
+import Image from "next/image";
+import InBug from "assets/in-logo/LI-In-Bug.png";
 
 export default function TestimonialCard({
   testimonial,
@@ -33,6 +35,22 @@ export default function TestimonialCard({
           <p className="text-xs font-medium text-gray-700 w-full text-center">
             {testimonial.authorPostion} at {testimonial.authorWorkplace}
           </p>
+          <a
+            href="https://www.linkedin.com/in/mitchel-clark-b26a02229/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start pl-2"
+          >
+            <Image
+              src={InBug}
+              alt="Background Image"
+              priority
+              style={{
+                width: 32,
+                height: "auto", // Auto for maintaining aspect ratio
+              }}
+            />
+          </a>
         </div>
 
         {/* Text Container - 2/3 width */}

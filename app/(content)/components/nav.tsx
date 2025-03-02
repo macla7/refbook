@@ -9,6 +9,9 @@ const navItems = {
   "/": {
     name: "Home",
   },
+  "/users": {
+    name: "People",
+  },
   "/auth": {
     name: "Auth",
   },
@@ -36,7 +39,7 @@ export function Navbar() {
               <input
                 type="search"
                 className="p-4 w-full border-none z-20 text-sm text-gray-900 bg-gray-50 rounded-md focus:outline-none focus:ring-2 focus:border-white"
-                placeholder="Search Users Baby..."
+                placeholder="Not working yet baby..."
                 required
               />
               <button
