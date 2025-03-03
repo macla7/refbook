@@ -49,7 +49,7 @@ export function Navbar() {
 
   return (
     <nav
-      className="flex h-full flex-row justify-between items-center mx-3 "
+      className="flex h-full flex-row justify-between items-center mx-3 z-10"
       id="nav"
     >
       <div className="flex items-center h-full">
