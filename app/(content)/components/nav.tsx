@@ -5,23 +5,19 @@ import { AuthUser, getCurrentUser, signOut } from "aws-amplify/auth";
 import { useRouter } from "next/navigation";
 import { DP } from "./dp";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react"; // Import icons for hamburger menu
 
 const navItems = {
-  "/": {
-    name: "Home",
-  },
-  "/users": {
-    name: "People",
-  },
-  "/auth": {
-    name: "Auth",
-  },
+  "/": { name: "Home" },
+  "/users": { name: "People" },
+  "/auth": { name: "Auth" },
 };
 
 export function Navbar() {
   const [user, setUser] = useState<AuthUser>();
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
 
   useEffect(() => {
     async function checkUser() {
@@ -34,9 +30,8 @@ export function Navbar() {
         setIsActive(false);
       }
     }
-
     checkUser();
-  }, [router]); // Run once on mount
+  }, [router]);
 
   function handleClick() {
     if (!isActive) {
@@ -48,76 +43,106 @@ export function Navbar() {
   }
 
   return (
-    <nav
-      className="flex h-full flex-row justify-between items-center mx-3 z-10"
-      id="nav"
-    >
-      <div className="flex items-center h-full">
-        <h1 className="px-4 py-2 text-6xl font-bold rounded-full text-black">
+    <nav className="flex h-full justify-between items-center px-6 py-4 z-10 ">
+      {/* Left Logo Section */}
+      <div className="flex items-center">
+        <h1 className="px-4 py-2 text-6xl font-bold text-black whitespace-nowrap">
           (&nbsp;&nbsp;) (&nbsp;&nbsp;)
         </h1>
-        <h1 className="px-4 pb-2 py-4 text-6xl font-bold rounded-full text-black">
-          Rango
-        </h1>
+
+        <h1 className="pr-4 pb-2 py-4 text-6xl font-bold text-black">Rango</h1>
       </div>
-      <div className="flex flex-row items-center">
-        <form className="w-sm mr-8">
-          <div className="flex">
-            <div className="relative w-full">
-              <input
-                type="search"
-                className="p-4 w-full border-none z-20 text-sm text-gray-900 bg-gray-50 rounded-md focus:outline-none focus:ring-2 focus:border-white"
-                placeholder="Not working yet baby..."
-                required
-              />
-              <button
-                type="submit"
-                className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-black rounded-e-md"
+
+      {/* Desktop Navigation */}
+      <div className="hidden xl:flex flex-row items-center space-x-4">
+        <form className="">
+          <div className="relative w-xs">
+            <input
+              type="search"
+              className="p-4 w-full border-none text-sm text-gray-900 bg-gray-50 rounded-md focus:outline-none focus:ring-2 focus:border-white"
+              placeholder="Not working yet baby..."
+              required
+            />
+            <button
+              type="submit"
+              className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-black rounded-e-md"
+            >
+              <svg
+                className="w-8 h-4"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
               >
-                <svg
-                  className="w-8 h-4"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                  />
-                </svg>
-                <span className="sr-only">Search</span>
-              </button>
-            </div>
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+              <span className="sr-only">Search</span>
+            </button>
           </div>
         </form>
-        {Object.entries(navItems).map(([path, { name }]) => {
-          return (
-            <Link
-              className="mr-8 rounded-md bg-black text-white px-6 py-3 my-2 text-lg font-semibold  hover:bg-our-sec focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              key={path}
-              href={path}
-            >
-              {name}
-            </Link>
-          );
-        })}
-        <div className="w-20 h-20">
-          {" "}
-          <DP />
-        </div>
+
+        {Object.entries(navItems).map(([path, { name }]) => (
+          <Link
+            key={path}
+            href={path}
+            className="rounded-md bg-black text-white px-4 py-3 text-lg font-semibold hover:bg-gray-800 transition"
+          >
+            {name}
+          </Link>
+        ))}
 
         <button
-          type="button"
-          className="mx-1 rounded-sm bg-our-nav px-6 py-3 my-2 text-lg font-semibold  hover:bg-our-sec focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           onClick={handleClick}
+          className="rounded-md bg-black text-white px-4 py-3 text-lg font-semibold hover:bg-gray-800 transition whitespace-nowrap"
         >
           {isActive ? "Sign Out" : "Log In"}
         </button>
+
+        <div className="w-20 h-20">
+          <DP />
+        </div>
       </div>
+
+      {/* Mobile Hamburger Menu */}
+      <div className="xl:hidden flex items-center">
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-black"
+        >
+          {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+        </button>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-16 right-0 w-full bg-white shadow-md xl:hidden">
+          <div className="flex flex-col items-center py-4 space-y-4">
+            {Object.entries(navItems).map(([path, { name }]) => (
+              <Link
+                key={path}
+                href={path}
+                className="text-lg font-semibold text-black hover:text-gray-600"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {name}
+              </Link>
+            ))}
+
+            <button
+              onClick={handleClick}
+              className="w-full py-2 px-4 text-center text-lg font-semibold bg-gray-900 text-white rounded-md hover:bg-gray-700 transition"
+            >
+              {isActive ? "Sign Out" : "Log In"}
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

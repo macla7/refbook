@@ -22,8 +22,8 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="flex justify-end">
-      <div className="flex[1]">
+    <div className="w-full p-8 bg-white">
+      <div className="">
         <TestimonialForm subjectUserId={userId} subjectUserEmail={user.email} />
       </div>
     </div>

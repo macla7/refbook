@@ -38,6 +38,7 @@ export default function rootPage() {
           <p className="text-6xl font-light mb-6">Wrangling with references?</p>
           <p className="text-6xl font-bold">Let Rango handle it</p>
         </div>
+        <div className="size-24 rounded-full bg-[conic-gradient(from_180deg,_#4f46e5,_#e0e7ff,_#4f46e5)]"></div>
         <div className="relative grid grid-cols-3 gap-8 p-12">
           <TestimonialCard testimonial={fakeTestimony} />
           <TestimonialCard testimonial={fakeTestimony} />
