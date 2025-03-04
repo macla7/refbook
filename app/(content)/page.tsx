@@ -28,7 +28,7 @@ export default function rootPage() {
       " Mitch Clark has got the sauce, day in day out producing bangers and procuring swag. Straight steeze.",
     authorPostion: "CEO and Founder",
     authorConnection: "Colleague",
-    authorWorkplace: "Champ Stamp",
+    authorWorkplace: "Champ Stamps R Us",
   };
 
   return (
@@ -38,7 +38,7 @@ export default function rootPage() {
           <p className="text-6xl font-light mb-6">Wrangling with references?</p>
           <p className="text-6xl font-bold">Let Rango handle it</p>
         </div>
-        <div className="relative grid grid-cols-3 gap-8 p-12">  
+        <div className="relative grid grid-cols-3 gap-8 p-12">
           <TestimonialCard testimonial={fakeTestimony} />
           <TestimonialCard testimonial={fakeTestimony} />
           <TestimonialCard testimonial={fakeTestimony} />
