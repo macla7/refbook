@@ -168,3 +168,12 @@ table {
 .title {
   text-wrap: balance;
 }
+
+.background-div {
+  width: 100%;
+  height: screen; /* Adjust as needed */
+  background-image: url('/images/heropage.jpg');
+  background-size: cover; /* Ensures the image covers the div */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+}

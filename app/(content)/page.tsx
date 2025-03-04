@@ -12,7 +12,6 @@ import TestimonialCard from "./components/testimonialCard";
 import { Testimonial } from "app/types/testimonial";
 import heroImage from "assets/heropage.jpg";
 
-
 // *** This is the root / landing page ! ***
 export default function rootPage() {
   const [user, setUser] = useState<AuthUser>();
@@ -32,24 +31,17 @@ export default function rootPage() {
     authorWorkplace: "Champ Stamp",
   };
 
-
   return (
     <>
-      <div className="relative w-full h-screen">
-        <Image
-          src={heroImage}
-          alt="Hero page"
-          className="absolute inset-0 z-0 h-screen"
-        />
-
-        <div className="relative z-10 flex flex-col p-12">
-          <div className="h-1/2">
-            <p className="text-6xl font-light">Wrangling with references?</p>
-            <p className="text-6xl font-bold">Let Rango handle it</p>
-          </div>
-          <div className="mt-20">
-            <TestimonialCard testimonial={fakeTestimony} />
-          </div>
+      <div className="background-div flex flex-col justify-top p-2 bg-white">
+        <div className="relative inset-y-0 right-0 z-10 flex flex-col p-12 text-right">
+          <p className="text-6xl font-light mb-6">Wrangling with references?</p>
+          <p className="text-6xl font-bold">Let Rango handle it</p>
+        </div>
+        <div className="relative grid grid-cols-3 gap-8 p-12">  
+          <TestimonialCard testimonial={fakeTestimony} />
+          <TestimonialCard testimonial={fakeTestimony} />
+          <TestimonialCard testimonial={fakeTestimony} />
         </div>
       </div>
     </>
