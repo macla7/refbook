@@ -1,4 +1,4 @@
-export async function putTestimonial(session, message, formParams) {
+export async function putTestimonial(session, formParams) {
   try {
     // 🔥 Fetch the authentication session
 
@@ -24,11 +24,14 @@ export async function putTestimonial(session, message, formParams) {
           Authorization: `Bearer ${jwtToken}`,
         },
         body: JSON.stringify({
-          message: message,
+          message: formParams.message,
           subjectUserId: formParams.subjectUserId, // Example: ID of the person the testimonial is about
           authorId: userId, // ✅ Automatically assign the user's Cognito ID
           authorName: authorName,
           subjectUserEmail: formParams.subjectUserEmail,
+          jobTitle: formParams.jobTitle,
+          connection: formParams.connection,
+          workplace: formParams.workplace,
         }),
       }
     );
@@ -79,7 +82,8 @@ export async function deleteTestimonial(session, id) {
     const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
 
     const response = await fetch(
-      String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + `/testimonials/${id}`,
+      String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) +
+        `/testimonials/${id}`,
       {
         method: "DELETE",
         headers: {

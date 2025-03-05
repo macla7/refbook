@@ -6,10 +6,11 @@
   --color-our-cyan: #dffcff;
   --color-ourBone: #e8eef1;
   --color-our-silver: #b0bbbf;
+  --color-ourCream: #fffaf0;
   --color-egBlue: #592ada;
   --color-ourGold: #f8d210;
-  --color-ourGold2: #DCA50E;
-  --color-red: #DD2525;
+  --color-ourGold2: #dca50e;
+  --color-red: #dd2525;
   --color-tennis-green: #ebff59;
   --color-peach: #ffcc99;
   --color-our-nav: var(--color-ourGold);
@@ -172,7 +173,7 @@ table {
 .background-div {
   width: 100%;
   height: screen; /* Adjust as needed */
-  background-image: url('/images/heropage.jpg');
+  background-image: url("/images/heropage.jpg");
   background-size: cover; /* Ensures the image covers the div */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents tiling */

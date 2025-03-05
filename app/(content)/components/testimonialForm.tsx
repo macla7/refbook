@@ -13,14 +13,24 @@ export function TestimonialForm(params: {
 
   async function formAction() {
     const session = await fetchAuthSession();
-    putTestimonial(session, message, params);
+
+    let testimonialParams = {
+      ...params,
+      jobTitle: jobTitle,
+      connection: connection,
+      workplace: workplace,
+      message: message,
+    };
+    console.log("bingo");
+    console.log(testimonialParams);
+    putTestimonial(session, params);
     setMessage("");
   }
 
   return (
-    <form>
-      <div className="space-y-12 bg-white m-4 p-8 ">
-        <div className="border-b border-gray-900/10 pb-12">
+    <form className="space-y-12 bg-white p-12 w-3xl rounded-sm">
+      <div className="">
+        <div className="border-b border-gray-900/10 p-12">
           <h2 className="text-base/7 font-semibold text-gray-900">
             Testimonial
           </h2>
@@ -41,8 +51,8 @@ export function TestimonialForm(params: {
                 <textarea
                   name="about"
                   id="about"
-                  rows={3}
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  rows={4}
+                  className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   onChange={(e) => setMessage(e.target.value)}
                   value={message}
                 ></textarea>
@@ -66,7 +76,7 @@ export function TestimonialForm(params: {
                   name="jobTitle"
                   id="jobTitle"
                   rows={1}
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   onChange={(e) => setJobTitle(e.target.value)}
                   value={jobTitle}
                 ></textarea>
@@ -90,7 +100,7 @@ export function TestimonialForm(params: {
                   name="connection"
                   id="connection"
                   rows={1}
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   onChange={(e) => setConnection(e.target.value)}
                   value={connection}
                 ></textarea>
@@ -114,7 +124,7 @@ export function TestimonialForm(params: {
                   name="workplace"
                   id="workplace"
                   rows={1}
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   onChange={(e) => setWorkplace(e.target.value)}
                   value={workplace}
                 ></textarea>
