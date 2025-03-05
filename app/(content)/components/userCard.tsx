@@ -11,22 +11,24 @@ import InBug from "assets/in-logo/LI-In-Bug.png";
 export default function UserCard({ user }: { user: User }) {
   return (
     <>
-      <div className="flex flex-col-2 items-center justify-center p-2 w-1/2">
-        <div className="w-20 h-20">
+      <div className="flex flex-row items-center">
+        <div className="w-20 h-20 m-10">
           <DP />
         </div>
-      </div>
 
-      <div className="p-2 leading-normal w-full">
-      <p className="text-xs font-medium text-gray-700 w-full text-center">
-          {user.name}
-        </p>
-        <p className="text-xs font-medium text-gray-700 w-full text-center">
-          {user.postion} at workplace
-        </p>
-        <p className="text-xs text-gray-700 dark:text-gray-400 line-clamp-10">
-          bio goes here blah blah blah
-        </p>
+        <div className="flex flex-row p-2 leading-normal h-full gap-10 items-center">
+          <div>
+          <p className="text-xs font-medium text-gray-700 w-full text-center">
+            {user.name}
+          </p>
+          <p className="text-xs font-medium text-gray-700 w-full text-center">
+            {user.postion} at workplace
+          </p>
+          </div>
+          <p className="text-xs text-gray-700 dark:text-gray-400 line-clamp-10">
+            bio goes here blah blah blah 
+          </p>
+        </div>
       </div>
     </>
   );

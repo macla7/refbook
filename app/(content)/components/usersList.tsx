@@ -25,9 +25,9 @@ export function UsersList() {
   }
 
   return (
-    <ul className="flex flex-col items-center justify-center w-full">
+    <ul className="flex flex-col items-center justify-center w-full divide-y-1 divide-solid divide-ourGold">
       {users.map((user) => (
-        <li key={user.id} className="p-2 bg-white rounded-md w-1/2 md:flex-row space-x-0 md:space-x-2 hover:bg-ourGold divide-x-3 divide-solid divide-indigo-500 -sm">
+        <li key={user.id} className="w-1/2 flex flex-col-3 p-2 bg-white md:flex-row hover:bg-ourGold">
           <div className="">
             <Link href={`/users/${user.id}/profile`}>
               <UserCard user={user} />
