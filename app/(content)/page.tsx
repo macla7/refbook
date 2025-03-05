@@ -33,7 +33,7 @@ export default function rootPage() {
 
   return (
     <>
-      <div className="flex flex-col w-screen h-screen justify-top p-24 bg-[conic-gradient(from_90deg,_#DCA50E,_#f8d210)]">
+      <div className="flex flex-col w-screen h-screen justify-top p-24 bg-[conic-gradient(from_90deg,_var(--color-ourGold2),_var(--color-ourGold))]">
         <div className="relative inset-y-0 right-0 z-10 flex flex-col p-12 text-right">
           <p className="text-6xl font-light mb-6">Wrangling with references?</p>
           <p className="text-6xl font-bold">Let Rango handle it</p>
