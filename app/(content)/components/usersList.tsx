@@ -4,6 +4,7 @@ import { fetchAuthSession } from "aws-amplify/auth";
 import { useState, useEffect } from "react";
 import { User } from "app/types";
 import { deleteUser, getUsers } from "app/api/users";
+import UserCard from "./userCard";
 
 export function UsersList() {
   const [users, setUsers] = useState<User[]>([]);
@@ -24,21 +25,20 @@ export function UsersList() {
   }
 
   return (
-    <ul>
+    <ul className="flex flex-col items-center justify-center w-full divide-y-1 divide-solid divide-ourGold">
       {users.map((user) => (
-        <li key={user.id} className="p-2 mb-4 bg-white rounded-sm">
-          <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 justify-between ">
+        <li key={user.id} className="w-1/2 flex flex-col-3 p-2 bg-white md:flex-row hover:bg-ourGold">
+          <div className="">
             <Link href={`/users/${user.id}/profile`}>
-              <p className="w-[50] tabular-nums">{user.name}</p>
-              <p className="w-[50] tabular-nums">{user.email}</p>
+              <UserCard user={user} />
             </Link>
-            <button
+            {/* <button
               type="submit"
               className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               onClick={() => deleteAction(user.id)}
             >
               delete
-            </button>
+            </button> */}
           </div>
         </li>
       ))}
