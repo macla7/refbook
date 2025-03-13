@@ -4,4 +4,6 @@ export interface User {
   createdAt: Date;
   name: string;
   postion: string;
+  workplace: string;
+  bio: string;
 }

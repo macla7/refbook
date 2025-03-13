@@ -25,6 +25,7 @@ export function Navbar() {
         const currentUser = await getCurrentUser();
         if (currentUser) {
           setIsActive(true);
+          setUser(currentUser);
         }
       } catch (error) {
         setIsActive(false);
@@ -103,6 +104,8 @@ export function Navbar() {
         >
           {isActive ? "Sign Out" : "Log In"}
         </button>
+
+        
 
         <div className="w-20 h-20">
           <DP />

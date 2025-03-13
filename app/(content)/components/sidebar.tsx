@@ -34,6 +34,12 @@ export function Sidebar({ user }: { user: User }) {
       >
         Create Testimonial
       </Link>
+
+      <Link href={`/users/${user.id}/account`}>
+        <p className="rounded-sm bg-ourGold px-3 py-2 my-2 text-sm font-semibold shadow-xs hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          Account
+        </p>
+      </Link>
       <div>
         <p className="p-14">
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -54,6 +60,7 @@ export function Sidebar({ user }: { user: User }) {
           voluptas nulla pariatur?"
         </p>
       </div>
+      
     </aside>
   );
 }

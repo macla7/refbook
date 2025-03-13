@@ -79,3 +79,31 @@ export async function getUser(session, userId) {
     return {};
   }
 }
+
+export async function patchUser(session, userId, patch) {
+  try {
+    const jwtToken = session.tokens?.idToken?.toString();
+
+    if (!jwtToken) {
+      console.error("No authentication token found.");
+      return;
+    }
+
+    const response = await fetch(
+      String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + `/users/${userId}/account`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(patch),
+      }
+    );
+
+    const data = await response.json();
+    console.log("response from server:", data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
