@@ -89,13 +89,21 @@ export async function patchUser(session, userId, patch) {
       return;
     }
 
+    console.log("PATCH request payload:", JSON.stringify(patch));
+    console.log(
+      "PATCH URL:",
+      `${process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE}/users/${userId}/account`
+    );
+
+    
     const response = await fetch(
-      String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + `/users/${userId}/account`,
+      String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) +
+        `/users/${userId}/account`,
       {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${jwtToken}`,
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
         },
         body: JSON.stringify(patch),
       }

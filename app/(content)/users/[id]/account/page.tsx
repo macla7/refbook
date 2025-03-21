@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchAuthSession } from "aws-amplify/auth";
+import { fetchAuthSession, fetchUserAttributes } from "aws-amplify/auth";
 import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
 import { deleteUser, getUser, patchUser } from "app/api/users";
@@ -32,12 +32,13 @@ export default function Page({ params }: { params: { id: string } }) {
     
         let userParams = {
           ...params,
+          id: userId,
           name: name,
         };
         console.log("bingo");
         console.log(userParams);
-        patchUser(session,userId, params);
-
+       await patchUser(session,userId, userParams);
+        fetchData();
   }
 
   return (
@@ -51,8 +52,8 @@ export default function Page({ params }: { params: { id: string } }) {
       </h2>
       <form className="flex flex-col m-10">
         <label>Enter new name:</label>
-        <input type="text" id="inputBox" name="inputBox" required  className="w-fit"/>
-        <button type="submit" onClick={handleClick} className=" w-1/10 rounded-sm bg-ourGold px-3 py-2 my-2 text-sm font-semibold shadow-xs  
+        <input type="text" id="inputBox" name="inputBox" required  className="w-fit" onChange={(e) => setName(e.target.value)}/>
+        <button type="button" onClick={handleClick} className=" w-1/10 rounded-sm bg-ourGold px-3 py-2 my-2 text-sm font-semibold shadow-xs  
         hover:bg-egBlue hover:text-white">Submit</button>
     </form>
     </div>
