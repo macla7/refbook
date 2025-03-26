@@ -13,7 +13,6 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const userId: string = params.id;
 
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -29,16 +28,17 @@ export default function Page({ params }: { params: { id: string } }) {
 
   async function handleClick() {
     const session = await fetchAuthSession();
-    
-        let userParams = {
-          ...params,
-          id: userId,
-          name: name,
-        };
-        console.log("bingo");
-        console.log(userParams);
-       await patchUser(session,userId, userParams);
-        fetchData();
+
+    let userParams = {
+      ...params,
+      name: name,
+      workplace: user.workplace,
+      position: user.position,
+    };
+    console.log("bingo");
+    console.log(userParams);
+    await patchUser(session, userId, userParams);
+    fetchData();
   }
 
   return (
@@ -46,16 +46,29 @@ export default function Page({ params }: { params: { id: string } }) {
       <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight m-10">
         <p>Name: {user.name}</p>
         <p>Email: {user.email}</p>
-        <p>Position: {user.postion}</p>
+        <p>Position: {user.position}</p>
         <p>Workplace: {user.workplace}</p>
         <p>Bio: {user.bio}</p>
       </h2>
       <form className="flex flex-col m-10">
         <label>Enter new name:</label>
-        <input type="text" id="inputBox" name="inputBox" required  className="w-fit" onChange={(e) => setName(e.target.value)}/>
-        <button type="button" onClick={handleClick} className=" w-1/10 rounded-sm bg-ourGold px-3 py-2 my-2 text-sm font-semibold shadow-xs  
-        hover:bg-egBlue hover:text-white">Submit</button>
-    </form>
+        <input
+          type="text"
+          id="inputBox"
+          name="inputBox"
+          required
+          className="w-fit"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button
+          type="button"
+          onClick={handleClick}
+          className=" w-1/10 rounded-sm bg-ourGold px-3 py-2 my-2 text-sm font-semibold shadow-xs  
+        hover:bg-egBlue hover:text-white"
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 }

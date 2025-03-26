@@ -18,15 +18,15 @@ export default function UserCard({ user }: { user: User }) {
 
         <div className="flex flex-row p-2 leading-normal h-full gap-10 items-center">
           <div>
-          <p className="text-xs font-medium text-gray-700 w-full text-center">
-            {user.name}
-          </p>
-          <p className="text-xs font-medium text-gray-700 w-full text-center">
-            {user.postion} at workplace
-          </p>
+            <p className="text-xs font-medium text-gray-700 w-full text-center">
+              {user.name}
+            </p>
+            <p className="text-xs font-medium text-gray-700 w-full text-center">
+              {user.position} at {user.workplace}
+            </p>
           </div>
           <p className="text-xs text-gray-700 dark:text-gray-400 line-clamp-10">
-            bio goes here blah blah blah 
+            bio goes here blah blah blah
           </p>
         </div>
       </div>

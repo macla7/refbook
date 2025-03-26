@@ -29,7 +29,7 @@ export async function putTestimonial(session, formParams) {
           authorId: userId, // ✅ Automatically assign the user's Cognito ID
           authorName: authorName,
           subjectUserEmail: formParams.subjectUserEmail,
-          jobTitle: formParams.jobTitle,
+          position: formParams.position,
           connection: formParams.connection,
           workplace: formParams.workplace,
         }),

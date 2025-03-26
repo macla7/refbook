@@ -13,7 +13,7 @@ export default function AuthPage() {
   // If a login occurs, redirect to "/"
   Hub.listen("auth", (data) => {
     console.log("Auth event has occured, so redirecting to root.");
-    router.push("/");
+    router.push("/auth/createUser");
   });
 
   // Check if a user is already logged in (before the login UI shows)...
@@ -22,8 +22,10 @@ export default function AuthPage() {
     const checkUser = async () => {
       try {
         const currentUser = await getCurrentUser();
+
         if (currentUser) {
-          router.push("/"); // Redirect if already logged in
+          console.log(currentUser);
+          // router.push("/"); // Redirect if already logged in
         }
       } catch (error) {
         console.log("No user logged in:");
