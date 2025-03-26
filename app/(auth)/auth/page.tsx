@@ -50,7 +50,6 @@ export default function AuthPage() {
           },
         },
       }}
-      signUpAttributes={["name"]}
     >
       {({ signOut, user }) => {
         return <div>Loading...</div>;
