@@ -1,29 +1,41 @@
-import { fetchAuthSession } from "aws-amplify/auth";
-import { useState } from "react";
+import { AuthUser, fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
+import { useEffect, useState } from "react";
 import { putTestimonial } from "app/api/testimonials";
+import { getUser } from "app/api/users";
+import { User } from "app/types";
 
-export function TestimonialForm(params: {
-  subjectUserId: string;
-  subjectUserEmail: string;
-}) {
+export function TestimonialForm(params: { subjectUserId: string }) {
   const [message, setMessage] = useState("");
   const [position, setPosition] = useState("");
   const [connection, setConnection] = useState("");
   const [workplace, setWorkplace] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState<User | any>();
+
+  useEffect(() => {
+    getLoggedInUser();
+  }, []);
+
+  async function getLoggedInUser() {
+    const cognitoUser = await getCurrentUser();
+    console.log(cognitoUser);
+    const session = await fetchAuthSession();
+    setLoggedInUser(await getUser(session, cognitoUser.userId));
+  }
 
   async function formAction() {
     const session = await fetchAuthSession();
 
     let testimonialParams = {
       ...params,
-      position: position,
-      connection: connection,
-      workplace: workplace,
+      authorName: loggedInUser.name,
+      authorPostion: position,
+      authorConnection: connection,
+      authorWorkplace: workplace,
       message: message,
     };
     console.log("bingo");
     console.log(testimonialParams);
-    putTestimonial(session, params);
+    putTestimonial(session, testimonialParams);
     setMessage("");
   }
 

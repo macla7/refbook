@@ -12,7 +12,6 @@ export async function putTestimonial(session, formParams) {
     // 🔥 Decode the JWT Token to extract the Cognito User ID (sub)
     const tokenPayload = JSON.parse(atob(jwtToken.split(".")[1])); // Decode JWT payload
     const userId = tokenPayload.sub; // Cognito User ID (Unique ID for the user)
-    const authorName = tokenPayload.name;
 
     // 🔥 Send PUT request with AuthorId set to the user's Cognito ID
     const response = await fetch(
@@ -27,11 +26,11 @@ export async function putTestimonial(session, formParams) {
           message: formParams.message,
           subjectUserId: formParams.subjectUserId, // Example: ID of the person the testimonial is about
           authorId: userId, // ✅ Automatically assign the user's Cognito ID
-          authorName: authorName,
+          authorName: formParams.authorName,
           subjectUserEmail: formParams.subjectUserEmail,
-          position: formParams.position,
-          connection: formParams.connection,
-          workplace: formParams.workplace,
+          authorPostion: formParams.authorPostion,
+          authorConnection: formParams.authorConnection,
+          authorWorkplace: formParams.authorWorkplace,
         }),
       }
     );

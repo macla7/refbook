@@ -1,11 +1,13 @@
 import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
 import { useState, useEffect } from "react";
 import { patchUser } from "app/api/users";
+import { useRouter } from "next/navigation";
 
 export function UserForm(params: { id: string }) {
   const [userName, setUserName] = useState("");
   const [position, setPosition] = useState("");
   const [workplace, setWorkplace] = useState("");
+  const router = useRouter();
 
   async function formAction() {
     const session = await fetchAuthSession();
@@ -21,6 +23,7 @@ export function UserForm(params: { id: string }) {
     console.log(userParams);
 
     patchUser(session, params.id, userParams);
+    router.push(`/users/${params.id}/profile`);
   }
 
   return (
@@ -110,7 +113,7 @@ export function UserForm(params: { id: string }) {
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <button
           type="button"
-          className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-sm bg-ourGold px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           onClick={(e) => formAction()}
         >
           Finish
