@@ -5,5 +5,7 @@ export const userDefault: User = {
   email: "guest@example.com",
   createdAt: new Date(),
   name: "default user name",
-  postion: "",
+  position: "default position",
+  workplace: "default workplace",
+  bio: "default bio",
 };
