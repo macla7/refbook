@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { DP } from "./dp";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react"; // Import icons for hamburger menu
+import Image from "next/image";
+import logo from "assets/rango2.svg";
 
 const navItems = {
   "/": { name: "Home" },
@@ -47,11 +49,12 @@ export function Navbar() {
     <nav className="flex h-full justify-between items-center px-6 py-4 z-10 ">
       {/* Left Logo Section */}
       <div className="flex items-center">
-        <h1 className="px-4 py-2 text-6xl font-bold text-black whitespace-nowrap">
+        {/* <h1 className="px-4 py-2 text-6xl font-bold text-black whitespace-nowrap">
           (&nbsp;&nbsp;) (&nbsp;&nbsp;)
         </h1>
 
-        <h1 className="pr-4 pb-2 py-4 text-6xl font-bold text-black">Rango</h1>
+        <h1 className="pr-4 pb-2 py-4 text-6xl font-bold text-black">Rango</h1> */}
+        <Image src={logo} alt="Default Profile" width={250} />
       </div>
 
       {/* Desktop Navigation */}
@@ -104,8 +107,6 @@ export function Navbar() {
         >
           {isActive ? "Sign Out" : "Log In"}
         </button>
-
-        
 
         <div className="w-20 h-20">
           <DP />
