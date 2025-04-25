@@ -48,12 +48,12 @@ export default function rootPage() {
           }}
         />
         {/* <div className="flex flex-col w-screen h-screen justify-top p-24 bg-[conic-gradient(from_90deg,_var(--color-ourGold2),_var(--color-ourGold))]"> */}
-        <div className="relative flex justify-end p-12 text-right">
+        <div className="relative flex justify-center p-12 text-center">
           <div className="bg-ourCream p-6 rounded-sm shadow-lg border-1 border-solid border-gray-300">
             <p className="text-6xl text-ourBrown font-semibold mb-6">
               Wrangling with references?
             </p>
-            <div className="relative flex justify-end text-right">
+            <div className="relative flex justify-center text-center">
               <span className="text-7xl text-ourBrown font-extrabold">Let</span>
               <div className="px-6 mt-3">
                 <Image src={logo} alt="Default Profile" width={200} />
