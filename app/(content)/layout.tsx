@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `https://www.rango.com.au/open-graph-rango.png`,
+        url: `https://www.rango.com.au/images/open-graph-rango.png`,
         width: 1200,
         height: 630,
         alt: "Rango – Wrangle your references",
