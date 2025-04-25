@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   description: "Wrangle your references",
   openGraph: {
-    title: "Rango",
-    description: "Wrangle your references",
+    title: "Rango | Wrangle your references",
+    description: "Say something nice",
     url: baseUrl,
     siteName: "My Portfolio",
     locale: "en_US",
