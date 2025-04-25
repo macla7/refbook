@@ -9,6 +9,7 @@ import Footer from "./components/footer";
 import { baseUrl } from "../sitemap";
 import logo from "assets/rango3.svg";
 import background from "assets/iStock-2163734002-2.svg";
+import openGraphRango from "assets/open-graph-rango.png";
 
 import "app/config";
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${logo}`,
+        url: `${openGraphRango}`,
         width: 1200,
         height: 630,
         alt: "Rango – Wrangle your references",
