@@ -16,7 +16,6 @@ export function Navbar() {
   const [isActive, setIsActive] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
   const [navItems, setNavItems] = useState({
-    "/users": { name: "People" },
     "/about_us": { name: "About Us" },
   });
   const { search, setSearch } = useSearch();
@@ -28,10 +27,10 @@ export function Navbar() {
         if (currentUser) {
           setIsActive(true);
           setUser(currentUser);
-          console.log("current userrrrrrrrr is", currentUser);
           setNavItems((prev) => ({
             ...prev,
             [`/users/${currentUser.userId}/profile`]: { name: "My Profile" },
+            ["/users"]: { name: "People" },
           }));
         }
       } catch (error) {

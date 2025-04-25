@@ -48,7 +48,7 @@ export default function rootPage() {
           }}
         />
         {/* <div className="flex flex-col w-screen h-screen justify-top p-24 bg-[conic-gradient(from_90deg,_var(--color-ourGold2),_var(--color-ourGold))]"> */}
-        <div className="relative flex justify-center p-12 text-center">
+        <div className="relative flex justify-center pt-12 pb-6 text-center">
           <div className="bg-ourCream p-6 rounded-sm shadow-lg border-1 border-solid border-gray-300">
             <p className="text-6xl text-ourBrown font-semibold mb-6">
               Wrangling with references?
@@ -64,6 +64,7 @@ export default function rootPage() {
             </div>
           </div>
         </div>
+
         <div className="relative grid grid-cols-3 justify-items-center gap-24 px-24 py-6">
           <TestimonialCard testimonial={fakeTestimony} />
           <TestimonialCard testimonial={fakeTestimony} />
@@ -71,7 +72,7 @@ export default function rootPage() {
         </div>
       </div>
 
-      <div className="relative flex justify-center pt-12 text-center">
+      <div className="relative flex justify-center pt-12 text-center items-center">
         <div className="p-6">
           <p className="text-5xl text-ourBrown font-bold mb-6">
             Say nice things...
@@ -80,6 +81,14 @@ export default function rootPage() {
             about colleagues, teammates and friends
           </p>
         </div>
+
+        {isActive ? null : (
+          <button className="cursor-pointer rounded-full bg-purple-500 mx-24 px-12 text-lg font-semibold transition h-16">
+            <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
+              Get started
+            </span>
+          </button>
+        )}
       </div>
 
       <div className="relative grid grid-cols-3 gap-24 px-24 py-6">

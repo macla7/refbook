@@ -17,7 +17,7 @@ export function UsersList() {
 
   async function fetchData() {
     const session = await fetchAuthSession();
-    setUsers(filterUsers(await getUsers(session), "mitch"));
+    setUsers(filterUsers(await getUsers(session), ""));
   }
 
   async function deleteAction(id) {
@@ -27,7 +27,7 @@ export function UsersList() {
   }
 
   function filterUsers(users, searchInput) {
-    if (searchInput == "") return users;
+    if (searchInput == "" || searchInput == null) return users;
 
     const lowerSearch = searchInput.toLowerCase();
 
