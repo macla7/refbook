@@ -24,13 +24,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.10462192"
-     inkscape:cx="2714.5363"
-     inkscape:cy="3092.0862"
+     inkscape:zoom="0.055791477"
+     inkscape:cx="3441.3859"
+     inkscape:cy="4274.8465"
      inkscape:window-width="1280"
      inkscape:window-height="950"
-     inkscape:window-x="53"
-     inkscape:window-y="25"
+     inkscape:window-x="464"
+     inkscape:window-y="1465"
      inkscape:window-maximized="0"
      inkscape:current-layer="g1">
     <inkscape:page
@@ -46,9 +46,12 @@
   <g
      id="g1"
      inkscape:groupmode="layer"
-     inkscape:label="1">
+     inkscape:label="1"
+     style="display:inline"
+     transform="translate(0,-4.112e-5)">
     <g
-       id="group-R5">
+       id="group-R5"
+       transform="matrix(1.0021686,0,0,1,-8.6740721,0)">
       <path
          id="path2"
          d="M 30000,42336 V 0 H 65.4102 V 42336 H 30000"

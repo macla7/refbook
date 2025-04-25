@@ -48,14 +48,14 @@ export default async function RootLayout({
     <html
       lang="en"
       className={cx(
-        "text-black bg-gaps text-black ",
+        "text-black bg-ourCream text-black ",
         GeistSans.variable,
         GeistMono.variable
       )}
     >
       <body className="antialiased  flex h-dvh ">
-        <div className="grid grid-cols-4 grid-rows-[125px_1fr] gap-1 grow">
-          <nav className="col-span-4 h-24 h-full">
+        <div className="grid grid-cols-4 grid-rows-[70px_1fr] grow">
+          <nav className="col-span-4 h-24 h-full bg-ourCream border-1 border-solid border-gray-200">
             <Navbar />
           </nav>
 

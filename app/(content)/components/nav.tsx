@@ -7,12 +7,12 @@ import { DP } from "./dp";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react"; // Import icons for hamburger menu
 import Image from "next/image";
-import logo from "assets/rango2.svg";
+import logo from "assets/rango3.svg";
 
 const navItems = {
-  "/": { name: "Home" },
   "/users": { name: "People" },
-  "/auth": { name: "Auth" },
+  "/about_us": { name: "About Us" },
+  "/": { name: "My Profile" },
 };
 
 export function Navbar() {
@@ -54,7 +54,9 @@ export function Navbar() {
         </h1>
 
         <h1 className="pr-4 pb-2 py-4 text-6xl font-bold text-black">Rango</h1> */}
-        <Image src={logo} alt="Default Profile" width={250} />
+        <Link key={"/"} href={"/"}>
+          <Image src={logo} alt="Default Profile" width={150} />
+        </Link>
       </div>
 
       {/* Desktop Navigation */}
@@ -63,13 +65,13 @@ export function Navbar() {
           <div className="relative w-xs">
             <input
               type="search"
-              className="p-4 w-full border-none text-sm text-gray-900 bg-gray-50 rounded-md focus:outline-none focus:ring-2 focus:border-white"
-              placeholder="Not working yet baby..."
+              className="p-2 w-full bg-ourCream border-1 border-solid border-gray-200 text-sm text-gray-900 bg-gray-50 rounded-sm focus:outline-none focus:ring-2 focus:ring-ourBrown"
+              placeholder="Search people"
               required
             />
             <button
               type="submit"
-              className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-black rounded-e-md"
+              className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-ourBrown bg-ourCream rounded-e-sm border-1 border-solid border-gray-200"
             >
               <svg
                 className="w-8 h-4"
@@ -95,20 +97,24 @@ export function Navbar() {
           <Link
             key={path}
             href={path}
-            className="rounded-md bg-black text-white px-4 py-3 text-lg font-semibold hover:bg-gray-800 transition"
+            className="rounded-md bg-transparent text-ourBrown px-4 py-3 text-lg font-semibold transition"
           >
-            {name}
+            <span className="relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
+              {name}
+            </span>
           </Link>
         ))}
 
         <button
           onClick={handleClick}
-          className="rounded-md bg-black text-white px-4 py-3 text-lg font-semibold hover:bg-gray-800 transition whitespace-nowrap"
+          className="cursor-pointer rounded-md bg-transparent text-ourBrown px-4 py-3 text-lg font-semibold transition"
         >
-          {isActive ? "Sign Out" : "Log In"}
+          <span className="relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
+            {isActive ? "Sign Out" : "Log In"}
+          </span>
         </button>
 
-        <div className="w-20 h-20">
+        <div className="w-12 h-12">
           <DP />
         </div>
       </div>
