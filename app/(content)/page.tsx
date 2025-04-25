@@ -79,7 +79,6 @@ export default function rootPage() {
           <p className="text-3xl text-ourBrown font-bold mb-6">
             about colleagues, teammates and friends
           </p>
-          <div className="relative flex justify-end text-right"></div>
         </div>
       </div>
 
