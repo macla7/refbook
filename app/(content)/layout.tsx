@@ -10,6 +10,7 @@ import { baseUrl } from "../sitemap";
 import logo from "assets/rango3.svg";
 import background from "assets/iStock-2163734002-2.svg";
 import openGraphRango from "assets/open-graph-rango.png";
+import { SearchProvider } from "app/context/SearchContext";
 
 import "app/config";
 
@@ -66,24 +67,26 @@ export default async function RootLayout({
       )}
     >
       <body className="antialiased  flex h-dvh ">
-        <div className="grid grid-cols-4 grid-rows-[70px_1fr] grow">
-          <nav className="col-span-4 h-24 h-full bg-ourCream border-1 border-solid border-gray-200">
-            <Navbar />
-          </nav>
+        <SearchProvider>
+          <div className="grid grid-cols-4 grid-rows-[70px_1fr] grow">
+            <nav className="col-span-4 h-24 h-full bg-ourCream border-1 border-solid border-gray-200">
+              <Navbar />
+            </nav>
 
-          <main className="col-span-4 flex">
-            {children}
+            <main className="col-span-4 flex">
+              {children}
 
-            {/* No idea what these two components show... so just gonna leave them there for a second */}
-            <Analytics />
-            <SpeedInsights />
-          </main>
+              {/* No idea what these two components show... so just gonna leave them there for a second */}
+              <Analytics />
+              <SpeedInsights />
+            </main>
 
-          {/* 
+            {/* 
           <footer className="col-span-4">
             <Footer />
           </footer> */}
-        </div>
+          </div>
+        </SearchProvider>
       </body>
     </html>
   );

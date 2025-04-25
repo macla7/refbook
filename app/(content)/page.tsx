@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "aws-amplify/auth";
-import Image from "next/image";
-import { UsersList } from "./components/usersList";
+
 import { AuthUser } from "aws-amplify/auth";
 import { TestimonialsList } from "./components/testimonialsList";
 import Link from "next/link";
 import TestimonialCard from "./components/testimonialCard";
 import { Testimonial } from "app/types/testimonial";
 import heroImage from "assets/heropage.jpg";
+import Image from "next/image";
 import background from "assets/iStock-2163734002-2.svg";
 import logo from "assets/rango3.svg";
 

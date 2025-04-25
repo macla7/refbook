@@ -8,18 +8,18 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react"; // Import icons for hamburger menu
 import Image from "next/image";
 import logo from "assets/rango3.svg";
-
-const navItems = {
-  "/users": { name: "People" },
-  "/about_us": { name: "About Us" },
-  "/": { name: "My Profile" },
-};
+import { useSearch } from "app/context/SearchContext";
 
 export function Navbar() {
   const [user, setUser] = useState<AuthUser>();
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
+  const [navItems, setNavItems] = useState({
+    "/users": { name: "People" },
+    "/about_us": { name: "About Us" },
+  });
+  const { search, setSearch } = useSearch();
 
   useEffect(() => {
     async function checkUser() {
@@ -28,6 +28,11 @@ export function Navbar() {
         if (currentUser) {
           setIsActive(true);
           setUser(currentUser);
+          console.log("current userrrrrrrrr is", currentUser);
+          setNavItems((prev) => ({
+            ...prev,
+            [`/users/${currentUser.userId}/profile`]: { name: "My Profile" },
+          }));
         }
       } catch (error) {
         setIsActive(false);
@@ -61,17 +66,25 @@ export function Navbar() {
 
       {/* Desktop Navigation */}
       <div className="hidden xl:flex flex-row items-center space-x-4">
-        <form className="">
+        <form
+          className=""
+          onSubmit={(e) => {
+            e.preventDefault(); // prevent full page reload
+            router.push("/users"); // navigate to users page
+          }}
+        >
           <div className="relative w-xs">
             <input
               type="search"
               className="p-2 w-full bg-ourCream border-1 border-solid border-gray-200 text-sm text-gray-900 bg-gray-50 rounded-sm focus:outline-none focus:ring-2 focus:ring-ourBrown"
               placeholder="Search people"
-              required
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
-            <button
-              type="submit"
+            <Link
               className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-ourBrown bg-ourCream rounded-e-sm border-1 border-solid border-gray-200"
+              key={"/users"}
+              href={"/users"}
             >
               <svg
                 className="w-8 h-4"
@@ -89,7 +102,7 @@ export function Navbar() {
                 />
               </svg>
               <span className="sr-only">Search</span>
-            </button>
+            </Link>
           </div>
         </form>
 

@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { getCurrentUser } from "aws-amplify/auth";
 import { UsersList } from "../components/usersList";
 import { AuthUser } from "aws-amplify/auth";
+import Image from "next/image";
+import background from "assets/iStock-2163734002-2.svg";
 
 export default function usersPage() {
   const [user, setUser] = useState<AuthUser>();
@@ -26,9 +28,20 @@ export default function usersPage() {
   }, [router]); // Run once on mount
 
   return (
-    <section className="p-8 grow bg-white ">
+    <section className="p-8 grow bg-white relative">
+      <Image
+        alt="Mountains"
+        src={background}
+        quality={100}
+        fill
+        style={{
+          margin: 0,
+          objectFit: "cover",
+          padding: "0",
+        }}
+      />
       {user ? (
-        <div>
+        <div className="relative">
           <UsersList />
         </div>
       ) : (
