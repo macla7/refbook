@@ -9,9 +9,10 @@ import { Menu, X } from "lucide-react"; // Import icons for hamburger menu
 import Image from "next/image";
 import logo from "assets/rango3.svg";
 import { useSearch } from "app/context/SearchContext";
+import { User } from "app/types";
 
 export function Navbar() {
-  const [user, setUser] = useState<AuthUser>();
+  const [user, setUser] = useState<AuthUser | User>();
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
@@ -21,30 +22,34 @@ export function Navbar() {
   const { search, setSearch } = useSearch();
 
   useEffect(() => {
-    async function checkUser() {
-      try {
-        const currentUser = await getCurrentUser();
-        if (currentUser) {
-          setIsActive(true);
-          setUser(currentUser);
-          setNavItems((prev) => ({
-            ...prev,
-            [`/users/${currentUser.userId}/profile`]: { name: "My Profile" },
-            ["/users"]: { name: "People" },
-          }));
-        }
-      } catch (error) {
-        setIsActive(false);
-      }
-    }
-    checkUser();
+    refreshUser();
   }, [router]);
 
-  function handleClick() {
+  async function refreshUser() {
+    try {
+      const currentUser = await getCurrentUser();
+      setIsActive(true);
+      setUser(currentUser);
+      setNavItems((prev) => ({
+        ...prev,
+        [`/users/${currentUser.userId}/profile`]: { name: "My Profile" },
+        ["/users"]: { name: "People" },
+      }));
+    } catch (error) {
+      setIsActive(false);
+      setUser(undefined);
+      setNavItems({
+        "/about_us": { name: "About Us" },
+      });
+    }
+  }
+
+  async function handleClick() {
     if (!isActive) {
       router.push("/auth");
     } else {
-      signOut();
+      await signOut();
+      await refreshUser(); // re-check after signout
       router.push("/");
     }
   }

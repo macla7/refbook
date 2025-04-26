@@ -2,20 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { TestimonialsList } from "./components/testimonialsList";
-import Link from "next/link";
 import TestimonialCard from "./components/testimonialCard";
 import { Testimonial } from "app/types/testimonial";
-import heroImage from "assets/heropage.jpg";
 import Image from "next/image";
 import background from "assets/iStock-2163734002-2.svg";
 import logo from "assets/rango3.svg";
 import { AuthUser, getCurrentUser, signOut } from "aws-amplify/auth";
 import { userDefault } from "app/defaults/user";
+import { User } from "app/types";
 
 // *** This is the root / landing page ! ***
 export default function rootPage() {
-  const [user, setUser] = useState<User>(userDefault);
+  const [user, setUser] = useState<User | AuthUser>(userDefault);
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
 
@@ -32,26 +30,12 @@ export default function rootPage() {
     authorWorkplace: "Champ Stamps R Us",
   };
 
-  useEffect(() => {
-    async function checkUser() {
-      try {
-        const currentUser = await getCurrentUser();
-        if (currentUser) {
-          setIsActive(true);
-          setUser(currentUser);
-        }
-      } catch (error) {
-        setIsActive(false);
-      }
-    }
-    checkUser();
-  }, [router]);
-
-  function handleClick() {
-    if (!isActive) {
+  async function handleClick() {
+    try {
+      const currentUser = await getCurrentUser();
+      router.push("/users/" + currentUser.userId + "/profile");
+    } catch (error) {
       router.push("/auth");
-    } else {
-      router.push("/users/" + user.userId + "/profile");
     }
   }
 
