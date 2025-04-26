@@ -2,9 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { getCurrentUser } from "aws-amplify/auth";
-
-import { AuthUser } from "aws-amplify/auth";
 import { TestimonialsList } from "./components/testimonialsList";
 import Link from "next/link";
 import TestimonialCard from "./components/testimonialCard";
@@ -13,10 +10,12 @@ import heroImage from "assets/heropage.jpg";
 import Image from "next/image";
 import background from "assets/iStock-2163734002-2.svg";
 import logo from "assets/rango3.svg";
+import { AuthUser, getCurrentUser, signOut } from "aws-amplify/auth";
+import { userDefault } from "app/defaults/user";
 
 // *** This is the root / landing page ! ***
 export default function rootPage() {
-  const [user, setUser] = useState<AuthUser>();
+  const [user, setUser] = useState<User>(userDefault);
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
 
@@ -32,6 +31,29 @@ export default function rootPage() {
     authorConnection: "Colleague",
     authorWorkplace: "Champ Stamps R Us",
   };
+
+  useEffect(() => {
+    async function checkUser() {
+      try {
+        const currentUser = await getCurrentUser();
+        if (currentUser) {
+          setIsActive(true);
+          setUser(currentUser);
+        }
+      } catch (error) {
+        setIsActive(false);
+      }
+    }
+    checkUser();
+  }, [router]);
+
+  function handleClick() {
+    if (!isActive) {
+      router.push("/auth");
+    } else {
+      router.push("/users/" + user.userId + "/profile");
+    }
+  }
 
   return (
     <div className="bg-ourCream">
@@ -82,13 +104,14 @@ export default function rootPage() {
           </p>
         </div>
 
-        {isActive ? null : (
-          <button className="cursor-pointer rounded-full bg-purple-500 mx-24 px-12 text-lg font-semibold transition h-16">
-            <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
-              Get started
-            </span>
-          </button>
-        )}
+        <button
+          onClick={handleClick}
+          className="cursor-pointer rounded-full bg-purple-500 mx-24 px-12 text-lg font-semibold transition h-16"
+        >
+          <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
+            Get started
+          </span>
+        </button>
       </div>
 
       <div className="relative grid grid-cols-3 gap-24 px-24 py-6">
