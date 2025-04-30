@@ -9,11 +9,13 @@ import { Hub } from "aws-amplify/utils";
 
 export default function AuthPage() {
   const router = useRouter(); // Next.js router for navigation
+  
 
   // If a login occurs, redirect to "/"
   Hub.listen("auth", (data) => {
     console.log("Auth event has occured, so redirecting to root.");
-    router.push("/auth/createUser");
+    
+    router.push("/");
   });
 
   // Check if a user is already logged in (before the login UI shows)...

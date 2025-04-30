@@ -17,6 +17,8 @@ export default function rootPage() {
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
 
+
+
   const fakeTestimony: Testimonial = {
     id: "null",
     authorId: "null",

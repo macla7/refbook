@@ -34,7 +34,7 @@ export function UsersList() {
     const filteredUsers = users.filter((user) => {
       return (
         user.name?.toLowerCase().includes(lowerSearch) ||
-        user.email?.toLowerCase().includes(lowerSearch) ||
+        //user.email?.toLowerCase().includes(lowerSearch) ||
         user.position?.toLowerCase().includes(lowerSearch) ||
         user.workplace?.toLowerCase().includes(lowerSearch)
       );

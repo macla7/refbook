@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { AuthUser, getCurrentUser, signOut } from "aws-amplify/auth";
+import { AuthUser, fetchAuthSession, getCurrentUser, signOut } from "aws-amplify/auth";
 import { useRouter } from "next/navigation";
 import { DP } from "./dp";
 import { useEffect, useState } from "react";
@@ -10,9 +10,11 @@ import Image from "next/image";
 import logo from "assets/rango3.svg";
 import { useSearch } from "app/context/SearchContext";
 import { User } from "app/types";
+import { userDefault } from "app/defaults/user";
+import { getUser } from "app/api/users";
 
 export function Navbar() {
-  const [user, setUser] = useState<AuthUser | User>();
+  const [dbUser, setDBUser] = useState<User>(userDefault);
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
@@ -27,22 +29,33 @@ export function Navbar() {
 
   async function refreshUser() {
     try {
-      const currentUser = await getCurrentUser();
+      // Check if user is logged in
+      const session = await fetchAuthSession();
+      const currentAuthUser = await getCurrentUser();
       setIsActive(true);
-      setUser(currentUser);
       setNavItems((prev) => ({
         ...prev,
-        [`/users/${currentUser.userId}/profile`]: { name: "My Profile" },
+        [`/users/${currentAuthUser.userId}/profile`]: { name: "My Profile" },
         ["/users"]: { name: "People" },
       }));
+      // Check if they exist in the db meaningfully
+      setDBUser(await getUser(session, currentAuthUser.userId))
     } catch (error) {
       setIsActive(false);
-      setUser(undefined);
       setNavItems({
         "/about_us": { name: "About Us" },
       });
     }
   }
+
+  useEffect(() => {
+    let dbUserName = dbUser.name
+    console.log(dbUser)
+    console.log("THIS IS THE DB USER NAME: " + dbUserName)
+    if (dbUserName == undefined) {
+      router.push("/auth/createUser")
+    }
+  }, [dbUser])
 
   async function handleClick() {
     if (!isActive) {
