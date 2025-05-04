@@ -17,8 +17,6 @@ export default function rootPage() {
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
 
-
-
   const fakeTestimony: Testimonial = {
     id: "null",
     authorId: "null",
@@ -26,10 +24,36 @@ export default function rootPage() {
     subjectUserId: "null",
     subjectUserName: "Mitch Clark",
     message:
-      " Mitch Clark has got the sauce, day in day out producing bangers and procuring swag. Straight steeze.",
+      "Mitch Clark has got the sauce, day in day out producing bangers and procuring swag. Straight steeze.",
     authorPostion: "CEO and Founder",
     authorConnection: "Colleague",
     authorWorkplace: "Champ Stamps R Us",
+  };
+
+  const fakeTestimony2: Testimonial = {
+    id: "null",
+    authorId: "null",
+    authorName: "Mitch Clark",
+    subjectUserId: "null",
+    subjectUserName: "Sandro Saran",
+    message:
+      "Sandro Saran is a man of many talents. Sandro can write you a song, code a Java masterpiece, cut your hair, climb your boulders. Dedicated team player.",
+    authorPostion: "The better CEO",
+    authorConnection: "Mentor",
+    authorWorkplace: "Rango",
+  };
+
+  const fakeTestimony3: Testimonial = {
+    id: "null",
+    authorId: "null",
+    authorName: "Santa Claus",
+    subjectUserId: "null",
+    subjectUserName: "Rudolph the Red-Nosed Reindeer",
+    message:
+      "Rudolph glows brighter than my North Pole power bill. He isn’t just a reindeer — he’s the GPS, the hype man, and the MVP of Christmas Eve. 10/10 would ride into a blizzard with again.",
+    authorPostion: "Chief Gift Officer",
+    authorConnection: "Team Lead",
+    authorWorkplace: "North Pole Inc.",
   };
 
   async function handleClick() {
@@ -75,8 +99,8 @@ export default function rootPage() {
 
         <div className="relative grid grid-cols-3 justify-items-center gap-24 px-24 py-6">
           <TestimonialCard testimonial={fakeTestimony} />
-          <TestimonialCard testimonial={fakeTestimony} />
-          <TestimonialCard testimonial={fakeTestimony} />
+          <TestimonialCard testimonial={fakeTestimony2} />
+          <TestimonialCard testimonial={fakeTestimony3} />
         </div>
       </div>
 
