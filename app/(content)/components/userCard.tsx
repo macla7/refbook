@@ -13,7 +13,7 @@ export default function UserCard({ user }: { user: User }) {
     <>
       <div className="flex flex-row items-center">
         <div className="w-20 h-20 m-10">
-          <DP />
+          <DP user={user} />
         </div>
 
         <div className="flex flex-row p-2 leading-normal h-full gap-10 items-center">

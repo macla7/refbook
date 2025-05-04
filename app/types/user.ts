@@ -6,4 +6,5 @@ export interface User {
   position: string;
   workplace: string;
   bio: string;
+  image: string | null;
 }

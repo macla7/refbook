@@ -19,7 +19,7 @@ export function Sidebar({ user }: { user: User }) {
           height={256}
           className="object-cover"
         /> */}
-        <DP />
+        <DP user={user} />
       </div>
 
       <h2 className="mt-8 text-2xl/7 font-bold text-gray-900 ">{user.name}</h2>

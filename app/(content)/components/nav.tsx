@@ -151,7 +151,7 @@ export function Navbar() {
         {dbUser.id !== "unknown" ? (
           <div className="w-12 h-12">
             <Link href={`/users/${dbUser.id}/account`}>
-              <DP />
+              <DP user={dbUser} />
             </Link>
           </div>
         ) : null}

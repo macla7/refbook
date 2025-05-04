@@ -5,7 +5,7 @@ import { fetchAuthSession } from "aws-amplify/auth";
 import { deleteTestimonial } from "app/api/testimonials";
 import Image from "next/image";
 import InBug from "assets/in-logo/LI-In-Bug.png";
-
+import { userDefault } from "app/defaults/user";
 export default function TestimonialCard({
   testimonial,
 }: {
@@ -29,7 +29,7 @@ export default function TestimonialCard({
         {/* SVG Container - 1/3 width */}
         <div className="flex-[1] flex flex-col items-center justify-center p-2 w-full">
           <div className="w-20 h-20">
-            <DP />
+            <DP user={userDefault} />
           </div>
           <p className="text-xs font-medium text-gray-700 w-full text-center">
             {testimonial.authorName}, {testimonial.authorConnection}
@@ -101,7 +101,7 @@ export default function TestimonialCard({
             </div>
             <div className="flex flex-col md:flex-row items-center ">
               <div className="flex-[1] flex flex-col items-center justify-center">
-                <DP />
+                <DP user={userDefault} />
                 <p className="text-m font-medium text-gray-700 w-full text-center">
                   {testimonial.authorName}, {testimonial.authorConnection}
                 </p>

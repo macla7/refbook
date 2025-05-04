@@ -1,21 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import TestimonialCard from "./components/testimonialCard";
 import { Testimonial } from "app/types/testimonial";
 import Image from "next/image";
 import background from "assets/iStock-2163734002-2.svg";
 import logo from "assets/rango3.svg";
-import { AuthUser, getCurrentUser, signOut } from "aws-amplify/auth";
-import { userDefault } from "app/defaults/user";
-import { User } from "app/types";
+import { getCurrentUser } from "aws-amplify/auth";
 
 // *** This is the root / landing page ! ***
 export default function rootPage() {
-  const [user, setUser] = useState<User | AuthUser>(userDefault);
   const router = useRouter();
-  const [isActive, setIsActive] = useState(false);
 
   const fakeTestimony: Testimonial = {
     id: "null",
@@ -37,7 +32,7 @@ export default function rootPage() {
     subjectUserId: "null",
     subjectUserName: "Sandro Saran",
     message:
-      "Sandro Saran is a man of many talents. Sandro can write you a song, code a Java masterpiece, cut your hair, climb your boulders. Dedicated team player.",
+      "Sandro Saran is a man of many talents. He can write you a song, code you a Java masterpiece, cut your hair or climb your boulders. Dedicated team player.",
     authorPostion: "The better CEO",
     authorConnection: "Mentor",
     authorWorkplace: "Rango",
