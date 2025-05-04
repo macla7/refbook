@@ -19,7 +19,7 @@ export function DP({ user }: DPProps) {
   const initials = getInitials(user.name);
 
   return (
-    <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-transparent bg-gradient-to-r from-ourBrown via-ourGold to-ourBrown">
+    <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-transparent bg-gradient-to-r from-ourBrown via-ourBrown to-ourBrown">
       <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
         {user.image ? (
           <Image

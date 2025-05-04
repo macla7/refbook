@@ -33,9 +33,9 @@ export default function rootPage() {
     subjectUserName: "Sandro Saran",
     message:
       "Sandro Saran is a man of many talents. He can write you a song, code you a Java masterpiece, cut your hair or climb your boulders. Dedicated team player.",
-    authorPostion: "The better CEO",
+    authorPostion: "CEO and Co-Founder",
     authorConnection: "Mentor",
-    authorWorkplace: "Rango",
+    authorWorkplace: "RefCard",
   };
 
   const fakeTestimony3: Testimonial = {
@@ -77,17 +77,19 @@ export default function rootPage() {
         {/* <div className="flex flex-col w-screen h-screen justify-top p-24 bg-[conic-gradient(from_90deg,_var(--color-ourGold2),_var(--color-ourGold))]"> */}
         <div className="relative flex justify-center pt-12 pb-6 text-center">
           <div className="bg-ourCream p-6 rounded-sm shadow-lg border-1 border-solid border-gray-300">
-            <p className="text-6xl text-ourBrown font-semibold mb-6">
-              Wrangling with references?
+            <p className="text-7xl text-ourBrown font-semibold mb-4">
+              Say nice things
             </p>
-            <div className="relative flex justify-center text-center">
-              <span className="text-7xl text-ourBrown font-extrabold">Let</span>
-              <div className="px-6 mt-3">
+
+            <span className="text-3xl text-ourBrown font-bold">
+              About coworkers, teammates and friends
+            </span>
+
+            <div className="relative flex justify-center text-center items-center mt-2">
+              <span className="text-3xl text-ourBrown font-bold">with</span>
+              <div className="px-4 mt-2">
                 <Image src={logo} alt="Default Profile" width={200} />
               </div>
-              <span className="text-7xl text-ourBrown font-extrabold">
-                handle it
-              </span>
             </div>
           </div>
         </div>
@@ -101,11 +103,8 @@ export default function rootPage() {
 
       <div className="relative flex justify-center pt-12 text-center items-center">
         <div className="p-6">
-          <p className="text-5xl text-ourBrown font-bold mb-6">
-            Say nice things...
-          </p>
-          <p className="text-3xl text-ourBrown font-bold mb-6">
-            about colleagues, teammates and friends
+          <p className="text-5xl text-ourBrown font-bold">
+            Wrangling with References?
           </p>
         </div>
 
@@ -119,7 +118,7 @@ export default function rootPage() {
         </button>
       </div>
 
-      <div className="relative grid grid-cols-3 gap-24 px-24 py-6">
+      <div className="relative grid grid-cols-3 gap-24 px-24 pt-12">
         <div className="w-full">
           <div className="bg-white p-6 rounded-sm shadow-lg border border-solid border-gray-300 h-full">
             <p className="text-2xl text-ourBrown font-semibold mb-6 text-center">
