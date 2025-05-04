@@ -1,11 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { signOut } from "aws-amplify/auth";
-import { useRouter } from "next/router";
 import { User } from "app/types";
-import Image from "next/image";
-import defaultImage from "app/assets/default-image-2.png";
 import { DP } from "./dp";
 
 export function Sidebar({ user }: { user: User }) {
@@ -27,19 +23,16 @@ export function Sidebar({ user }: { user: User }) {
       </div>
 
       <h2 className="mt-8 text-2xl/7 font-bold text-gray-900 ">{user.name}</h2>
+
       <Link
-        className="rounded-sm bg-ourGold px-3 py-2 my-2 text-sm font-semibold shadow-xs  
-        hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         href={`/users/${user.id}/createTestimonial`}
+        className="cursor-pointer rounded-full bg-purple-500 px-6 my-2 text-lg font-semibold transition h-12 flex items-center justify-center "
       >
-        Create Testimonial
+        <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
+          Make Testimonial
+        </span>
       </Link>
 
-      <Link href={`/users/${user.id}/account`}>
-        <p className="rounded-sm bg-ourGold px-3 py-2 my-2 text-sm font-semibold shadow-xs hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-          Account
-        </p>
-      </Link>
       <div>
         <p className="p-14">
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -60,7 +53,6 @@ export function Sidebar({ user }: { user: User }) {
           voluptas nulla pariatur?"
         </p>
       </div>
-      
     </aside>
   );
 }

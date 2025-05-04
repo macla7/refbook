@@ -1,13 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchAuthSession } from "aws-amplify/auth";
 import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
-import { TestimonialForm } from "app/(content)/components/testimonialForm";
 import { getUser } from "app/api/users";
 import { TestimonialsList } from "app/(content)/components/testimonialsList";
-import Link from "next/link";
 import { Sidebar } from "app/(content)/components/sidebar";
 
 export default function Page({ params }: { params: { id: string } }) {
@@ -19,8 +16,7 @@ export default function Page({ params }: { params: { id: string } }) {
   }, []);
 
   async function fetchData() {
-    const session = await fetchAuthSession();
-    setUser(await getUser(session, userId));
+    setUser(await getUser(userId));
   }
 
   return (

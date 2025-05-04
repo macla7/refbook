@@ -7,9 +7,11 @@ import { UsersList } from "../components/usersList";
 import { AuthUser } from "aws-amplify/auth";
 import Image from "next/image";
 import background from "assets/iStock-2163734002-2.svg";
+import { userDefault } from "app/defaults/user";
+import { User } from "app/types";
 
 export default function usersPage() {
-  const [user, setUser] = useState<AuthUser>();
+  const [user, setUser] = useState<AuthUser | User>();
   const router = useRouter(); // Next.js router for navigation
 
   useEffect(() => {
@@ -19,8 +21,9 @@ export default function usersPage() {
         console.log("current user is: ", currentUser);
         setUser(currentUser);
       } catch (error) {
-        console.error("User not authenticated, redirecting...");
-        router.push("/"); // Redirect to authentication page
+        console.log("User not authenticated");
+        setUser(userDefault);
+        // router.push("/"); // Redirect to authentication page
       }
     }
 

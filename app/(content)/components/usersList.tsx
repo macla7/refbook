@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import { getAllUsers } from "app/user/utils";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { useState, useEffect } from "react";
 import { User } from "app/types";
@@ -16,8 +15,7 @@ export function UsersList() {
   }, []);
 
   async function fetchData() {
-    const session = await fetchAuthSession();
-    setUsers(filterUsers(await getUsers(session), ""));
+    setUsers(filterUsers(await getUsers(), ""));
   }
 
   async function deleteAction(id) {
@@ -48,7 +46,7 @@ export function UsersList() {
 
   async function filter() {
     const session = await fetchAuthSession();
-    setUsers(filterUsers(await getUsers(session), search));
+    setUsers(filterUsers(await getUsers(), search));
   }
 
   return (

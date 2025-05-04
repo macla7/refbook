@@ -1,19 +1,9 @@
-export async function getUsers(session) {
+export async function getUsers() {
   try {
-    const jwtToken = session.tokens?.idToken?.toString(); // Use ID token
-
-    if (!jwtToken) {
-      console.error("No authentication token found.");
-      return;
-    }
-
     const response = await fetch(
       String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + "/users",
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${jwtToken}`,
-        },
       }
     );
 
@@ -52,22 +42,12 @@ export async function deleteUser(session, id) {
   }
 }
 
-export async function getUser(session, userId) {
+export async function getUser(userId) {
   try {
-    const jwtToken = session.tokens?.idToken?.toString();
-
-    if (!jwtToken) {
-      console.error("No authentication token found.");
-      return;
-    }
-
     const response = await fetch(
       String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + `/users/${userId}`,
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${jwtToken}`,
-        },
       }
     );
 
@@ -95,7 +75,6 @@ export async function patchUser(session, userId, patch) {
       `${process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE}/users/${userId}/account`
     );
 
-    
     const response = await fetch(
       String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) +
         `/users/${userId}/account`,

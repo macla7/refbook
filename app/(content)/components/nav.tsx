@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { AuthUser, fetchAuthSession, getCurrentUser, signOut } from "aws-amplify/auth";
+import { fetchAuthSession, getCurrentUser, signOut } from "aws-amplify/auth";
 import { useRouter } from "next/navigation";
 import { DP } from "./dp";
 import { useEffect, useState } from "react";
@@ -20,6 +20,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
   const [navItems, setNavItems] = useState({
     "/about_us": { name: "About Us" },
+    ["/users"]: { name: "People" },
   });
   const { search, setSearch } = useSearch();
 
@@ -39,23 +40,25 @@ export function Navbar() {
         ["/users"]: { name: "People" },
       }));
       // Check if they exist in the db meaningfully
-      setDBUser(await getUser(session, currentAuthUser.userId))
+      setDBUser(await getUser(currentAuthUser.userId));
     } catch (error) {
       setIsActive(false);
       setNavItems({
         "/about_us": { name: "About Us" },
+        ["/users"]: { name: "People" },
       });
+      setDBUser(userDefault);
     }
   }
 
   useEffect(() => {
-    let dbUserName = dbUser.name
-    console.log(dbUser)
-    console.log("THIS IS THE DB USER NAME: " + dbUserName)
+    let dbUserName = dbUser.name;
+    console.log(dbUser);
+    console.log("THIS IS THE DB USER NAME: " + dbUserName);
     if (dbUserName == undefined) {
-      router.push("/auth/createUser")
+      router.push("/auth/createUser");
     }
-  }, [dbUser])
+  }, [dbUser]);
 
   async function handleClick() {
     if (!isActive) {
@@ -63,6 +66,7 @@ export function Navbar() {
     } else {
       await signOut();
       await refreshUser(); // re-check after signout
+
       router.push("/");
     }
   }
@@ -144,9 +148,13 @@ export function Navbar() {
           </span>
         </button>
 
-        <div className="w-12 h-12">
-          <DP />
-        </div>
+        {dbUser.id !== "unknown" ? (
+          <div className="w-12 h-12">
+            <Link href={`/users/${dbUser.id}/account`}>
+              <DP />
+            </Link>
+          </div>
+        ) : null}
       </div>
 
       {/* Mobile Hamburger Menu */}

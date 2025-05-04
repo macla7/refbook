@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchAuthSession, fetchUserAttributes } from "aws-amplify/auth";
+import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
 import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
-import { deleteUser, getUser, patchUser } from "app/api/users";
-import { patchFetch } from "next/dist/server/app-render/entry-base";
+import { getUser, patchUser } from "app/api/users";
+import { useRouter } from "next/navigation";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
@@ -13,26 +13,33 @@ export default function Page({ params }: { params: { id: string } }) {
   const [position, setPosition] = useState("");
   const [workplace, setWorkplace] = useState("");
   const [bio, setBio] = useState("");
-
   const userId: string = params.id;
+  const router = useRouter(); // Next.js router for navigation
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    checkUser();
+  }, [router]); // Run once on mount
+
+  async function checkUser() {
+    try {
+      const cognitoUser = await getCurrentUser();
+      console.log(cognitoUser);
+      setUser(await getUser(cognitoUser.userId));
+      if (cognitoUser.userId !== userId && cognitoUser.userId !== "unknown") {
+        console.log("User ID mismatch, redirecting... not right user");
+        router.push("/"); // Redirect to authentication page
+      }
+    } catch (error) {
+      console.log(
+        "User not authenticated, redirecting back home... shouldn't be accessing this account page for sure!"
+      );
+      router.push("/"); // Redirect to authentication page
+    }
+  }
 
   useEffect(() => {
     fillFieldsOnLoad();
   }, [user]);
-
-  async function fetchData() {
-    try {
-      const session = await fetchAuthSession();
-      setUser(await getUser(session, userId));
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally {
-    }
-  }
 
   async function fillFieldsOnLoad() {
     setName(user.name);
@@ -53,7 +60,7 @@ export default function Page({ params }: { params: { id: string } }) {
     console.log(userParams);
     await patchUser(session, userId, userParams);
     clearFields();
-    fetchData();
+    checkUser();
   }
 
   function clearFields() {
@@ -62,7 +69,7 @@ export default function Page({ params }: { params: { id: string } }) {
     setWorkplace("");
   }
 
-  return (
+  return user.id !== "unknown" ? (
     <div className="w-full p-8 bg-ourCream flex justify-center">
       {/* <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight m-10">
         <p>Name: {user.name}</p>
@@ -171,5 +178,7 @@ export default function Page({ params }: { params: { id: string } }) {
         </div>
       </form>
     </div>
+  ) : (
+    <div>Redirecting...</div>
   );
 }

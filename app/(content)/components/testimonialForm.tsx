@@ -1,8 +1,9 @@
-import { AuthUser, fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
+import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
 import { useEffect, useState } from "react";
 import { putTestimonial } from "app/api/testimonials";
 import { getUser } from "app/api/users";
 import { User } from "app/types";
+import { useRouter } from "next/navigation";
 
 export function TestimonialForm(params: { subjectUserId: string }) {
   const [message, setMessage] = useState("");
@@ -10,17 +11,22 @@ export function TestimonialForm(params: { subjectUserId: string }) {
   const [connection, setConnection] = useState("");
   const [workplace, setWorkplace] = useState("");
   const [loggedInUser, setLoggedInUser] = useState<User | any>();
+  const router = useRouter(); // Next.js router for navigation
 
   useEffect(() => {
-    getLoggedInUser();
-  }, []);
+    async function checkUser() {
+      try {
+        const cognitoUser = await getCurrentUser();
+        console.log(cognitoUser);
+        setLoggedInUser(await getUser(cognitoUser.userId));
+      } catch (error) {
+        console.log("User not authenticated, redirecting...");
+        router.push("/auth"); // Redirect to authentication page
+      }
+    }
 
-  async function getLoggedInUser() {
-    const cognitoUser = await getCurrentUser();
-    console.log(cognitoUser);
-    const session = await fetchAuthSession();
-    setLoggedInUser(await getUser(session, cognitoUser.userId));
-  }
+    checkUser();
+  }, [router]); // Run once on mount
 
   async function formAction() {
     const session = await fetchAuthSession();
@@ -39,7 +45,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
     setMessage("");
   }
 
-  return (
+  return loggedInUser ? (
     <form className="space-y-12 bg-white p-12 w-3xl rounded-sm">
       <div className="">
         <div className="border-b border-gray-900/10 p-12">
@@ -163,5 +169,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
         </button>
       </div>
     </form>
+  ) : (
+    <div>Redirecting...</div>
   );
 }
