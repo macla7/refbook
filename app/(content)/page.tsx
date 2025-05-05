@@ -118,7 +118,7 @@ export default function rootPage() {
         </button>
       </div>
 
-      <div className="relative grid grid-cols-3 gap-24 px-24 pt-12">
+      <div className="relative grid grid-cols-3 gap-24 px-24 pt-12 pb-6">
         <div className="w-full">
           <div className="bg-white p-6 rounded-sm shadow-lg border border-solid border-gray-300 h-full">
             <p className="text-2xl text-ourBrown font-semibold mb-6 text-center">
