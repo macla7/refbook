@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
 import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
-import { getUser, patchUser } from "app/api/users";
+import { getUser, patchUser, uploadProfileImage } from "app/api/users";
 import { useRouter } from "next/navigation";
 
 export default function Page({ params }: { params: { id: string } }) {
@@ -15,6 +15,8 @@ export default function Page({ params }: { params: { id: string } }) {
   const [bio, setBio] = useState("");
   const userId: string = params.id;
   const router = useRouter(); // Next.js router for navigation
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   useEffect(() => {
     checkUser();
@@ -50,14 +52,23 @@ export default function Page({ params }: { params: { id: string } }) {
   async function handleClick() {
     const session = await fetchAuthSession();
 
-    let userParams = {
+    let uploadedImageUrl: string | null = null;
+
+    if (selectedFile) {
+      uploadedImageUrl = await uploadProfileImage(selectedFile, session);
+    }
+
+    let userParams: any = {
       ...params,
-      name: name,
-      workplace: workplace,
-      position: position,
+      name,
+      workplace,
+      position,
     };
-    console.log("bingo");
-    console.log(userParams);
+
+    if (uploadedImageUrl) {
+      userParams.image = uploadedImageUrl;
+    }
+
     await patchUser(session, userId, userParams);
     clearFields();
     checkUser();
@@ -163,6 +174,25 @@ export default function Page({ params }: { params: { id: string } }) {
                   Where are you currently working?
                 </p>
               </div>
+            </div>
+
+            <div className="col-span-full">
+              <label className="block text-sm/6 font-medium text-gray-900">
+                Profile Image
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                className="mt-2 block w-full text-sm text-gray-900"
+                onChange={(e) => {
+                  if (e.target.files?.[0]) {
+                    setSelectedFile(e.target.files[0]);
+                  }
+                }}
+              />
+              <p className="mt-3 text-sm/6 text-gray-600">
+                Upload a new profile picture.
+              </p>
             </div>
           </div>
         </div>
