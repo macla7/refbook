@@ -47,6 +47,7 @@ export default function Page({ params }: { params: { id: string } }) {
     setName(user.name);
     setPosition(user.position);
     setWorkplace(user.workplace);
+    setBio(user.bio);
   }
 
   async function handleClick() {
@@ -63,6 +64,7 @@ export default function Page({ params }: { params: { id: string } }) {
       name,
       workplace,
       position,
+      bio,
     };
 
     if (uploadedImageUrl) {
@@ -78,6 +80,7 @@ export default function Page({ params }: { params: { id: string } }) {
     setName("");
     setPosition("");
     setWorkplace("");
+    setBio("");
   }
 
   return user.id !== "unknown" ? (
@@ -172,6 +175,31 @@ export default function Page({ params }: { params: { id: string } }) {
                 </div>
                 <p className="mt-3 text-sm/6 text-gray-600">
                   Where are you currently working?
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div className="col-span-full">
+                <label
+                  htmlFor="about"
+                  className="block text-sm/6 font-medium text-gray-900"
+                >
+                  Bio
+                </label>
+                <div className="mt-2">
+                  <textarea
+                    rows={1}
+                    className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    id="inputBox"
+                    name="inputBox"
+                    required
+                    onChange={(e) => setBio(e.target.value)}
+                    value={bio}
+                  ></textarea>
+                </div>
+                <p className="mt-3 text-sm/6 text-gray-600">
+                  Tell the world a bit about yourself.
                 </p>
               </div>
             </div>

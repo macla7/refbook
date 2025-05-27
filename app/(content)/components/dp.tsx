@@ -19,7 +19,7 @@ export function DP({ user }: DPProps) {
   const initials = getInitials(user.name);
 
   return (
-    <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-transparent bg-gradient-to-r from-ourBrown via-ourBrown to-ourBrown">
+    <div className="w-full h-full rounded-full overflow-hidden border-2 border-transparent bg-gradient-to-r from-ourBrown via-ourBrown to-ourBrown">
       <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
         {user.image ? (
           <Image
@@ -27,7 +27,7 @@ export function DP({ user }: DPProps) {
             alt={user.name}
             width={80}
             height={80}
-            className="w-full h-full object-cover rounded-full"
+            className="w-full h-full align-center object-cover rounded-full"
           />
         ) : (
           <span className="text-3xl font-semibold text-gray-700">

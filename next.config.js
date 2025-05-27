@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "rango-user-uploads-bucket.s3.amazonaws.com",
+        hostname: "rango-user-uploads-bucket-sunny.s3.amazonaws.com",
         pathname: "/**",
       },
     ],
