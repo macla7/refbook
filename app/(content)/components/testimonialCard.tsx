@@ -37,7 +37,7 @@ export default function TestimonialCard({
           <p className="text-xs font-medium text-gray-700 w-full text-center">
             {testimonial.authorPostion} at {testimonial.authorWorkplace}
           </p>
-          <a
+          {/* <a
             href="https://www.linkedin.com/in/mitchel-clark-b26a02229/"
             target="_blank"
             rel="noopener noreferrer"
@@ -52,7 +52,7 @@ export default function TestimonialCard({
                 height: "auto", // Auto for maintaining aspect ratio
               }}
             />
-          </a>
+          </a> */}
         </div>
 
         {/* Text Container - 2/3 width */}
@@ -66,7 +66,7 @@ export default function TestimonialCard({
       {/* Modal Component */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/30 ">
-          <div className="p-4 w-full max-w-2xl bg-white rounded-sm">
+          <div className="p-4 w-full max-w-2xl lg:h-[200px] lg:w-[400px] bg-white rounded-sm">
             <div className="flex items-center">
               <button
                 onClick={() => setIsOpen(false)}
@@ -92,7 +92,7 @@ export default function TestimonialCard({
                 <span className="sr-only">Close modal</span>
               </button>
               <button
-                type="submit"
+                type="button"
                 className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={() => deleteAction(testimonial.id)}
               >
@@ -100,10 +100,13 @@ export default function TestimonialCard({
               </button>
             </div>
             <div className="flex flex-col md:flex-row items-center ">
-              <div className="flex-[1] flex flex-col items-center justify-center">
+              <div className="flex-[1] flex flex-col w-20 h-20 items-center justify-center">
                 <DP user={userDefault} />
-                <p className="text-m font-medium text-gray-700 w-full text-center">
+                <p className="text-xs font-medium text-gray-700 w-full text-center">
                   {testimonial.authorName}, {testimonial.authorConnection}
+                </p>
+                <p className="text-xs font-medium text-gray-700 w-full text-center">
+                  {testimonial.authorPostion} at {testimonial.authorWorkplace}
                 </p>
                 {/* <div className="flex items-center p-4 md:p-5">
                 <button
