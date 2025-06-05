@@ -43,6 +43,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
     console.log(testimonialParams);
     putTestimonial(session, testimonialParams);
     setMessage("");
+    router.push(`/users/${params.subjectUserId}/profile`);
   }
 
   return loggedInUser ? (
@@ -155,19 +156,21 @@ export function TestimonialForm(params: { subjectUserId: string }) {
         </div>
       </div>
 
-      
-
       <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button type="button" className="text-sm/6 font-semibold text-gray-900">
+        <button
+          type="button"
+          onClick={() => router.push(`/users/${params.subjectUserId}/profile`)}
+          className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
           Cancel
         </button>
 
         <button
           type="button"
-          className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          onClick={(e) => formAction()}
+          className="rounded-sm bg-ourGold2 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          onClick={() => formAction()}
         >
-          Save
+          Submit
         </button>
       </div>
     </form>

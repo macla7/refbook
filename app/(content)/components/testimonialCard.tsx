@@ -6,6 +6,7 @@ import { deleteTestimonial } from "app/api/testimonials";
 import Image from "next/image";
 import InBug from "assets/in-logo/LI-In-Bug.png";
 import { userDefault } from "app/defaults/user";
+import Link from "next/link";
 export default function TestimonialCard({
   testimonial,
 }: {
@@ -68,6 +69,7 @@ export default function TestimonialCard({
         <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/30 ">
           <div className="p-4 w-full max-w-2xl lg:h-[200px] lg:w-[400px] bg-white rounded-sm">
             <div className="flex items-center">
+              {/* // Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
                 type="button"
@@ -91,6 +93,7 @@ export default function TestimonialCard({
                 </svg>
                 <span className="sr-only">Close modal</span>
               </button>
+              {/* Delete Button */}
               <button
                 type="button"
                 className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -101,10 +104,19 @@ export default function TestimonialCard({
             </div>
             <div className="flex flex-col md:flex-row items-center ">
               <div className="flex-[1] flex flex-col w-20 h-20 items-center justify-center">
-                <DP user={userDefault} />
+                <div className="w-20 h-20">
+                  <DP user={userDefault} />
+                </div>
                 <p className="text-xs font-medium text-gray-700 w-full text-center">
-                  {testimonial.authorName}, {testimonial.authorConnection}
+                  <Link
+                    href={`/users/${testimonial.authorId}/profile`}
+                    className="text-xs font-medium text-black  hover:text-egBlue hover:underline w-full text-center"
+                  >
+                    {testimonial.authorName}
+                  </Link>
+                  , {testimonial.authorConnection}
                 </p>
+
                 <p className="text-xs font-medium text-gray-700 w-full text-center">
                   {testimonial.authorPostion} at {testimonial.authorWorkplace}
                 </p>
@@ -117,7 +129,7 @@ export default function TestimonialCard({
                 </button>
               </div> */}
               </div>
-              <p className=" flex-[2] flex flex-col justify-between p-2 leading-normal w-full text-xs text-gray-700 dark:text-gray-400">
+              <p className=" flex-[2] flex flex-col justify-between p-2 leading-normal w-full text-sm text-gray-700 dark:text-gray-400">
                 {testimonial.message}
               </p>
             </div>
