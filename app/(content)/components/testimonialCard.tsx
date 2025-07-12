@@ -47,7 +47,7 @@ export default function TestimonialCard({
         {/* SVG Container - 1/3 width */}
         <div className="flex-[1] flex flex-col items-center justify-center p-2 w-full">
           <div className="w-20 h-20">
-            <DP user={userDefault} />
+            <DP user={authorUser} />
           </div>
           <p className="text-xs font-medium text-gray-700 w-full text-center">
             {authorUser.name},
@@ -122,7 +122,7 @@ export default function TestimonialCard({
             <div className="flex flex-col md:flex-row items-center ">
               <div className="flex-[1] flex flex-col w-20 h-20 items-center justify-center">
                 <div className="w-20 h-20">
-                  <DP user={userDefault} />
+                  <DP user={authorUser} />
                 </div>
                 <p className="text-xs font-medium text-gray-700 w-full text-center">
                   <Link
