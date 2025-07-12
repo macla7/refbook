@@ -1,5 +1,5 @@
-import { Testimonial } from "app/types";
-import { useState } from "react";
+import { Testimonial, User } from "app/types";
+import { useEffect, useState } from "react";
 import { DP } from "./dp";
 import { fetchAuthSession } from "aws-amplify/auth";
 import { deleteTestimonial } from "app/api/testimonials";
@@ -7,18 +7,35 @@ import Image from "next/image";
 import InBug from "assets/in-logo/LI-In-Bug.png";
 import { userDefault } from "app/defaults/user";
 import Link from "next/link";
+import { getUser } from "app/api/users";
+import { useRouter } from "next/navigation";
+import { Default } from "@aws-amplify/ui-react/dist/types/primitives/DropZone/DropZoneChildren";
 export default function TestimonialCard({
   testimonial,
 }: {
   testimonial: Testimonial;
 }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [authorUser, setAuthorUser] = useState<User | any>(userDefault);
+  const router = useRouter(); // Next.js router for navigation
 
   async function deleteAction(id) {
     const session = await fetchAuthSession();
     await deleteTestimonial(session, id);
     setIsOpen(true);
   }
+
+  useEffect(() => {
+    async function getAuthorUser() {
+      try {
+        setAuthorUser(await getUser(testimonial.authorId));
+      } catch (error) {
+        console.log("Could not get author user:", error);
+      }
+    }
+
+    getAuthorUser();
+  }, [router]); // Run once on mount
 
   return (
     <>
@@ -33,10 +50,10 @@ export default function TestimonialCard({
             <DP user={userDefault} />
           </div>
           <p className="text-xs font-medium text-gray-700 w-full text-center">
-            {testimonial.authorName}, {testimonial.authorConnection}
+            {authorUser.name},
           </p>
           <p className="text-xs font-medium text-gray-700 w-full text-center">
-            {testimonial.authorPostion} at {testimonial.authorWorkplace}
+            {authorUser.position} at {authorUser.workplace}
           </p>
           {/* <a
             href="https://www.linkedin.com/in/mitchel-clark-b26a02229/"
@@ -112,13 +129,12 @@ export default function TestimonialCard({
                     href={`/users/${testimonial.authorId}/profile`}
                     className="text-xs font-medium text-black  hover:text-egBlue hover:underline w-full text-center"
                   >
-                    {testimonial.authorName}
+                    {authorUser.name},
                   </Link>
-                  , {testimonial.authorConnection}
                 </p>
 
                 <p className="text-xs font-medium text-gray-700 w-full text-center">
-                  {testimonial.authorPostion} at {testimonial.authorWorkplace}
+                  {authorUser.position} at {authorUser.workplace}
                 </p>
                 {/* <div className="flex items-center p-4 md:p-5">
                 <button

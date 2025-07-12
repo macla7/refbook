@@ -26,11 +26,6 @@ export async function putTestimonial(session, formParams) {
           message: formParams.message,
           subjectUserId: formParams.subjectUserId, // Example: ID of the person the testimonial is about
           authorId: userId, // ✅ Automatically assign the user's Cognito ID
-          authorName: formParams.authorName,
-          subjectUserEmail: formParams.subjectUserEmail,
-          authorPostion: formParams.authorPostion,
-          authorConnection: formParams.authorConnection,
-          authorWorkplace: formParams.authorWorkplace,
         }),
       }
     );

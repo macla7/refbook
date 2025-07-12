@@ -4,6 +4,7 @@ import { putTestimonial } from "app/api/testimonials";
 import { getUser } from "app/api/users";
 import { User } from "app/types";
 import { useRouter } from "next/navigation";
+import { userDefault } from "app/defaults/user";
 
 export function TestimonialForm(params: { subjectUserId: string }) {
   const [message, setMessage] = useState("");
@@ -11,6 +12,8 @@ export function TestimonialForm(params: { subjectUserId: string }) {
   const [connection, setConnection] = useState("");
   const [workplace, setWorkplace] = useState("");
   const [loggedInUser, setLoggedInUser] = useState<User | any>();
+  const [subjectUser, setSubjectUser] = useState<User | any>(userDefault);
+
   const router = useRouter(); // Next.js router for navigation
 
   useEffect(() => {
@@ -19,6 +22,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
         const cognitoUser = await getCurrentUser();
         console.log(cognitoUser);
         setLoggedInUser(await getUser(cognitoUser.userId));
+        setSubjectUser(await getUser(params.subjectUserId));
       } catch (error) {
         console.log("User not authenticated, redirecting...");
         router.push("/auth"); // Redirect to authentication page
@@ -33,12 +37,10 @@ export function TestimonialForm(params: { subjectUserId: string }) {
 
     let testimonialParams = {
       ...params,
-      authorName: loggedInUser.name,
-      authorPostion: position,
-      authorConnection: connection,
-      authorWorkplace: workplace,
       message: message,
+      subjectUserId: params.subjectUserId,
     };
+
     console.log("bingo");
     console.log(testimonialParams);
     putTestimonial(session, testimonialParams);
@@ -61,15 +63,15 @@ export function TestimonialForm(params: { subjectUserId: string }) {
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="col-span-full">
               <label
-                htmlFor="about"
+                htmlFor="testimonial"
                 className="block text-sm/6 font-medium text-gray-900"
               >
-                About
+                Testimonal
               </label>
               <div className="mt-2">
                 <textarea
-                  name="about"
-                  id="about"
+                  name="testimonial"
+                  id="testimonial"
                   rows={4}
                   className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   onChange={(e) => setMessage(e.target.value)}
@@ -77,79 +79,8 @@ export function TestimonialForm(params: { subjectUserId: string }) {
                 ></textarea>
               </div>
               <p className="mt-3 text-sm/6 text-gray-600">
-                Write a few sentences about yourself.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="col-span-full">
-              <label
-                htmlFor="about"
-                className="block text-sm/6 font-medium text-gray-900"
-              >
-                Job Title
-              </label>
-              <div className="mt-2">
-                <textarea
-                  name="position"
-                  id="position"
-                  rows={1}
-                  className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  onChange={(e) => setPosition(e.target.value)}
-                  value={position}
-                ></textarea>
-              </div>
-              <p className="mt-3 text-sm/6 text-gray-600">
-                What is your job title?
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="col-span-full">
-              <label
-                htmlFor="about"
-                className="block text-sm/6 font-medium text-gray-900"
-              >
-                Connection
-              </label>
-              <div className="mt-2">
-                <textarea
-                  name="connection"
-                  id="connection"
-                  rows={1}
-                  className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  onChange={(e) => setConnection(e.target.value)}
-                  value={connection}
-                ></textarea>
-              </div>
-              <p className="mt-3 text-sm/6 text-gray-600">
-                What was your connection to x?
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="col-span-full">
-              <label
-                htmlFor="about"
-                className="block text-sm/6 font-medium text-gray-900"
-              >
-                Workplace
-              </label>
-              <div className="mt-2">
-                <textarea
-                  name="workplace"
-                  id="workplace"
-                  rows={1}
-                  className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  onChange={(e) => setWorkplace(e.target.value)}
-                  value={workplace}
-                ></textarea>
-              </div>
-              <p className="mt-3 text-sm/6 text-gray-600">
-                Where did you work with x?
+                Where did you work with {subjectUser.name}? What was your connection to {subjectUser.name}? What
+                would you like to say?
               </p>
             </div>
           </div>
