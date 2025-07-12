@@ -7,48 +7,65 @@ import Image from "next/image";
 import background from "assets/iStock-2163734002-2.svg";
 import logo from "assets/rango3.svg";
 import { getCurrentUser } from "aws-amplify/auth";
-
+import userImage1 from "assets/default-image-1.jpeg";
+import mitchPitching from "assets/mitch-pitching.jpg";
+import beeDP from "assets/bee-dp.png";
 // *** This is the root / landing page ! ***
 export default function rootPage() {
   const router = useRouter();
 
+  const fakeUser = {
+    workplace: "Rango Satellite Office",
+    image: userImage1,
+    createdAt: "2025-02-13T10:32:37.655Z",
+    email: "bingobongomongo@outlook.com",
+    id: "298e1488-0031-709e-2e92-81344e476912",
+    name: "Sunny",
+    position: "Co-Founder",
+  };
+
+  const fakeUser2 = {
+    workplace: "Rango HQ",
+    image: mitchPitching,
+    createdAt: "2025-02-13T10:32:37.655Z",
+    email: "bingobongomongo@outlook.com",
+    id: "298e1488-0031-709e-2e92-81344e476912",
+    name: "Mitch",
+    position: "Co-Founder",
+  };
+
+  const fakeUser3 = {
+    workplace: "The Hive",
+    image: beeDP,
+    createdAt: "2025-02-13T10:32:37.655Z",
+    email: "bingobongomongo@outlook.com",
+    id: "298e1488-0031-709e-2e92-81344e476912",
+    name: "Bob the Bee",
+    position: "Worker",
+  };
+
   const fakeTestimony: Testimonial = {
     id: "null",
     authorId: "null",
-    authorName: "Sandro Saran",
     subjectUserId: "null",
-    subjectUserName: "Mitch Clark",
     message:
       "Mitch Clark has got the sauce, day in day out producing bangers and procuring swag. Straight steeze.",
-    authorPostion: "CEO and Founder",
-    authorConnection: "Colleague",
-    authorWorkplace: "Champ Stamps R Us",
   };
 
   const fakeTestimony2: Testimonial = {
     id: "null",
     authorId: "null",
-    authorName: "Mitch Clark",
     subjectUserId: "null",
-    subjectUserName: "Sandro Saran",
     message:
       "Sandro Saran is a man of many talents. He can write you a song, code you a Java masterpiece, cut your hair or climb your boulders. Dedicated team player.",
-    authorPostion: "CEO and Co-Founder",
-    authorConnection: "Mentor",
-    authorWorkplace: "RefCard",
   };
 
   const fakeTestimony3: Testimonial = {
     id: "null",
     authorId: "null",
-    authorName: "Santa Claus",
     subjectUserId: "null",
-    subjectUserName: "Rudolph the Red-Nosed Reindeer",
     message:
-      "Rudolph glows brighter than my North Pole power bill. He isn’t just a reindeer — he’s the GPS, the hype man, and the MVP of Christmas Eve. 10/10 would ride into a blizzard with again.",
-    authorPostion: "Chief Gift Officer",
-    authorConnection: "Team Lead",
-    authorWorkplace: "North Pole Inc.",
+      "I worked with Bill for 3 whole days, last week. He get's the polen, he makes the honey, and he can bring the sting. Great Guy.",
   };
 
   async function handleClick() {
@@ -95,9 +112,9 @@ export default function rootPage() {
         </div>
 
         <div className="relative grid grid-cols-3 justify-items-center gap-24 px-24 py-6">
-          <TestimonialCard testimonial={fakeTestimony} />
-          <TestimonialCard testimonial={fakeTestimony2} />
-          <TestimonialCard testimonial={fakeTestimony3} />
+          <TestimonialCard testimonial={fakeTestimony} fakeUser={fakeUser} />
+          <TestimonialCard testimonial={fakeTestimony2} fakeUser={fakeUser2} />
+          <TestimonialCard testimonial={fakeTestimony3} fakeUser={fakeUser3} />
         </div>
       </div>
 

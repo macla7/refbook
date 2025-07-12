@@ -12,8 +12,10 @@ import { useRouter } from "next/navigation";
 import { Default } from "@aws-amplify/ui-react/dist/types/primitives/DropZone/DropZoneChildren";
 export default function TestimonialCard({
   testimonial,
+  fakeUser,
 }: {
   testimonial: Testimonial;
+  fakeUser?: User;
 }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [authorUser, setAuthorUser] = useState<User | any>(userDefault);
@@ -25,16 +27,20 @@ export default function TestimonialCard({
     setIsOpen(true);
   }
 
-  useEffect(() => {
-    async function getAuthorUser() {
-      try {
-        setAuthorUser(await getUser(testimonial.authorId));
-      } catch (error) {
-        console.log("Could not get author user:", error);
-      }
+  async function getAuthorUser() {
+    try {
+      setAuthorUser(await getUser(testimonial.authorId));
+    } catch (error) {
+      console.log("Could not get author user:", error);
     }
+  }
 
-    getAuthorUser();
+  useEffect(() => {
+    if (fakeUser === undefined) {
+      getAuthorUser();
+    } else {
+      setAuthorUser(fakeUser);
+    }
   }, [router]); // Run once on mount
 
   return (
