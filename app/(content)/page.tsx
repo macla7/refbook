@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import TestimonialCard from "./components/testimonialCard";
 import { Testimonial } from "app/types/testimonial";
 import Image from "next/image";
-import background from "assets/iStock-2163734002-2.svg";
+import background from "assets/rangobg3.svg";
 import logo from "assets/rango3.svg";
 import { getCurrentUser } from "aws-amplify/auth";
 import userImage1 from "assets/default-image-1.jpeg";
@@ -22,6 +22,7 @@ export default function rootPage() {
     id: "298e1488-0031-709e-2e92-81344e476912",
     name: "Sunny",
     position: "Co-Founder",
+    bio: "hi",
   };
 
   const fakeUser2 = {
@@ -32,6 +33,7 @@ export default function rootPage() {
     id: "298e1488-0031-709e-2e92-81344e476912",
     name: "Mitch",
     position: "Co-Founder",
+    bio: "hi",
   };
 
   const fakeUser3 = {
@@ -42,6 +44,7 @@ export default function rootPage() {
     id: "298e1488-0031-709e-2e92-81344e476912",
     name: "Bob the Bee",
     position: "Worker",
+    bio: "hi",
   };
 
   const fakeTestimony: Testimonial = {

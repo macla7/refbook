@@ -6,7 +6,7 @@ import { userDefault } from "app/defaults/user";
 import { getUser } from "app/api/users";
 import { TestimonialsList } from "app/(content)/components/testimonialsList";
 import { Sidebar } from "app/(content)/components/sidebar";
-import background from "assets/iStock-2163734002-2.svg";
+import background from "assets/rangobg4.svg";
 import Image from "next/image";
 
 export default function Page({ params }: { params: { id: string } }) {
@@ -24,7 +24,7 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <div className="grid grid-cols-4 gap-1 grow mx-0 ">
       <div className="col-span-3 justify-items-center rounded-sm bg-white relative">
-        {/* <Image
+        <Image
           alt="Mountains"
           src={background}
           quality={100}
@@ -33,9 +33,8 @@ export default function Page({ params }: { params: { id: string } }) {
             margin: 0,
             objectFit: "cover",
             padding: "0",
-            filter: "brightness(40%) sepia(100%) saturate(300%) contrast(200%)",
           }}
-        /> */}
+        />
 
         <TestimonialsList subjectUserId={userId} />
       </div>

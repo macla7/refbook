@@ -69,7 +69,7 @@ export default async function RootLayout({
       <body className="antialiased flex h-dvh ">
         <SearchProvider>
           <div className="grid grid-cols-4 grid-rows-[70px_1fr] grow">
-            <nav className="col-span-4 h-full bg-ourCream border-1 border-solid border-gray-200">
+            <nav className="col-span-4 h-full bg-white border-1 border-solid border-gray-200">
               <Navbar />
             </nav>
 
