@@ -74,6 +74,7 @@ export default function Page({ params }: { params: { id: string } }) {
     await patchUser(session, userId, userParams);
     clearFields();
     checkUser();
+    router.push(`/users/${userId}/profile`);
   }
 
   function clearFields() {
@@ -227,7 +228,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
-            className="rounded-sm bg-ourGold px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-sm bg-ourGold px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-egBlue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             type="button"
             onClick={handleClick}
           >
