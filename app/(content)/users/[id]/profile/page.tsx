@@ -6,6 +6,8 @@ import { userDefault } from "app/defaults/user";
 import { getUser } from "app/api/users";
 import { TestimonialsList } from "app/(content)/components/testimonialsList";
 import { Sidebar } from "app/(content)/components/sidebar";
+import background from "assets/iStock-2163734002-2.svg";
+import Image from "next/image";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
@@ -21,7 +23,20 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return (
     <div className="grid grid-cols-4 gap-1 grow mx-0 ">
-      <div className="col-span-3 justify-items-center rounded-sm bg-white">
+      <div className="col-span-3 justify-items-center rounded-sm bg-ourBrown relative">
+        <Image
+          alt="Mountains"
+          src={background}
+          quality={100}
+          fill
+          style={{
+            margin: 0,
+            objectFit: "cover",
+            padding: "0",
+            filter: "brightness(50%) sepia(100%) saturate(150%)",
+          }}
+        />
+
         <TestimonialsList subjectUserId={userId} />
       </div>
 

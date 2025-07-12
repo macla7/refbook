@@ -19,7 +19,7 @@ export function TestimonialsList(params: { subjectUserId: string }) {
   }
 
   return (
-    <ul className="grid lg:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] md:grid-cols-1 gap-10 p-20 w-full">
+    <ul className="relative grid lg:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] md:grid-cols-1 gap-10 p-20 w-full">
       {testimonials.map((testimonial) => (
         <li key={testimonial.id} className="flex justify-center items-center ">
           <TestimonialCard testimonial={testimonial} />
