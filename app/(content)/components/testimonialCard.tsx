@@ -51,14 +51,14 @@ export default function TestimonialCard({
         className="flex flex-col md:flex-row items-center border bg-white border-gray-100 rounded-sm hover:bg-gray-100 lg:h-[200px] lg:w-[400px] overflow-hidden shadow-lg"
       >
         {/* SVG Container - 1/3 width */}
-        <div className="flex-[1] flex flex-col items-center justify-center p-2 w-full">
+        <div className="flex-[1] flex flex-col items-center justify-center w-full h-full bg-our-nav">
           <div className="w-20 h-20">
             <DP user={authorUser} />
           </div>
-          <p className="text-xs font-medium text-gray-700 w-full text-center">
+          <p className="text-xs font-medium text-ourBrown w-full text-center">
             {authorUser.name},
           </p>
-          <p className="text-xs font-medium text-gray-700 w-full text-center">
+          <p className="text-xs font-medium text-ourBrown w-full text-center">
             {authorUser.position} at {authorUser.workplace}
           </p>
           {/* <a
@@ -81,7 +81,7 @@ export default function TestimonialCard({
 
         {/* Text Container - 2/3 width */}
         <div className="flex-[2] flex flex-col justify-between p-2 leading-normal w-full">
-          <p className="text-xs text-gray-700 dark:text-gray-400 line-clamp-10">
+          <p className="text-xs text-black dark:text-gray-400 line-clamp-10">
             {testimonial.message}
           </p>
         </div>
@@ -139,7 +139,7 @@ export default function TestimonialCard({
                   </Link>
                 </p>
 
-                <p className="text-xs font-medium text-gray-700 w-full text-center">
+                <p className="text-xs font-medium text-ourBrown w-full text-center">
                   {authorUser.position} at {authorUser.workplace}
                 </p>
                 {/* <div className="flex items-center p-4 md:p-5">
@@ -151,7 +151,7 @@ export default function TestimonialCard({
                 </button>
               </div> */}
               </div>
-              <p className=" flex-[2] flex flex-col justify-between p-2 leading-normal w-full text-sm text-gray-700 dark:text-gray-400">
+              <p className=" flex-[2] flex flex-col justify-between p-2 leading-normal w-full text-sm text-black dark:text-gray-400">
                 {testimonial.message}
               </p>
             </div>

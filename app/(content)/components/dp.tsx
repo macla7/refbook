@@ -30,7 +30,7 @@ export function DP({ user }: DPProps) {
             className="w-full h-full align-center object-cover rounded-full"
           />
         ) : (
-          <span className="text-3xl font-semibold text-gray-700">
+          <span className="text-3xl font-semibold text-ourBrown">
             {initials}
           </span>
         )}
