@@ -7,7 +7,7 @@ import Image from "next/image";
 import background from "assets/rangobg3.svg";
 import logo from "assets/rango3.svg";
 import { getCurrentUser } from "aws-amplify/auth";
-import userImage1 from "assets/default-image-1.jpeg";
+import sunny from "assets/sunny.jpeg";
 import mitchPitching from "assets/mitch-pitching.jpg";
 import beeDP from "assets/bee-dp.png";
 // *** This is the root / landing page ! ***
@@ -16,8 +16,8 @@ export default function rootPage() {
 
   const fakeUser = {
     workplace: "Rango Satellite Office",
-    image: userImage1,
-    createdAt: "2025-02-13T10:32:37.655Z",
+    image: sunny,
+    createdAt: new Date("2025-02-13T10:32:37.655Z"),
     email: "bingobongomongo@outlook.com",
     id: "298e1488-0031-709e-2e92-81344e476912",
     name: "Sunny",
@@ -28,7 +28,7 @@ export default function rootPage() {
   const fakeUser2 = {
     workplace: "Rango HQ",
     image: mitchPitching,
-    createdAt: "2025-02-13T10:32:37.655Z",
+    createdAt: new Date("2025-02-13T10:32:37.655Z"),
     email: "bingobongomongo@outlook.com",
     id: "298e1488-0031-709e-2e92-81344e476912",
     name: "Mitch",
@@ -39,7 +39,7 @@ export default function rootPage() {
   const fakeUser3 = {
     workplace: "The Hive",
     image: beeDP,
-    createdAt: "2025-02-13T10:32:37.655Z",
+    createdAt: new Date("2025-02-13T10:32:37.655Z"),
     email: "bingobongomongo@outlook.com",
     id: "298e1488-0031-709e-2e92-81344e476912",
     name: "Bob the Bee",
@@ -84,7 +84,7 @@ export default function rootPage() {
     <div className="bg-ourCream">
       <div className="w-screen relative h-[600px]">
         <Image
-          alt="Mountains"
+          alt="Gold yellow background"
           src={background}
           quality={100}
           fill
@@ -122,7 +122,7 @@ export default function rootPage() {
       </div>
 
       <div className="relative flex justify-center pt-12 text-center items-center">
-        <div className="p-6">
+        <div className="p-6"> 
           <p className="text-5xl text-ourBrown font-bold">
             Wrangling with References?
           </p>
@@ -130,7 +130,7 @@ export default function rootPage() {
 
         <button
           onClick={handleClick}
-          className="cursor-pointer rounded-full bg-purple-500 mx-24 px-12 text-lg font-semibold transition h-16"
+          className="cursor-pointer rounded-full bg-ourPurple mx-24 px-12 text-lg font-semibold transition h-16"
         >
           <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
             Get started
