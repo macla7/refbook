@@ -122,7 +122,7 @@ export default function rootPage() {
       </div>
 
       <div className="relative flex justify-center pt-12 text-center items-center">
-        <div className="p-6"> 
+        <div className="p-6">
           <p className="text-5xl text-ourBrown font-bold">
             Wrangling with References?
           </p>
@@ -130,11 +130,7 @@ export default function rootPage() {
 
         <button
           onClick={handleClick}
-<<<<<<< HEAD
-          className="cursor-pointer rounded-full bg-purple-900  mx-24 px-12 text-lg font-semibold transition h-16"
-=======
           className="cursor-pointer rounded-full bg-ourPurple mx-24 px-12 text-lg font-semibold transition h-16"
->>>>>>> dac9e0065ded6d1d773c561c3226fbb7da3dfe1a
         >
           <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
             Get started
