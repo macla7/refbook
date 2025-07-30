@@ -51,7 +51,7 @@ export function UsersList() {
 
   return (
     <div>
-      <ul className="flex flex-col items-center justify-center w-full divide-y-1 divide-solid divide-ourGold">
+      <ul className="flex flex-col items-center justify-center w-full divide-y-1 divide-solid divide-ourCream">
         {users.map((user) => (
           <li
             key={user.id}

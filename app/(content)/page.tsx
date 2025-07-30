@@ -130,7 +130,7 @@ export default function rootPage() {
 
         <button
           onClick={handleClick}
-          className="cursor-pointer rounded-full bg-purple-500 mx-24 px-12 text-lg font-semibold transition h-16"
+          className="cursor-pointer rounded-full bg-purple-900  mx-24 px-12 text-lg font-semibold transition h-16"
         >
           <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
             Get started

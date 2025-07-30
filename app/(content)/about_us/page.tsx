@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import background from "assets/iStock-2163734002-2.svg";
+import background from "assets/rangobg3.svg";
 import { getCurrentUser } from "aws-amplify/auth";
 import mitch from "assets/mitch-pitching.jpg";
 import sunny from "assets/default-image-1.jpeg";
