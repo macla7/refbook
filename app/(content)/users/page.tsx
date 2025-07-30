@@ -6,11 +6,7 @@ import { getCurrentUser } from "aws-amplify/auth";
 import { UsersList } from "../components/usersList";
 import { AuthUser } from "aws-amplify/auth";
 import Image from "next/image";
-<<<<<<< HEAD
-import background from "assets/rangobg4.svg";
-=======
 import background from "assets/rangobg3.svg";
->>>>>>> dac9e0065ded6d1d773c561c3226fbb7da3dfe1a
 import { userDefault } from "app/defaults/user";
 import { User } from "app/types";
 
