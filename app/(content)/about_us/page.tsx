@@ -5,7 +5,7 @@ import Image from "next/image";
 import background from "assets/rangobg3.svg";
 import { getCurrentUser } from "aws-amplify/auth";
 import mitch from "assets/mitch-pitching.jpg";
-import sunny from "assets/default-image-1.jpeg";
+import sunny from "assets/sunny.jpeg";
 
 export default function rootPage() {
   const router = useRouter();

@@ -41,7 +41,7 @@ export function Sidebar({ user }: { user: User }) {
       {loggedInUser?.userId !== user.id && (
         <Link
           href={`/users/${user.id}/createTestimonial`}
-          className="cursor-pointer rounded-full bg-purple-500 px-6 my-2 text-lg font-semibold transition h-12 flex items-center justify-center "
+          className="cursor-pointer rounded-full bg-ourPurple px-6 my-2 text-lg font-semibold transition h-12 flex items-center justify-center "
         >
           <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
             Make Testimonial
