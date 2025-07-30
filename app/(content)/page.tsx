@@ -10,6 +10,7 @@ import { getCurrentUser } from "aws-amplify/auth";
 import sunny from "assets/sunny.jpeg";
 import mitchPitching from "assets/mitch-pitching.jpg";
 import beeDP from "assets/bee-dp.png";
+import arrow from "assets/noun-right-drawn-arrow-250490-test-cropped.svg";
 // *** This is the root / landing page ! ***
 export default function rootPage() {
   const router = useRouter();
@@ -82,7 +83,7 @@ export default function rootPage() {
 
   return (
     <div className="bg-ourCream">
-      <div className="w-screen relative h-[600px]">
+      <div className="w-screen relative h-[800px]">
         <Image
           alt="Gold yellow background"
           src={background}
@@ -94,48 +95,103 @@ export default function rootPage() {
             padding: "0",
           }}
         />
-        {/* <div className="flex flex-col w-screen h-screen justify-top p-24 bg-[conic-gradient(from_90deg,_var(--color-ourGold2),_var(--color-ourGold))]"> */}
-        <div className="relative flex justify-center pt-12 pb-6 text-center">
-          <div className="bg-ourCream p-6 rounded-sm shadow-lg border-1 border-solid border-gray-300">
-            <p className="text-7xl text-ourBrown font-semibold mb-4">
-              Say nice things
-            </p>
+        <div className="relative px-6 pt-12">
+          <div className="grid gap-4">
+            {/* Row 1 */}
+            <div className="grid grid-cols-[500px_1fr] gap-12">
+              <div className="relative flex justify-center items-end h-full">
+                <div className="bg-ourCream p-4 rounded-lg shadow-lg text-lg text-ourBrown font-semibold ">
+                  <p>Intead of your references</p>
+                  <ul className="list-disc list-inside">
+                    <li>not helping you get that next job</li>
+                    <li>only being looked at as a final check</li>
+                  </ul>
+                </div>
+              </div>
+              <div className=" p-4">
+                <p className="text-8xl text-ourBrown font-semibold mb-4 text-right">
+                  Let employers hear your
+                </p>
+                <p className="text-8xl text-ourBrown font-semibold mb-4 text-right">
+                  coworkers' praise
+                </p>
 
-            <span className="text-3xl text-ourBrown font-bold">
-              About coworkers, teammates and friends
-            </span>
+                <p className="text-5xl text-ourBrown font-bold text-right">
+                  from the start
+                </p>
+              </div>
+            </div>
 
-            <div className="relative flex justify-center text-center items-center mt-2">
-              <span className="text-3xl text-ourBrown font-bold">with</span>
-              <div className="px-4 mt-2">
-                <Image src={logo} alt="Default Profile" width={200} />
+            {/* Row 2 */}
+            <div className="grid grid-cols-3 gap-4">
+              <div className="p-4">
+                <div className="relative flex justify-end ">
+                  <div className="px-4 mt-2">
+                    <Image src={arrow} alt="Default Profile" width={200} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative flex justify-start items-end h-full">
+                <div className="bg-ourCream p-4 rounded-lg shadow-lg text-lg text-ourBrown font-semibold">
+                  <p>You can put your refenernces in the spotlight</p>
+                  <ul className="list-disc list-inside">
+                    <li>
+                      where your coworkers can explain why you're the best
+                    </li>
+                    <li>so you can get that amazing next job!</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="p-4">
+                <div className="relative flex justify-end items-end h-full">
+                  <button
+                    onClick={handleClick}
+                    className="cursor-pointer rounded-full bg-ourPurple px-12 text-lg font-semibold transition h-16"
+                  >
+                    <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
+                      Get started
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="relative grid grid-cols-3 justify-items-center gap-24 px-24 py-6">
-          <TestimonialCard testimonial={fakeTestimony} fakeUser={fakeUser} />
-          <TestimonialCard testimonial={fakeTestimony2} fakeUser={fakeUser2} />
-          <TestimonialCard testimonial={fakeTestimony3} fakeUser={fakeUser3} />
+        {/* <div className="relative flex justify-end pt-12 pb-6 text-right">
+          <div className="p-6 ">
+            <p className="text-8xl text-ourBrown font-semibold mb-4">
+              Let employers hear your
+            </p>
+            <p className="text-8xl text-ourBrown font-semibold mb-4">
+              coworkers' praise
+            </p>
+
+            <span className="text-5xl text-ourBrown font-bold">
+              from the start
+            </span>
+
+
+          </div>
         </div>
+
+         */}
+      </div>
+
+      <div className="relative grid grid-cols-3 justify-items-center gap-24 px-24 pt-16">
+        <TestimonialCard testimonial={fakeTestimony} fakeUser={fakeUser} />
+        <TestimonialCard testimonial={fakeTestimony3} fakeUser={fakeUser3} />
+        <TestimonialCard testimonial={fakeTestimony2} fakeUser={fakeUser2} />
       </div>
 
       <div className="relative flex justify-center pt-12 text-center items-center">
         <div className="p-6">
           <p className="text-5xl text-ourBrown font-bold">
-            Wrangling with References?
+            Take the paperwork out of the references
           </p>
         </div>
-
-        <button
-          onClick={handleClick}
-          className="cursor-pointer rounded-full bg-ourPurple mx-24 px-12 text-lg font-semibold transition h-16"
-        >
-          <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
-            Get started
-          </span>
-        </button>
       </div>
 
       <div className="relative grid grid-cols-3 gap-24 px-24 pt-12 pb-6">

@@ -18,10 +18,10 @@ export default function UserCard({ user }: { user: User }) {
 
         <div className="flex flex-row p-2 leading-normal h-full gap-10 items-center">
           <div>
-            <p className="text-xs font-medium text-gray-700 w-full text-center">
+            <p className="text-xs font-medium text-gray-700 w-64 ">
               {user.name}
             </p>
-            <p className="text-xs font-medium text-gray-700 w-full text-center">
+            <p className="text-xs font-medium text-gray-700 w-64 ">
               {user.position} at {user.workplace}
             </p>
           </div>
