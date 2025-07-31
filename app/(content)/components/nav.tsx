@@ -97,13 +97,13 @@ export function Navbar() {
           <div className="relative w-xs">
             <input
               type="search"
-              className="p-2 w-full bg-ourCream border-1 border-solid border-gray-200 text-sm text-gray-900 rounded-sm focus:outline-none focus:ring-2 focus:ring-ourBrown"
+              className="p-2 w-full border-1 border-solid border-gray-200 text-sm text-gray-900 rounded-sm focus:outline-none focus:ring-2 focus:ring-ourBrown"
               placeholder="Search people"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
             <Link
-              className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-ourBrown bg-ourCream rounded-e-sm border-1 border-solid border-gray-200"
+              className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-ourBrown  rounded-e-sm border-1 border-solid border-gray-200"
               key={"/users"}
               href={"/users"}
             >

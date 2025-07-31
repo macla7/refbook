@@ -10,7 +10,7 @@ import { getCurrentUser } from "aws-amplify/auth";
 import sunny from "assets/sunny.jpeg";
 import mitchPitching from "assets/mitch-pitching.jpg";
 import beeDP from "assets/bee-dp.png";
-import arrow from "assets/noun-right-drawn-arrow-250490-test-cropped.svg";
+import arrow from "assets/brown arrow.svg";
 // *** This is the root / landing page ! ***
 export default function rootPage() {
   const router = useRouter();
@@ -83,7 +83,7 @@ export default function rootPage() {
 
   return (
     <div className="bg-ourCream">
-      <div className="w-screen relative h-[800px]">
+      <div className="w-screen relative h-[700px]">
         <Image
           alt="Gold yellow background"
           src={background}
@@ -96,11 +96,11 @@ export default function rootPage() {
           }}
         />
         <div className="relative px-6 pt-12">
-          <div className="grid gap-4">
+          <div className="grid gap-x-4">
             {/* Row 1 */}
-            <div className="grid grid-cols-[500px_1fr] gap-12">
-              <div className="relative flex justify-center items-end h-full">
-                <div className="bg-ourCream p-4 rounded-lg shadow-lg text-lg text-ourBrown font-semibold ">
+            <div className="grid grid-cols-[500px_1fr] gap-12 ">
+              <div className="relative flex justify-center items-center h-full ">
+                <div className="bg-ourCream p-4 rounded-lg shadow-2xl text-lg text-ourBrown font-semibold ">
                   <p>Intead of your references</p>
                   <ul className="list-disc list-inside">
                     <li>not helping you get that next job</li>
@@ -108,32 +108,28 @@ export default function rootPage() {
                   </ul>
                 </div>
               </div>
-              <div className=" p-4">
+              <div className="p-4">
                 <p className="text-8xl text-ourBrown font-semibold mb-4 text-right">
                   Let employers hear your
                 </p>
                 <p className="text-8xl text-ourBrown font-semibold mb-4 text-right">
                   coworkers' praise
                 </p>
-
-                <p className="text-5xl text-ourBrown font-bold text-right">
-                  from the start
-                </p>
               </div>
             </div>
 
             {/* Row 2 */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="p-4">
+            <div className="grid grid-cols-3 gap-4 ">
+              <div className="">
                 <div className="relative flex justify-end ">
-                  <div className="px-4 mt-2">
+                  <div className="px-4 -mt-10">
                     <Image src={arrow} alt="Default Profile" width={200} />
                   </div>
                 </div>
               </div>
 
-              <div className="relative flex justify-start items-end h-full">
-                <div className="bg-ourCream p-4 rounded-lg shadow-lg text-lg text-ourBrown font-semibold">
+              <div className="relative flex justify-start items-end h-full ">
+                <div className="bg-ourCream p-4 rounded-lg shadow-2xl text-lg text-ourBrown font-semibold">
                   <p>You can put your refenernces in the spotlight</p>
                   <ul className="list-disc list-inside">
                     <li>
@@ -145,7 +141,7 @@ export default function rootPage() {
               </div>
 
               <div className="p-4">
-                <div className="relative flex justify-end items-end h-full">
+                <div className="relative flex justify-center items-end h-full">
                   <button
                     onClick={handleClick}
                     className="cursor-pointer rounded-full bg-ourPurple px-12 text-lg font-semibold transition h-16"

@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export interface User {
   id: string;
   email: string;
@@ -6,5 +8,5 @@ export interface User {
   position: string;
   workplace: string;
   bio: string;
-  image: string | null;
+  image: string | StaticImageData;
 }

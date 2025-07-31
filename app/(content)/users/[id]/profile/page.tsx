@@ -22,7 +22,7 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="grid grid-cols-4 gap-1 grow mx-0 ">
+    <div className="grid grid-cols-4 grow mx-0 ">
       <div className="col-span-3 justify-items-center rounded-sm bg-white relative">
         <Image
           alt="Mountains"
@@ -39,7 +39,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <TestimonialsList subjectUserId={userId} />
       </div>
 
-      <div className="col-span-1 bg-our-sidebar rounded-sm">
+      <div className="col-span-1 bg-our-sidebar rounded-sm border-l-1 border-solid border-gray-200">
         <Sidebar user={user} />
       </div>
     </div>
