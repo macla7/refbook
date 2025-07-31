@@ -17,6 +17,7 @@ export function UserForm(params: { id: string }) {
       position: position,
       workplace: workplace,
       name: userName,
+      bio: "No Bio available",
     };
 
     console.log("bingo");

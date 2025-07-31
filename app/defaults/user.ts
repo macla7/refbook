@@ -8,5 +8,5 @@ export const userDefault: User = {
   position: "default position",
   workplace: "default workplace",
   bio: "default bio",
-  image: null,
+  image: "",
 };
