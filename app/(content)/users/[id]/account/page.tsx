@@ -6,6 +6,7 @@ import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
 import { getUser, patchUser, uploadProfileImage } from "app/api/users";
 import { useRouter } from "next/navigation";
+import { DP } from "app/(content)/components/dp";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
@@ -48,6 +49,7 @@ export default function Page({ params }: { params: { id: string } }) {
     setPosition(user.position);
     setWorkplace(user.workplace);
     setBio(user.bio);
+    setImageUrl(user.image as string);
   }
 
   async function handleClick() {
@@ -60,7 +62,6 @@ export default function Page({ params }: { params: { id: string } }) {
     }
 
     let userParams: any = {
-      ...params,
       name,
       workplace,
       position,
@@ -104,6 +105,49 @@ export default function Page({ params }: { params: { id: string } }) {
               This information will be displayed publicly so be careful what you
               share.
             </p>
+
+            <div className="mt-8 w-64 h-64 rounded-full overflow-hidden border-transparent">
+              <DP user={{ name: "placeholder", image: imageUrl }} />
+            </div>
+
+            <div className="col-span-full">
+              <label className="block text-sm/6 font-medium text-gray-900">
+                Profile Picture
+              </label>
+
+              <div className="mt-2">
+                <label
+                  htmlFor="file-upload"
+                  className="cursor-pointer rounded-md bg-ourPurple px-4 py-2 text-white text-sm font-medium hover:bg-indigo-700 transition"
+                >
+                  Upload Image
+                </label>
+
+                <input
+                  id="file-upload"
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    if (e.target.files?.[0]) {
+                      const file = e.target.files[0];
+                      setSelectedFile(file);
+                      setImageUrl(URL.createObjectURL(file)); // ✅ instantly shows preview
+                    }
+                  }}
+                />
+
+                {selectedFile && (
+                  <p className="mt-2 text-sm text-gray-700">
+                    Selected: {selectedFile.name}
+                  </p>
+                )}
+              </div>
+
+              <p className="mt-3 text-sm/6 text-gray-600">
+                Profile pictures help people recognise you
+              </p>
+            </div>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-full">
@@ -203,25 +247,6 @@ export default function Page({ params }: { params: { id: string } }) {
                   Tell the world a bit about yourself.
                 </p>
               </div>
-            </div>
-
-            <div className="col-span-full">
-              <label className="block text-sm/6 font-medium text-gray-900">
-                Profile Image
-              </label>
-              <input
-                type="file"
-                accept="image/*"
-                className="mt-2 block w-full text-sm text-gray-900"
-                onChange={(e) => {
-                  if (e.target.files?.[0]) {
-                    setSelectedFile(e.target.files[0]);
-                  }
-                }}
-              />
-              <p className="mt-3 text-sm/6 text-gray-600">
-                Upload a new profile picture.
-              </p>
             </div>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import { User } from "app/types";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type DPProps = {
-  user: User;
+  user: { name: string; image: string | StaticImageData | null };
 };
 
 export function DP({ user }: DPProps) {
