@@ -89,7 +89,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return user.id !== "unknown" ? (
     <div className="w-full ">
-      <div className="col-span-3 justify-items-center rounded-sm bg-white relative p-12">
+      <div className="col-span-3 justify-items-center rounded-sm bg-white relative h-full p-12">
         <Image
           alt="Mountains"
           src={background}
@@ -102,7 +102,7 @@ export default function Page({ params }: { params: { id: string } }) {
           }}
         />
 
-        <form className="relative space-y-2 bg-white w-3xl rounded-sm border border-gray-900/10">
+        <form className="relative space-y-2 bg-white w-3xl rounded-sm border border-gray-900/10 ">
           <div className="p-12">
             <h2 className="text-base/7 font-semibold text-gray-900">
               User Details

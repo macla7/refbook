@@ -51,11 +51,11 @@ export function UsersList() {
 
   return (
     <div>
-      <ul className="flex flex-col items-center justify-center w-full divide-y-1 divide-solid divide-ourCream">
+      <ul className="flex flex-col items-center justify-center w-full space-y-2">
         {users.map((user) => (
           <li
             key={user.id}
-            className="w-1/2 flex flex-col-3 p-2 bg-white md:flex-row hover:bg-ourCream"
+            className="w-1/2 p-2 bg-white md:flex-row hover:bg-ourCream rounded-md bg-ourPurple"
           >
             <div className="">
               <Link href={`/users/${user.id}/profile`}>

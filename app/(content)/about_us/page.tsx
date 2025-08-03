@@ -34,26 +34,26 @@ export default function rootPage() {
           }}
         />
         <div className="relative flex justify-center pt-12 pb-6 ">
-          <div className="bg-ourCream p-6 rounded-sm shadow-lg border-1 border-solid border-gray-300 w-full m-12">
-            <p className="text-6xl text-ourBrown font-bold mb-4">
+          <div className="w-full m-12">
+            <p className="text-8xl text-ourBrown font-bold mb-4">
               Mission Statement
             </p>
-            <p className="text-4xl text-ourBrown font-semibold mb-4">
-              To enocurage people to say nice things about each other
+            <p className="text-6xl text-ourBrown font-semibold mb-4">
+              To help people showcase their amazing references
             </p>
           </div>
 
-          <div className="bg-ourCream p-6 rounded-sm shadow-lg border-1 border-solid border-gray-300 w-full m-12">
-            <p className="text-3xl text-ourBrown font-bold mb-4">
+          <div className="bg-ourCream p-6 rounded-lg shadow-lg border-1 border-solid border-gray-300 w-full m-12">
+            <p className="text-4xl text-ourBrown font-bold mb-4">
               Founding Story
             </p>
             <p className="text-lg text-ourBrown font-bold mb-4">
-              We started out just wanting to learn more about Software
-              Engineering whilst also making a positive impact.
+              We started out simply seeking to learn more about Software
+              Engineering whilst also trying to make a positive impact.
             </p>
             <p className="text-lg text-ourBrown font-bold mb-4">
               Our brain child? Rango. A platform that encourages coworkers,
-              teammates and friends to say nice things about each other.
+              teammates and friends to sing each other's praises.
             </p>
 
             <p className="text-lg text-ourBrown font-bold mb-4">
@@ -64,7 +64,7 @@ export default function rootPage() {
         </div>
       </div>
 
-      <div className="relative flex justify-center pt-6 text-center items-center">
+      <div className="relative flex justify-center pt-6 text-left items-center px-24">
         <div className="p-6">
           <p className="text-4xl text-ourBrown font-semibold">Meet the Team</p>
         </div>
@@ -72,30 +72,32 @@ export default function rootPage() {
 
       <div className="relative grid grid-cols-2 gap-24 px-24 pt-4 pb-6">
         <div className="w-full">
-          <div className="p-6 rounded-sm shadow-lg border border-solid border-gray-100 max-w-[750px] mx-auto">
-            <p className="text-3xl text-ourBrown font-semibold mb-6 text-center">
-              Sunny
-            </p>
+          <div className="max-w-[750px] mx-auto">
             <Image
               src={sunny}
               alt={"Sunny"}
-              className="object-cover"
+              className="object-cover rounded-md"
               style={{ height: "500px", width: "100%" }}
             />
+
+            <p className="text-3xl text-ourBrown font-semibold mt-4 text-left">
+              Sunny
+            </p>
           </div>
         </div>
 
         <div className="w-full">
-          <div className="p-6 rounded-sm shadow-lg border border-solid border-gray-100 max-w-[750px] mx-auto">
-            <p className="text-3xl text-ourBrown font-semibold mb-6 text-center">
-              Mitch
-            </p>
+          <div className="max-w-[750px] mx-auto">
             <Image
               src={mitch}
               alt={"Mitch"}
-              className="object-cover"
+              className="object-cover rounded-md"
               style={{ height: "500px", width: "100%" }}
             />
+
+            <p className="text-3xl text-ourBrown font-semibold mt-4 text-left">
+              Mitch
+            </p>
           </div>
         </div>
       </div>
