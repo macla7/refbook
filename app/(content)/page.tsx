@@ -98,59 +98,41 @@ export default function rootPage() {
         <div className="relative px-6 pt-12">
           <div className="grid gap-x-4">
             {/* Row 1 */}
-            <div className="grid grid-cols-[500px_1fr] gap-12 ">
-              <div className="relative flex justify-center items-center h-full ">
-                <div className="bg-ourCream p-4 rounded-lg shadow-2xl text-lg text-ourBrown font-semibold ">
-                  <p>Intead of your references</p>
-                  <ul className="list-disc list-inside">
-                    <li>not helping you get that next job</li>
-                    <li>only being looked at as a final check</li>
-                  </ul>
-                </div>
-              </div>
+            <div className="grid grid-cols-[1fr] gap-12 ">
               <div className="p-4">
-                <p className="text-8xl text-ourBrown font-semibold mb-4 text-right">
+                <p className="text-9xl text-ourBrown font-semibold my-4 text-center">
                   Let employers hear your
                 </p>
-                <p className="text-8xl text-ourBrown font-semibold mb-4 text-right">
+                <p className="text-9xl text-ourBrown font-semibold mb-4 text-center">
                   coworkers' praise
                 </p>
               </div>
             </div>
 
             {/* Row 2 */}
-            <div className="grid grid-cols-3 gap-4 ">
-              <div className="">
-                <div className="relative flex justify-end ">
-                  <div className="px-4 -mt-10">
-                    <Image src={arrow} alt="Default Profile" width={200} />
-                  </div>
+            <div className="grid grid-cols-1 gap-4 ">
+              <div className="relative flex justify-center items-end h-full ">
+                <div className="p-4 rounded-lg text-5xl text-ourBrown font-semibold">
+                  <p className="text-center">
+                    Put your refenernces in the spotlight where your
+                  </p>
+                  <p className="text-center">
+                    coworkers can explain why you're the best
+                  </p>
                 </div>
               </div>
+            </div>
 
-              <div className="relative flex justify-start items-end h-full ">
-                <div className="bg-ourCream p-4 rounded-lg shadow-2xl text-lg text-ourBrown font-semibold">
-                  <p>You can put your refenernces in the spotlight</p>
-                  <ul className="list-disc list-inside">
-                    <li>
-                      where your coworkers can explain why you're the best
-                    </li>
-                    <li>so you can get that amazing next job!</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="p-4">
-                <div className="relative flex justify-center items-end h-full">
-                  <button
-                    onClick={handleClick}
-                    className="cursor-pointer rounded-full bg-ourPurple px-12 text-lg font-semibold transition h-16"
-                  >
-                    <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
-                      Get started
-                    </span>
-                  </button>
-                </div>
+            <div className="p-4">
+              <div className="relative flex justify-center items-end h-full">
+                <button
+                  onClick={handleClick}
+                  className="cursor-pointer rounded-full bg-ourPurple px-12 text-lg font-semibold transition h-16"
+                >
+                  <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
+                    Get started
+                  </span>
+                </button>
               </div>
             </div>
           </div>
