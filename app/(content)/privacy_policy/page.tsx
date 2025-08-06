@@ -9,15 +9,14 @@ export default function privacyPolicyPage() {
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
 
       <p className="text-sm text-gray-500 mb-10">
-        Effective Date: [Insert Date] • Last Updated: [Insert Date]
+        Effective Date: 6/8/2025 • Last Updated: 6/8/2025
       </p>
 
       <section className="space-y-6">
         <p>
-          [Your App Name] ("we", "our", or "us") is committed to protecting your
-          privacy. This Privacy Policy explains how we collect, use, disclose,
-          and safeguard your information when you use our web application (the
-          "Service").
+          Rango is committed to protecting your privacy. This Privacy Policy
+          explains how we collect, use, disclose, and safeguard your information
+          when you use our web application (the "Service").
         </p>
         <p>
           By using the Service, you agree to the collection and use of
@@ -75,7 +74,7 @@ export default function privacyPolicyPage() {
         <h2 className="text-xl font-semibold mt-8">5. Your Rights</h2>
         <p>
           You may have rights to access, update, delete, or restrict use of your
-          data. Contact us at [Your Contact Email].
+          data. Contact us at rango.references@gmail.com
         </p>
 
         <h2 className="text-xl font-semibold mt-8">6. Security</h2>
@@ -102,10 +101,10 @@ export default function privacyPolicyPage() {
         <p>If you have questions or concerns, contact us at:</p>
         <ul className="list-none ml-0 mt-2 space-y-1">
           <li>
-            <strong>Email:</strong> [Your Contact Email]
+            <strong>Email:</strong> rango.references@gmail.com
           </li>
           <li>
-            <strong>Address:</strong> [Your Company Address]
+            <strong>Location:</strong> Melbourne, Australia
           </li>
         </ul>
       </section>
