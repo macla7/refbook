@@ -69,7 +69,7 @@ export default function rootPage() {
     authorId: "null",
     subjectUserId: "null",
     message:
-      "I worked with Bill for 3 whole days, last week. He get's the polen, he makes the honey, and he can bring the sting. Great Guy.",
+      "I worked with Bill for 3 whole days last week. He get's the polen, he makes the honey, and he can bring the sting. Great Guy.",
   };
 
   async function handleClick() {
