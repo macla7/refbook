@@ -11,66 +11,10 @@ import sunny from "assets/sunny.jpeg";
 import mitchPitching from "assets/mitch-pitching.jpg";
 import beeDP from "assets/bee-dp.png";
 import arrow from "assets/brown arrow.svg";
+import sample from "assets/sample.png";
 // *** This is the root / landing page ! ***
 export default function rootPage() {
   const router = useRouter();
-
-  const fakeUser = {
-    workplace: "Rango Satellite Office",
-    image: sunny,
-    createdAt: new Date("2025-02-13T10:32:37.655Z"),
-    email: "bingobongomongo@outlook.com",
-    id: "298e1488-0031-709e-2e92-81344e476912",
-    name: "Sunny",
-    position: "Co-Founder",
-    bio: "hi",
-  };
-
-  const fakeUser2 = {
-    workplace: "Rango HQ",
-    image: mitchPitching,
-    createdAt: new Date("2025-02-13T10:32:37.655Z"),
-    email: "bingobongomongo@outlook.com",
-    id: "298e1488-0031-709e-2e92-81344e476912",
-    name: "Mitch",
-    position: "Co-Founder",
-    bio: "hi",
-  };
-
-  const fakeUser3 = {
-    workplace: "The Hive",
-    image: beeDP,
-    createdAt: new Date("2025-02-13T10:32:37.655Z"),
-    email: "bingobongomongo@outlook.com",
-    id: "298e1488-0031-709e-2e92-81344e476912",
-    name: "Bob the Bee",
-    position: "Worker",
-    bio: "hi",
-  };
-
-  const fakeTestimony: Testimonial = {
-    id: "null",
-    authorId: "null",
-    subjectUserId: "null",
-    message:
-      "Mitch Clark has got the sauce, day in day out producing bangers and procuring swag. Straight steeze.",
-  };
-
-  const fakeTestimony2: Testimonial = {
-    id: "null",
-    authorId: "null",
-    subjectUserId: "null",
-    message:
-      "Sandro Saran is a man of many talents. He can write you a song, code you a Java masterpiece, cut your hair or climb your boulders. Dedicated team player.",
-  };
-
-  const fakeTestimony3: Testimonial = {
-    id: "null",
-    authorId: "null",
-    subjectUserId: "null",
-    message:
-      "I worked with Bill for 3 whole days last week. He get's the polen, he makes the honey, and he can bring the sting. Great Guy.",
-  };
 
   async function handleClick() {
     try {
@@ -82,7 +26,7 @@ export default function rootPage() {
   }
 
   return (
-    <div className="bg-ourCream">
+    <div className="bg-ourLightBrown">
       <div className="w-screen relative h-[700px]">
         <Image
           alt="Gold yellow background"
@@ -158,16 +102,45 @@ export default function rootPage() {
          */}
       </div>
 
-      <div className="relative grid grid-cols-3 justify-items-center gap-24 px-24 pt-16">
-        <TestimonialCard testimonial={fakeTestimony} fakeUser={fakeUser} />
-        <TestimonialCard testimonial={fakeTestimony3} fakeUser={fakeUser3} />
-        <TestimonialCard testimonial={fakeTestimony2} fakeUser={fakeUser2} />
+      <div className="flex items-center justify-center">
+        <div className="grid grid-cols-[minmax(0,1fr)_500px] gap-16 mt-8 mx-24 w-full max-w-[1700px]">
+          {/* Left Column (Flexible) */}
+          <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[218/100] border border-solid border-gray-200">
+            <Image
+              alt="Gold yellow background"
+              src={sample}
+              quality={100}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+
+          {/* Right Column (Fixed 500px) */}
+          <div className="grid grid-cols-[80px_1fr] grid-rows-2 items-center justify-start">
+            <div className="h-16 w-16 flex items-center justify-center p-2 shadow rounded-full bg-ourPink text-3xl text-ourBrown font-semibold">
+              <p>1</p>
+            </div>
+            <div className="bg-white p-4 shadow rounded-lg">
+              Here the references left by your coworkers are displayed for the
+              world to see, helping you stand out!
+            </div>
+            <div className="h-16 w-16 flex items-center justify-center p-2 shadow rounded-full bg-ourPink text-3xl text-ourBrown font-semibold">
+              <p>2</p>
+            </div>
+            <div className="bg-white p-4 shadow rounded-lg">
+              Profile section where you can add some details about yourself,
+              including your position and where you are currently working.
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="relative flex justify-center pt-12 text-center items-center">
+      <div className="relative flex justify-center pt-12 text-center items-center ">
         <div className="p-6">
-          <p className="text-5xl text-ourBrown font-bold">
-            Take the paperwork out of the references
+          <p className="text-2xl text-ourBrown font-bold max-w-5xl">
+            Here to help you transform your references from an afterthought into
+            an asset. We will do this by increasing accessibility and making it
+            easier to:
           </p>
         </div>
       </div>
@@ -175,24 +148,24 @@ export default function rootPage() {
       <div className="relative grid grid-cols-3 gap-24 px-24 pt-12 pb-6">
         <div className="w-full">
           <div className="bg-white p-6 rounded-sm shadow-lg border border-solid border-gray-300 h-full">
-            <p className="text-2xl text-ourBrown font-semibold mb-6 text-center">
-              Talk up their technical skills or expertise
+            <p className="text-2xl text-ourBrown font-semibold mb-6 text-center ">
+              To store references
             </p>
           </div>
         </div>
 
         <div className="w-full">
           <div className="bg-white p-6 rounded-sm shadow-lg border border-solid border-gray-300 h-full">
-            <p className="text-2xl text-ourBrown font-semibold mb-6 text-center">
-              Praise their ability to work in a team or independently
+            <p className="text-2xl text-ourBrown font-semibold mb-6 text-center ">
+              To get coworkers to write references
             </p>
           </div>
         </div>
 
         <div className="w-full">
           <div className="bg-white p-6 rounded-sm shadow-lg border border-solid border-gray-300 h-full">
-            <p className="text-2xl text-ourBrown font-semibold mb-6 text-center">
-              Admire their work ethic, determination or adaptability
+            <p className="text-2xl text-ourBrown font-semibold mb-6 text-center ">
+              To showcase your references to the world
             </p>
           </div>
         </div>

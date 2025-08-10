@@ -56,7 +56,7 @@ export function Sidebar({ user }: { user: User }) {
       )}
 
       <div>
-        <p className="p-14">{user.bio || "No bio available."}</p>
+        <p className="p-14 text-center">{user.bio || "No bio available."}</p>
       </div>
     </aside>
   );
