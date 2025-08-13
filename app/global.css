@@ -182,3 +182,22 @@ table {
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents tiling */
 }
+
+/* globals.css */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #f3f3f3;
+  border-radius: 9999px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #b0b0b0;
+  border-radius: 9999px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}

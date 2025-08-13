@@ -89,63 +89,51 @@ export default function TestimonialCard({
 
       {/* Modal Component */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-ourBrown/30">
-          <div className="p-4 w-full max-w-2xl bg-white rounded-sm flex flex-col">
-            <div className="flex items-center justify-between mb-2">
-              {/* Close Button */}
-              <button
-                onClick={() => setIsOpen(false)}
-                type="button"
-                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-sm text-sm w-6 h-6 inline-flex justify-center items-center"
-                data-modal-hide="default-modal"
+        <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-ourBrown/30">
+          {/* Modal card */}
+          <div className="relative w-full p-2 rounded-lg max-w-2xl h-[50vh] bg-white flex flex-col overflow-hidden">
+            {/* Floating Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              aria-label="Close modal"
+              className="absolute top-3 left-3 p-2 rounded-full bg-gray-50 hover:bg-gray-200 transition"
+            >
+              <svg
+                className="w-4 h-4 text-gray-600"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
               >
-                <svg
-                  className="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                  />
-                </svg>
-                <span className="sr-only">Close modal</span>
-              </button>
-              {/* Delete Button */}
-              <button
-                type="button"
-                className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                onClick={() => deleteAction(testimonial.id)}
-              >
-                delete
-              </button>
-            </div>
-            <div className="flex flex-col md:flex-row items-start gap-4">
-              <div className="flex-[1] flex flex-col w-20 h-20 items-center justify-center">
-                <div className="w-20 h-20 flex items-center justify-center rounded-full object-cover">
-                  <DP user={authorUser} />
-                </div>
-                <p className="text-xs font-medium text-gray-700 w-full text-center">
-                  <Link
-                    href={`/users/${testimonial.authorId}/profile`}
-                    className="text-xs font-medium text-black hover:text-egBlue hover:underline w-full text-center"
-                  >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            {/* Scrollable content */}
+            <div className="flex-1 overflow-y-auto p-4 scrollbar-custom">
+              <div className="flex flex-col md:flex-row items-start gap-4">
+                <div className="flex-[1] flex flex-col items-center justify-center w-full h-full ">
+                  <div className="w-20 h-20">
+                    <DP user={authorUser} />
+                  </div>
+                  <p className="text-xs font-medium text-ourBrown w-full text-center padding-2">
                     {authorUser.name},
-                  </Link>
-                </p>
-                <p className="text-xs font-medium text-ourBrown w-full text-center">
-                  {authorUser.position} at {authorUser.workplace}
-                </p>
-              </div>
-              <div className="flex-[2] w-full">
-                <p className="text-sm text-black dark:text-gray-400 whitespace-pre-line break-words">
-                  {testimonial.message}
-                </p>
+                  </p>
+                  <p className="text-xs font-medium text-ourBrown w-full text-center padding-2">
+                    {authorUser.position} at {authorUser.workplace}
+                  </p>
+                </div>
+
+                <div className="flex-[2] w-full">
+                  <p className="text-sm text-black dark:text-gray-400 whitespace-pre-line break-words">
+                    {testimonial.message}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
