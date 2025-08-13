@@ -12,6 +12,9 @@ import mitchPitching from "assets/mitch-pitching.jpg";
 import beeDP from "assets/bee-dp.png";
 import arrow from "assets/brown arrow.svg";
 import sample from "assets/sample.png";
+import search_icon from "assets/search-icon.svg"
+import test_icon from "assets/testimonial-icon.svg"
+import profile_icon from "assets/profile-icon.svg"
 // *** This is the root / landing page ! ***
 export default function rootPage() {
   const router = useRouter();
@@ -105,7 +108,7 @@ export default function rootPage() {
       <div className="flex items-center justify-center">
         <div className="grid grid-cols-[minmax(0,1fr)_500px] gap-16 mt-8 mx-24 w-full max-w-[1700px]">
           {/* Left Column (Flexible) */}
-          <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[218/100] border border-solid border-gray-200">
+          <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[238/100] border border-solid border-gray-200">
             <Image
               alt="Gold yellow background"
               src={sample}
@@ -117,19 +120,23 @@ export default function rootPage() {
 
           {/* Right Column (Fixed 500px) */}
           <div className="grid grid-cols-[80px_1fr] grid-rows-2 items-center justify-start">
-            <div className="h-16 w-16 flex items-center justify-center p-2 shadow rounded-full bg-ourPink text-3xl text-ourBrown font-semibold">
-              <p>1</p>
+            <div className="h-16 w-16 flex items-center justify-center shadow rounded-full">
+                <Image src={search_icon} alt="Search Icon" />
             </div>
             <div className="bg-white p-4 shadow rounded-lg">
-              Here the references left by your coworkers are displayed for the
-              world to see, helping you stand out!
+              Quickly look up other users, no log in required.
             </div>
-            <div className="h-16 w-16 flex items-center justify-center p-2 shadow rounded-full bg-ourPink text-3xl text-ourBrown font-semibold">
-              <p>2</p>
+             <div className="h-16 w-16 flex items-center justify-center shadow rounded-full">
+                <Image src={test_icon} alt="Testimonial Icon" />
             </div>
             <div className="bg-white p-4 shadow rounded-lg">
-              Profile section where you can add some details about yourself,
-              including your position and where you are currently working.
+              Here the references left by your coworkers are displayed for the world to see, helping you stand out!
+            </div>
+             <div className="h-16 w-16 flex items-center justify-center shadow rounded-full">
+                <Image src={profile_icon} alt="Profile Icon" />
+            </div>
+            <div className="bg-white p-4 shadow rounded-lg">
+              Profile section where you can add some details about yourself, including your position and where you are currently working.
             </div>
           </div>
         </div>

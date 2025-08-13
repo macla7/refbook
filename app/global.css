@@ -22,7 +22,9 @@
   --color-our-pink: var(--color-red);
   --color-our-chili: #f51720;
   --color-gaps: var(--color-ourGold);
-  --color-ourPurple: #27167ef;
+  /* --color-ourPurple: #27167ef; */
+  --color-ourPurple: #592ada;
+
 }
 
 ::selection {
