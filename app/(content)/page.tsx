@@ -119,24 +119,24 @@ export default function rootPage() {
           </div>
 
           {/* Right Column (Fixed 500px) */}
-          <div className="grid grid-cols-[80px_1fr] grid-rows-2 items-center justify-start">
-            <div className="h-16 w-16 flex items-center justify-center shadow rounded-full">
-                <Image src={search_icon} alt="Search Icon" />
+          <div className="grid grid-rows-3 grid-cols-[80px_1fr] gap-x-6 gap-y-8 items-center">
+            <div className="h-16 w-16 flex items-center justify-center shadow rounded-full mx-auto">
+              <Image src={search_icon} alt="Search Icon" />
             </div>
-            <div className="bg-white p-4 shadow rounded-lg">
+            <div className="bg-white p-4 shadow rounded-lg flex items-center min-h-[64px]">
               Quickly look up other users, no log in required.
             </div>
-             <div className="h-16 w-16 flex items-center justify-center shadow rounded-full">
-                <Image src={test_icon} alt="Testimonial Icon" />
+            <div className="h-16 w-16 flex items-center justify-center shadow rounded-full mx-auto">
+              <Image src={test_icon} alt="Testimonial Icon" />
             </div>
-            <div className="bg-white p-4 shadow rounded-lg">
-              Here the references left by your coworkers are displayed for the world to see, helping you stand out!
+            <div className="bg-white p-4 shadow rounded-lg flex items-center min-h-[64px]">
+              Here the references left by your coworkers.
             </div>
-             <div className="h-16 w-16 flex items-center justify-center shadow rounded-full">
-                <Image src={profile_icon} alt="Profile Icon" />
+            <div className="h-16 w-16 flex items-center justify-center shadow rounded-full mx-auto">
+              <Image src={profile_icon} alt="Profile Icon" />
             </div>
-            <div className="bg-white p-4 shadow rounded-lg">
-              Profile section where you can add some details about yourself, including your position and where you are currently working.
+            <div className="bg-white p-4 shadow rounded-lg flex items-center min-h-[64px]">
+              Profile section where you can add some details.
             </div>
           </div>
         </div>
