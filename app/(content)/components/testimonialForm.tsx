@@ -14,6 +14,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
   const [loggedInUser, setLoggedInUser] = useState<User | any>();
   const [subjectUser, setSubjectUser] = useState<User | any>(userDefault);
 
+
   const router = useRouter(); // Next.js router for navigation
 
   useEffect(() => {
@@ -45,7 +46,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
     console.log(testimonialParams);
     putTestimonial(session, testimonialParams);
     setMessage("");
-    router.push(`/users/${params.subjectUserId}/profile`);
+    router.replace(`/users/${params.subjectUserId}/profile`);
   }
 
   return loggedInUser ? (

@@ -12,9 +12,10 @@ import mitchPitching from "assets/mitch-pitching.jpg";
 import beeDP from "assets/bee-dp.png";
 import arrow from "assets/brown arrow.svg";
 import sample from "assets/sample.png";
-import search_icon from "assets/search-icon.svg"
-import test_icon from "assets/testimonial-icon.svg"
-import profile_icon from "assets/profile-icon.svg"
+import search_icon from "assets/search-icon.svg";
+import test_icon from "assets/testimonial-icon.svg";
+import profile_icon from "assets/profile-icon.svg";
+import pipeline from "assets/pipeline.svg";
 // *** This is the root / landing page ! ***
 export default function rootPage() {
   const router = useRouter();
@@ -142,7 +143,11 @@ export default function rootPage() {
         </div>
       </div>
 
-      <div className="relative flex justify-center pt-12 text-center items-center ">
+      {/* <div className="justify-items-center mx-20 my-20">
+        <Image src={pipeline} alt="pipeline"/>
+      </div> */}
+
+      {/* <div className="relative flex justify-center pt-12 text-center items-center ">
         <div className="p-6">
           <p className="text-2xl text-ourBrown font-bold max-w-5xl">
             Here to help you transform your references from an afterthought into
@@ -150,10 +155,44 @@ export default function rootPage() {
             easier to:
           </p>
         </div>
+      </div> */}
+
+      <div className="relative flex w-9/10 items-center z-0 my-20 mx-auto justify-center">
+        <div className="absolute w-9/10 h-12 gap-0 bg-ourGold z-0 "></div>
+
+        <div className="relative flex justify-items-stretch justify-between w-full z-10">
+          <div className="w-32 h-32 flex items-center justify-center shadow rounded-full mx-0 bg-ourGold font-bold">
+            1.
+          </div>
+          {/* <div className="flex items-center justify-center text-sm">
+            Sign up to Rango and reach out to your coworkers
+          </div> */}
+
+          <div className="w-32 h-32 flex items-center justify-center shadow rounded-full mx-0 bg-ourGold font-bold">
+            2.
+          </div>
+          {/* <div className="flex items-center justify-center text-sm">
+            Watch as your hard work pays off, and your profile is filled with
+            testimonials
+          </div> */}
+
+          <div className="w-32 h-32 flex items-center justify-center shadow rounded-full mx-0 bg-ourGold font-bold">
+            3.
+          </div>
+          {/* <div className="flex items-center justify-center text-sm">
+            Show your employers what you bring to the table, no references
+            required
+          </div> */}
+        </div>
       </div>
 
-      <div className="relative grid grid-cols-3 gap-24 px-24 pt-12 pb-6">
-        <div className="w-full">
+      <div className="relative flex justify-items-stretch justify-between w-full z-10"></div>
+    </div>
+  );
+}
+
+{
+  /* <div className="w-full">
           <div className="bg-white p-6 rounded-sm shadow-lg border border-solid border-gray-300 h-full">
             <p className="text-2xl text-ourBrown font-semibold mb-6 text-center ">
               To store references
@@ -175,8 +214,5 @@ export default function rootPage() {
               To showcase your references to the world
             </p>
           </div>
-        </div>
-      </div>
-    </div>
-  );
+        </div> */
 }

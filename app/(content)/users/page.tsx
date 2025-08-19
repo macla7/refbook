@@ -47,7 +47,7 @@ export default function usersPage() {
         }}
       />
 
-      <div className="relative flex flex-col items-center w-1/2 justify-center w-full mb-4">
+      <div className="relative flex flex-col items-center w-1/2 justify-center mb-4">
         <div className="w-1/2">
           <p className="text-4xl text-ourBrown font-bold ">People Search</p>
           <p className="relative text-xl text-ourBrown font-bold mb-4">
