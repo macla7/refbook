@@ -31,7 +31,7 @@ export default function rootPage() {
 
   return (
     <div className="bg-ourLightBrown">
-      <div className="w-screen relative h-[700px]">
+      <div className="w-screen relative 2xl:h-[700px] xl:h-[600px] h-[500px]">
         <Image
           alt="Gold yellow background"
           src={background}
@@ -47,11 +47,11 @@ export default function rootPage() {
           <div className="grid gap-x-4">
             {/* Row 1 */}
             <div className="grid grid-cols-[1fr] gap-12 ">
-              <div className="p-4">
-                <p className="text-9xl text-ourBrown font-semibold my-4 text-center">
+              <div className="py-4">
+                <p className="2xl:text-9xl xl:text-8xl text-7xl text-ourBrown font-semibold my-4 text-center">
                   Let employers hear your
                 </p>
-                <p className="text-9xl text-ourBrown font-semibold mb-4 text-center">
+                <p className="2xl:text-9xl xl:text-8xl text-7xl text-ourBrown font-semibold mb-4 text-center">
                   coworkers' praise
                 </p>
               </div>
@@ -60,7 +60,7 @@ export default function rootPage() {
             {/* Row 2 */}
             <div className="grid grid-cols-1 gap-4 ">
               <div className="relative flex justify-center items-end h-full ">
-                <div className="p-4 rounded-lg text-5xl text-ourBrown font-semibold">
+                <div className="p-4 rounded-lg 2xl:text-5xl xl:text-4xl text-3xl text-ourBrown font-semibold">
                   <p className="text-center">
                     Put your refenernces in the spotlight where your
                   </p>
@@ -107,7 +107,7 @@ export default function rootPage() {
       </div>
 
       <div className="flex items-center justify-center">
-        <div className="grid grid-cols-[minmax(0,1fr)_500px] gap-16 mt-8 mx-24 w-full max-w-[1700px]">
+        <div className="grid grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 mt-8 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
           {/* Left Column (Flexible) */}
           <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[238/100] border border-solid border-gray-200">
             <Image
@@ -120,23 +120,23 @@ export default function rootPage() {
           </div>
 
           {/* Right Column (Fixed 500px) */}
-          <div className="grid grid-rows-3 grid-cols-[80px_1fr] gap-x-6 gap-y-8 items-center">
-            <div className="h-16 w-16 flex items-center justify-center shadow rounded-full mx-auto">
+          <div className="grid grid-rows-3 grid-cols-[auto_1fr] 2xl:gap-x-6 xl:gap-x-4 gap-x-2 gap-y-8 items-center">
+            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
               <Image src={search_icon} alt="Search Icon" />
             </div>
-            <div className="bg-white p-4 shadow rounded-lg flex items-center min-h-[64px]">
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
               Quickly look up other users, no log in required.
             </div>
-            <div className="h-16 w-16 flex items-center justify-center shadow rounded-full mx-auto">
+            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
               <Image src={test_icon} alt="Testimonial Icon" />
             </div>
-            <div className="bg-white p-4 shadow rounded-lg flex items-center min-h-[64px]">
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
               Here the references left by your coworkers.
             </div>
-            <div className="h-16 w-16 flex items-center justify-center shadow rounded-full mx-auto">
+            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
               <Image src={profile_icon} alt="Profile Icon" />
             </div>
-            <div className="bg-white p-4 shadow rounded-lg flex items-center min-h-[64px]">
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
               Profile section where you can add some details.
             </div>
           </div>

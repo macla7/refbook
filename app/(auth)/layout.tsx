@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "../(content)/components/footer";
 import { baseUrl } from "../sitemap";
 import "app/config";
+import ScreenSizeWarning from "../(content)/components/screensizeWarning";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -53,6 +54,7 @@ export default async function RootLayout({
         GeistMono.variable
       )}
     >
+      <ScreenSizeWarning />
       <body className="antialiased flex h-dvh justify-center">
         {children}
 
