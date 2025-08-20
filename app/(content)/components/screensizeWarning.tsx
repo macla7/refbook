@@ -12,7 +12,7 @@ export default function ScreenSizeWarning() {
   }, []);
 
   function handleResize() {
-    setIsSmallScreen(window.innerWidth < 1024); // Tailwind lg breakpoint
+    setIsSmallScreen(window.innerWidth < 1025); // Tailwind lg breakpoint
   }
 
   if (!isSmallScreen) return null;

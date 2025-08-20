@@ -8,8 +8,8 @@
   --color-our-silver: #b0bbbf;
   --color-ourCream: #fffaf0;
   --color-egBlue: #592ada;
-  --color-ourGold: #f8d210;
-  --color-ourGold2: #dca50e;
+  --color-ourGold: #ffc655;
+  --color-ourGold2: #ffbc3e;
   --color-ourBrown: #4d2d17;
   --color-ourLightBrown: #fff6ef;
   --color-ourPink: #ff98fb;
@@ -24,7 +24,6 @@
   --color-gaps: var(--color-ourGold);
   /* --color-ourPurple: #27167ef; */
   --color-ourPurple: #592ada;
-
 }
 
 ::selection {

@@ -86,7 +86,7 @@ export function Navbar() {
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden xl:flex flex-row items-center space-x-4">
+      <div className="hidden lg:flex flex-row items-center space-x-4">
         <form
           className=""
           onSubmit={(e) => {
@@ -94,7 +94,7 @@ export function Navbar() {
             router.push("/users"); // navigate to users page
           }}
         >
-          <div className="relative w-xs">
+          <div className="relative xl:w-xs w-2xs">
             <input
               type="search"
               className="p-2 w-full border-1 border-solid border-gray-200 text-sm text-gray-900 rounded-sm focus:outline-none focus:ring-2 focus:ring-ourBrown"
@@ -131,7 +131,7 @@ export function Navbar() {
           <Link
             key={path}
             href={path}
-            className="rounded-md bg-transparent text-ourBrown px-4 py-3 text-lg font-semibold transition"
+            className="rounded-md bg-transparent text-ourBrown xl:px-4 px-2 py-3 text-lg font-semibold transition"
           >
             <span className="relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
               {name}
@@ -156,41 +156,6 @@ export function Navbar() {
           </div>
         ) : null}
       </div>
-
-      {/* Mobile Hamburger Menu */}
-      <div className="xl:hidden flex items-center">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-black"
-        >
-          {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
-        </button>
-      </div>
-
-      {/* Mobile Dropdown Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-16 right-0 w-full bg-white shadow-md xl:hidden">
-          <div className="flex flex-col items-center py-4 space-y-4">
-            {Object.entries(navItems).map(([path, { name }]) => (
-              <Link
-                key={path}
-                href={path}
-                className="text-lg font-semibold text-black hover:text-gray-600"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {name}
-              </Link>
-            ))}
-
-            <button
-              onClick={handleClick}
-              className="w-full py-2 px-4 text-center text-lg font-semibold bg-gray-900 text-white rounded-md hover:bg-gray-700 transition"
-            >
-              {isActive ? "Sign Out" : "Log In"}
-            </button>
-          </div>
-        </div>
-      )}
     </nav>
   );
 }

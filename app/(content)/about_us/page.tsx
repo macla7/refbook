@@ -33,33 +33,35 @@ export default function rootPage() {
             padding: "0",
           }}
         />
-        <div className="relative flex justify-center pt-12 pb-6 ">
-          <div className="w-full m-12">
-            <p className="text-8xl text-ourBrown font-bold mb-4">
+        <div className="relative flex justify-center pt-6 pb-6 ">
+          <div className="w-full m-6">
+            <p className="2xl:text-8xl text-7xl text-ourBrown font-bold mb-4">
               Mission Statement
             </p>
-            <p className="text-6xl text-ourBrown font-semibold mb-4">
+            <p className="2xl:text-6xl text-5xl text-ourBrown font-semibold mb-4">
               To help people showcase their amazing references
             </p>
           </div>
 
-          <div className="bg-ourCream p-6 rounded-lg shadow-lg border-1 border-solid border-gray-300 w-full m-12">
-            <p className="text-4xl text-ourBrown font-bold mb-4">
-              Founding Story
-            </p>
-            <p className="text-lg text-ourBrown font-bold mb-4">
-              We started out simply seeking to learn more about Software
-              Engineering whilst also trying to make a positive impact.
-            </p>
-            <p className="text-lg text-ourBrown font-bold mb-4">
-              Our brain child? Rango. A platform that encourages coworkers,
-              teammates and friends to sing each other's praises.
-            </p>
+          <div className=" w-full m-6">
+            <div className="bg-ourCream p-6 rounded-lg shadow-lg border-1 border-solid border-gray-300 ">
+              <p className="text-4xl text-ourBrown font-bold mb-4">
+                Founding Story
+              </p>
+              <p className="text-lg text-ourBrown font-bold mb-4">
+                We started out simply seeking to learn more about Software
+                Engineering whilst also trying to make a positive impact.
+              </p>
+              <p className="text-lg text-ourBrown font-bold mb-4">
+                Our brain child? Rango. A platform that encourages coworkers,
+                teammates and friends to sing each other's praises.
+              </p>
 
-            <p className="text-lg text-ourBrown font-bold mb-4">
-              It’s early days. We’re having a blast and just getting started.
-              Watch this space!
-            </p>
+              <p className="text-lg text-ourBrown font-bold mb-4">
+                It’s early days. We’re having a blast and just getting started.
+                Watch this space!
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -76,7 +78,7 @@ export default function rootPage() {
             <Image
               src={sunny}
               alt={"Sunny"}
-              className="object-cover rounded-md"
+              className="object-cover rounded-sm"
               style={{ height: "500px", width: "100%" }}
             />
 
@@ -91,7 +93,7 @@ export default function rootPage() {
             <Image
               src={mitch}
               alt={"Mitch"}
-              className="object-cover rounded-md"
+              className="object-cover rounded-sm"
               style={{ height: "500px", width: "100%" }}
             />
 

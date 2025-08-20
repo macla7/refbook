@@ -55,7 +55,7 @@ export function UsersList() {
         {users.map((user) => (
           <li
             key={user.id}
-            className="w-1/2 p-2 bg-white md:flex-row hover:bg-ourCream rounded-md bg-ourPurple"
+            className="2xl:w-1/2 xl:w-3/5 w-3/4 p-2 bg-white md:flex-row hover:bg-ourCream rounded-md bg-ourPurple"
           >
             <div className="">
               <Link href={`/users/${user.id}/profile`}>

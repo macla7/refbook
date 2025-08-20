@@ -81,7 +81,7 @@ export default function TestimonialCard({
 
         {/* Text Container - 2/3 width */}
         <div className="flex-[2] flex flex-col justify-between p-2 leading-normal w-full">
-          <p className="text-xs text-black dark:text-gray-400 line-clamp-10">
+          <p className="text-sm text-black dark:text-gray-400 line-clamp-10">
             {testimonial.message}
           </p>
         </div>
@@ -121,10 +121,10 @@ export default function TestimonialCard({
                   <div className="w-20 h-20">
                     <DP user={authorUser} />
                   </div>
-                  <p className="text-xs font-medium text-ourBrown w-full text-center padding-2">
+                  <p className="text-sm font-medium text-ourBrown w-full text-center padding-2">
                     {authorUser.name},
                   </p>
-                  <p className="text-xs font-medium text-ourBrown w-full text-center padding-2">
+                  <p className="text-sm font-medium text-ourBrown w-full text-center padding-2">
                     {authorUser.position} at {authorUser.workplace}
                   </p>
                 </div>

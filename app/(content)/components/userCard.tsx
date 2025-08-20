@@ -20,15 +20,15 @@ export default function UserCard({ user }: { user: User }) {
       <div className="flex flex-row p-2 leading-normal h-full gap-10 items-center flex-1 min-w-0">
         {/* Name + Position don’t shrink */}
         <div className="flex-shrink-0">
-          <p className="text-xs font-medium text-gray-700 w-64">{user.name}</p>
-          <p className="text-xs font-medium text-gray-700 w-64">
+          <p className="text-sm font-medium text-gray-700 w-48">{user.name}</p>
+          <p className="text-sm font-medium text-gray-700 w-48">
             {user.position} at {user.workplace}
           </p>
         </div>
 
         {/* Bio wraps, then clamps when too tall */}
         <p
-          className="text-xs text-gray-700 dark:text-gray-400 overflow-hidden text-ellipsis"
+          className="text-sm text-gray-700 dark:text-gray-400 overflow-hidden text-ellipsis"
           style={{
             display: "-webkit-box",
             WebkitBoxOrient: "vertical",
