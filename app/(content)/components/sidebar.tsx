@@ -20,8 +20,8 @@ export function Sidebar({ user }: { user: User }) {
         console.log("current user is: ", currentUser);
         setLoggedInUser(currentUser);
       } catch (error) {
-        console.log("User not authenticated");
-        router.push("/"); // Redirect to authentication page
+        // console.log("User not authenticated");
+        // router.push("/"); // Redirect to authentication page
       }
     }
 

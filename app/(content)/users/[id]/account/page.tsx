@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
+import { AuthUser, fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
 import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
 import { getUser, patchUser, uploadProfileImage } from "app/api/users";
@@ -9,9 +9,11 @@ import { useRouter } from "next/navigation";
 import { DP } from "app/(content)/components/dp";
 import background from "assets/rangobg4.svg";
 import Image from "next/image";
+import { useSearch } from "app/context/SearchContext";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
+  const [authUser, setAuthUser] = useState<AuthUser>();
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [workplace, setWorkplace] = useState("");
@@ -24,6 +26,24 @@ export default function Page({ params }: { params: { id: string } }) {
   useEffect(() => {
     checkUser();
   }, [router]); // Run once on mount
+
+    const { search, setSearch } = useSearch();
+  
+    useEffect(() => {
+      async function checkUser() {
+        try {
+          const currentUser = await getCurrentUser();
+          console.log("current user is: ", currentUser);
+          setAuthUser(currentUser);
+        } catch (error) {
+          console.log("User not authenticated");
+          setUser(userDefault);
+          // router.push("/"); // Redirect to authentication page
+        }
+      }
+  
+      checkUser();
+    }, [router]); // Run once on mount
 
   async function checkUser() {
     try {

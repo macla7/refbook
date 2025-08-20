@@ -177,7 +177,7 @@ export default function rootPage() {
             <span className="absolute inset-10 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               Get coworkers to write testimonials for you
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourGold/20 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourShimmer/10 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
 
           <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
@@ -187,7 +187,7 @@ export default function rootPage() {
             <span className="absolute inset-10 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               Keep your testimonies in an easy to find spot
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourGold/20 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourBone/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
 
           <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
@@ -200,7 +200,7 @@ export default function rootPage() {
               required
             </span>
 
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourGold/20 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
         </div>
       </div>

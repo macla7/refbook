@@ -17,21 +17,21 @@ export default function usersPage() {
   const router = useRouter(); // Next.js router for navigation
   const { search, setSearch } = useSearch();
 
-  useEffect(() => {
-    async function checkUser() {
-      try {
-        const currentUser = await getCurrentUser();
-        console.log("current user is: ", currentUser);
-        setUser(currentUser);
-      } catch (error) {
-        console.log("User not authenticated");
-        setUser(userDefault);
-        // router.push("/"); // Redirect to authentication page
-      }
-    }
+  // useEffect(() => {
+  //   async function checkUser() {
+  //     try {
+  //       const currentUser = await getCurrentUser();
+  //       console.log("current user is: ", currentUser);
+  //       setUser(currentUser);
+  //     } catch (error) {
+  //       console.log("User not authenticated");
+  //       setUser(userDefault);
+  //       // router.push("/"); // Redirect to authentication page
+  //     }
+  //   }
 
-    checkUser();
-  }, [router]); // Run once on mount
+  //   checkUser();
+  // }, [router]); // Run once on mount
 
   return (
     <section className="p-8 grow bg-white relative">
@@ -96,13 +96,11 @@ export default function usersPage() {
         </div>
       </div>
 
-      {user ? (
+
         <div className="relative ">
           <UsersList />
         </div>
-      ) : (
-        <p>Redirecting to login...</p>
-      )}
+
     </section>
   );
 }
