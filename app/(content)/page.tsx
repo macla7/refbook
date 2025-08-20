@@ -5,6 +5,7 @@ import TestimonialCard from "./components/testimonialCard";
 import { Testimonial } from "app/types/testimonial";
 import Image from "next/image";
 import background from "assets/rangobg3.svg";
+import purpleBackground from "assets/rangobg4-purple.svg";
 import logo from "assets/rango3.svg";
 import { getCurrentUser } from "aws-amplify/auth";
 import sunny from "assets/sunny.jpeg";
@@ -106,7 +107,7 @@ export default function rootPage() {
          */}
       </div>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center my-10 py-10">
         <div className="grid grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 mt-8 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
           {/* Left Column (Flexible) */}
           <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[238/100] border border-solid border-gray-200">
@@ -143,50 +144,70 @@ export default function rootPage() {
         </div>
       </div>
 
-      {/* <div className="justify-items-center mx-20 my-20">
-        <Image src={pipeline} alt="pipeline"/>
-      </div> */}
-
-      {/* <div className="relative flex justify-center pt-12 text-center items-center ">
-        <div className="p-6">
-          <p className="text-2xl text-ourBrown font-bold max-w-5xl">
-            Here to help you transform your references from an afterthought into
-            an asset. We will do this by increasing accessibility and making it
-            easier to:
-          </p>
+      <div className="bg-ourPurple/10 py-10 relative overflow-hidden">
+        <Image
+          src={purpleBackground}
+          alt="purple swirl background"
+          quality={100}
+          fill
+          style={{
+        objectFit: "cover",
+        zIndex: 0,
+          }}
+          className="pointer-events-none select-none"
+        />
+        {/* Your content goes here */}
+        <div className="relative flex justify-center pt-12 text-center items-center ">
+          <div className="flex flex-row items-center justify-center gap-4 flex-wrap">
+            <p className="text-2xl text-ourBrown font-bold max-w-5xl">
+              How can
+            </p>
+            <Image src={logo} alt="Default Profile" width={150} />
+            <p className="text-2xl text-ourBrown font-bold max-w-5xl">
+              help you get employed?
+            </p>
+          </div>
         </div>
-      </div> */}
 
-      <div className="relative flex w-9/10 items-center z-0 my-20 mx-auto justify-center">
-        <div className="absolute w-9/10 h-12 gap-0 bg-ourGold z-0 "></div>
-
-        <div className="relative flex justify-items-stretch justify-between w-full z-10">
-          <div className="w-32 h-32 flex items-center justify-center shadow rounded-full mx-0 bg-ourGold font-bold">
-            1.
+        <div className="relative flex w-2/3 items-center my-10 z-0 gap-20 mx-auto justify-center">
+          <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
+            <span className="flex items-center justify-center transition-opacity duration-300 opacity-100 group-hover:opacity-0 ">
+              Reach Out
+            </span>
+            <span className="absolute inset-10 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              Get coworkers to write testimonials for you
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourGold/20 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
-          {/* <div className="flex items-center justify-center text-sm">
-            Sign up to Rango and reach out to your coworkers
-          </div> */}
 
-          <div className="w-32 h-32 flex items-center justify-center shadow rounded-full mx-0 bg-ourGold font-bold">
-            2.
+          <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
+            <span className="transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+              Store
+            </span>
+            <span className="absolute inset-10 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              Keep your testimonies in an easy to find spot
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourGold/20 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
-          {/* <div className="flex items-center justify-center text-sm">
-            Watch as your hard work pays off, and your profile is filled with
-            testimonials
-          </div> */}
 
-          <div className="w-32 h-32 flex items-center justify-center shadow rounded-full mx-0 bg-ourGold font-bold">
-            3.
+          <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
+            <span className="transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+              Display
+            </span>
+
+            <span className="absolute inset-10 flex items-center justify-center text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              Show your employers what you bring to the table, no references
+              required
+            </span>
+
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourGold/20 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
-          {/* <div className="flex items-center justify-center text-sm">
-            Show your employers what you bring to the table, no references
-            required
-          </div> */}
         </div>
       </div>
 
-      <div className="relative flex justify-items-stretch justify-between w-full z-10"></div>
+      <div className="relative flex justify-center pt-12 text-center items-center mb-10">
+        FOOTER
+      </div>
     </div>
   );
 }

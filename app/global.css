@@ -4,7 +4,7 @@
   --color-our-blue: #45506b;
   --color-our-green: #ebff59;
   --color-our-cyan: #dffcff;
-  --color-ourBone: #e8eef1;
+  --color-ourBone: #fffaf0;
   --color-our-silver: #b0bbbf;
   --color-ourCream: #fffaf0;
   --color-egBlue: #592ada;
@@ -12,6 +12,7 @@
   --color-ourGold2: #ffbc3e;
   --color-ourBrown: #4d2d17;
   --color-ourLightBrown: #fff6ef;
+  --color-ourCreamBrown: #fff4de;
   --color-ourPink: #ff98fb;
   --color-red: #dd2525;
   --color-tennis-green: #ebff59;
@@ -201,4 +202,17 @@ table {
 
 .scrollbar-custom::-webkit-scrollbar-thumb:hover {
   background: #888;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite;
 }
