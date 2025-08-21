@@ -91,14 +91,16 @@ export function TestimonialForm(params: { subjectUserId: string }) {
         <button
           type="button"
           onClick={() => router.push(`/users/${params.subjectUserId}/profile`)}
-          className="rounded-sm bg-ourGold2 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="cursor-pointer rounded-sm bg-ourGold2 px-3 py-2 text-sm font-semibold text-white shadow-xs 
+               hover:brightness-90 focus-visible:outline-2 focus-visible:outline-offset-2 "
         >
           Cancel
         </button>
 
         <button
           type="button"
-          className="rounded-sm bg-ourPurple px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="cursor-pointer rounded-sm bg-ourPurple px-3 py-2 text-sm font-semibold text-white shadow-xs 
+               hover:brightness-90 focus-visible:outline-2 focus-visible:outline-offset-2 "
           onClick={() => formAction()}
         >
           Submit

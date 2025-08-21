@@ -91,7 +91,7 @@ export default function TestimonialCard({
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-ourBrown/30">
           {/* Modal card */}
-          <div className="relative w-full p-2 rounded-lg max-w-2xl h-[50vh] bg-white flex flex-col overflow-hidden">
+          <div className="relative w-full p-2 rounded-lg max-w-2xl max-h-[50vh] bg-white flex flex-col overflow-hidden">
             {/* Floating Close Button */}
             <button
               onClick={() => setIsOpen(false)}
