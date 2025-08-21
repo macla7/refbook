@@ -21,7 +21,7 @@ export default function rootPage() {
 
   return (
     <div className="bg-ourCream">
-      <div className="w-screen relative h-[450px]">
+      <div className="w-screen relative h-[500px]">
         <Image
           alt="Mountains"
           src={background}
@@ -33,7 +33,7 @@ export default function rootPage() {
             padding: "0",
           }}
         />
-        <div className="relative flex justify-center pt-6 pb-6 ">
+        <div className="relative flex justify-center 2xl:pt-14 xl:pt-10 pt-8 pb-6 ">
           <div className="w-full m-6">
             <p className="2xl:text-8xl text-7xl text-ourBrown font-bold mb-4">
               Mission Statement
@@ -66,7 +66,7 @@ export default function rootPage() {
         </div>
       </div>
 
-      <div className="relative flex justify-center pt-6 text-left items-center px-24">
+      <div className="relative flex justify-center text-left items-center px-24">
         <div className="p-6">
           <p className="text-4xl text-ourBrown font-semibold">Meet the Team</p>
         </div>
@@ -74,7 +74,7 @@ export default function rootPage() {
 
       <div className="relative grid grid-cols-2 gap-24 px-24 pt-4 pb-6">
         <div className="w-full">
-          <div className="max-w-[750px] mx-auto">
+          <div className="max-w-[750px] ml-auto">
             <Image
               src={sunny}
               alt={"Sunny"}
@@ -89,7 +89,7 @@ export default function rootPage() {
         </div>
 
         <div className="w-full">
-          <div className="max-w-[750px] mx-auto">
+          <div className="max-w-[750px] mr-auto ">
             <Image
               src={mitch}
               alt={"Mitch"}

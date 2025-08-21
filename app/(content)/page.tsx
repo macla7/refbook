@@ -32,7 +32,6 @@ export default function rootPage() {
 
   return (
     <div>
-      
       <div className="w-screen relative 2xl:h-[700px] xl:h-[600px] h-[500px]">
         <div className="relative px-6 pt-12">
           <div className="grid gap-x-4">
@@ -97,8 +96,8 @@ export default function rootPage() {
          */}
       </div>
 
-      <div className="flex items-center justify-center my-10 py-10 bg-ourBone shadow-hover">
-        <div className="grid grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 mt-8 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
+      <div className="flex items-center justify-center mb-10 py-12 bg-ourBone shadow-hover">
+        <div className="grid grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
           {/* Left Column (Flexible) */}
           <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[238/100] border border-solid border-gray-200">
             <Image
@@ -113,28 +112,28 @@ export default function rootPage() {
           {/* Right Column (Fixed 500px) */}
           <div className="grid grid-rows-3 grid-cols-[auto_1fr] 2xl:gap-x-6 xl:gap-x-4 gap-x-2 gap-y-8 items-center">
             <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
-              <Image src={search_icon} alt="Search Icon" />
-            </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
-              Quickly look up other users, no log in required.
-            </div>
-            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
               <Image src={test_icon} alt="Testimonial Icon" />
             </div>
             <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
-              Here the references left by your coworkers.
+              References left by your coworkers made accessible
+            </div>
+            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
+              <Image src={search_icon} alt="Search Icon" />
+            </div>
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
+              Quickly find friends and coworkers, no log in required
             </div>
             <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
               <Image src={profile_icon} alt="Profile Icon" />
             </div>
             <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
-              Profile section where you can add some details.
+              Profile area for a summary of who you are
             </div>
           </div>
         </div>
       </div>
 
-      <div className= "py-10 relative overflow-hidden">
+      <div className="py-10 relative overflow-hidden">
         {/* <Image      
           src={purpleBackground}
           alt="purple swirl background"
@@ -164,20 +163,20 @@ export default function rootPage() {
             <span className="flex items-center justify-center transition-opacity duration-300 opacity-100 group-hover:opacity-0 ">
               Reach Out
             </span>
-            <span className="absolute inset-10 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-              Get coworkers to write testimonials for you
+            <span className="absolute inset-10 flex items-center justify-center text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              Makes it easy for coworkers to leave you a great reference
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourShimmer/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
 
           <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
             <span className="transition-opacity duration-300 opacity-100 group-hover:opacity-0">
               Store
             </span>
-            <span className="absolute inset-10 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-              Keep your testimonies in an easy to find spot
+            <span className="absolute inset-10 flex items-center justify-center text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              Keep all your references in one place, no more lost emails
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourBone/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
 
           <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
@@ -186,8 +185,7 @@ export default function rootPage() {
             </span>
 
             <span className="absolute inset-10 flex items-center justify-center text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-              Show your employers what you bring to the table, no references
-              required
+              Showcase your references on an accessible and shareable profile
             </span>
 
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>

@@ -14,7 +14,6 @@ export function TestimonialForm(params: { subjectUserId: string }) {
   const [loggedInUser, setLoggedInUser] = useState<User | any>();
   const [subjectUser, setSubjectUser] = useState<User | any>(userDefault);
 
-
   const router = useRouter(); // Next.js router for navigation
 
   useEffect(() => {
@@ -80,8 +79,8 @@ export function TestimonialForm(params: { subjectUserId: string }) {
                 ></textarea>
               </div>
               <p className="mt-3 text-sm/6 text-gray-600">
-                Where did you work with {subjectUser.name}? What was your connection to {subjectUser.name}? What
-                would you like to say?
+                Where did you work with {subjectUser.name}? What was your
+                connection to {subjectUser.name}? What would you like to say?
               </p>
             </div>
           </div>
@@ -92,14 +91,14 @@ export function TestimonialForm(params: { subjectUserId: string }) {
         <button
           type="button"
           onClick={() => router.push(`/users/${params.subjectUserId}/profile`)}
-          className="rounded-sm bg-our-pink px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-sm bg-ourGold2 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Cancel
         </button>
 
         <button
           type="button"
-          className="rounded-sm bg-ourGold2 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-sm bg-ourPurple px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-our-nav focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           onClick={() => formAction()}
         >
           Submit
