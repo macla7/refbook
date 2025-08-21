@@ -31,19 +31,9 @@ export default function rootPage() {
   }
 
   return (
-    <div className="bg-ourLightBrown">
+    <div>
+      
       <div className="w-screen relative 2xl:h-[700px] xl:h-[600px] h-[500px]">
-        <Image
-          alt="Gold yellow background"
-          src={background}
-          quality={100}
-          fill
-          style={{
-            margin: 0,
-            objectFit: "cover",
-            padding: "0",
-          }}
-        />
         <div className="relative px-6 pt-12">
           <div className="grid gap-x-4">
             {/* Row 1 */}
@@ -107,7 +97,7 @@ export default function rootPage() {
          */}
       </div>
 
-      <div className="flex items-center justify-center my-10 py-10">
+      <div className="flex items-center justify-center my-10 py-10 bg-ourBone inset-shadow-indigo-500">
         <div className="grid grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 mt-8 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
           {/* Left Column (Flexible) */}
           <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[238/100] border border-solid border-gray-200">
@@ -144,8 +134,8 @@ export default function rootPage() {
         </div>
       </div>
 
-      <div className="bg-ourPurple/10 py-10 relative overflow-hidden">
-        <Image
+      <div className= "py-10 relative overflow-hidden">
+        {/* <Image      
           src={purpleBackground}
           alt="purple swirl background"
           quality={100}
@@ -155,7 +145,7 @@ export default function rootPage() {
         zIndex: 0,
           }}
           className="pointer-events-none select-none"
-        />
+        /> */}
         {/* Your content goes here */}
         <div className="relative flex justify-center pt-12 text-center items-center ">
           <div className="flex flex-row items-center justify-center gap-4 flex-wrap">
@@ -177,7 +167,7 @@ export default function rootPage() {
             <span className="absolute inset-10 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               Get coworkers to write testimonials for you
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourShimmer/10 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ourShimmer/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
 
           <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">

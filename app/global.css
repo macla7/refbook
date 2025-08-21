@@ -23,7 +23,7 @@
   --color-our-pink: var(--color-red);
   --color-our-chili: #f51720;
   --color-gaps: var(--color-ourGold);
-  --color-ourShimmer: ##fcfbf7;
+  --color-ourShimmer: #f8edfc;
   /* --color-ourPurple: #27167ef; */
   --color-ourPurple: #592ada;
 }
@@ -209,8 +209,11 @@ table {
   0% {
     transform: translateX(-100%);
   }
-  100% {
-    transform: translateX(200%);
+  20% {
+    transform: translateX(180%);
+  }
+  50%{
+    transform: translateX(-100%);
   }
 }
 

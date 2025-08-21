@@ -22,28 +22,27 @@ export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter(); // Next.js router for navigation
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const { search, setSearch } = useSearch();
 
   useEffect(() => {
     checkUser();
   }, [router]); // Run once on mount
 
-    const { search, setSearch } = useSearch();
-  
-    useEffect(() => {
-      async function checkUser() {
-        try {
-          const currentUser = await getCurrentUser();
-          console.log("current user is: ", currentUser);
-          setAuthUser(currentUser);
-        } catch (error) {
-          console.log("User not authenticated");
-          setUser(userDefault);
-          // router.push("/"); // Redirect to authentication page
-        }
+  useEffect(() => {
+    async function checkUser() {
+      try {
+        const currentUser = await getCurrentUser();
+        console.log("current user is: ", currentUser);
+        setAuthUser(currentUser);
+      } catch (error) {
+        console.log("User not authenticated");
+        setUser(userDefault);
+        // router.push("/"); // Redirect to authentication page
       }
-  
-      checkUser();
-    }, [router]); // Run once on mount
+    }
+
+    checkUser();
+  }, [router]); // Run once on mount
 
   async function checkUser() {
     try {
@@ -97,6 +96,9 @@ export default function Page({ params }: { params: { id: string } }) {
     await patchUser(session, userId, userParams);
     clearFields();
     checkUser();
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("user-updated"));
+    }
     router.push(`/users/${userId}/profile`);
   }
 
