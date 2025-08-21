@@ -53,7 +53,7 @@ export default function rootPage() {
               <div className="relative flex justify-center items-end h-full ">
                 <div className="p-4 rounded-lg 2xl:text-5xl xl:text-4xl text-3xl text-ourBrown font-semibold">
                   <p className="text-center">
-                    Put your refenernces in the spotlight where your
+                    Put your references in the spotlight where your
                   </p>
                   <p className="text-center">
                     coworkers can explain why you're the best
@@ -97,7 +97,7 @@ export default function rootPage() {
          */}
       </div>
 
-      <div className="flex items-center justify-center my-10 py-10 bg-ourBone inset-shadow-indigo-500">
+      <div className="flex items-center justify-center my-10 py-10 bg-ourBone shadow-hover">
         <div className="grid grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 mt-8 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
           {/* Left Column (Flexible) */}
           <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[238/100] border border-solid border-gray-200">

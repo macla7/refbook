@@ -34,8 +34,8 @@ export default function usersPage() {
   // }, [router]); // Run once on mount
 
   return (
-    <section className="p-8 grow bg-white relative">
-      <Image
+    <section className="p-8 grow relative">
+      {/* <Image
         alt="Mountains"
         src={background}
         quality={100}
@@ -45,7 +45,7 @@ export default function usersPage() {
           objectFit: "cover",
           padding: "0",
         }}
-      />
+      /> */}
 
       <div className="relative flex flex-col items-center w-full justify-center mb-4">
         <div className="2xl:w-1/2 xl:w-3/5 w-3/4">

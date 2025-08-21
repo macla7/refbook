@@ -31,7 +31,7 @@ export function Sidebar({ user }: { user: User }) {
   console.log("user isss!!!!");
   console.log(user);
   return (
-    <aside className="grid justify-items-center px-12">
+    <aside className="grid justify-items-center px-12 bg-ourCream min-h-screen w-full">
       <div className="mt-8 w-64 h-64 rounded-full overflow-hidden border-transparent">
         <DP user={user} />
       </div>
