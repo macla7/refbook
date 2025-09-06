@@ -48,7 +48,7 @@ export default function TestimonialCard({
       {/* Button to Open Modal */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex flex-col md:flex-row items-center border bg-white border-1 border-gray-200 rounded-sm lg:h-[200px] lg:w-[400px] overflow-hidden shadow-lg hover:bg-ourLightBrown transition-all duration-300 ease-in-out cursor-pointer"
+        className="w-full h-full flex flex-row items-center bg-white border-1 border-gray-200 rounded-sm lg:min-h-[200px] lg:min-w-[300px] overflow-hidden shadow-lg hover:bg-ourLightBrown transition-all duration-300 ease-in-out cursor-pointer"
       >
         {/* SVG Container - 1/3 width */}
         <div className="flex-[1] flex flex-col items-center justify-center w-full h-full ">
@@ -80,8 +80,8 @@ export default function TestimonialCard({
         </div>
 
         {/* Text Container - 2/3 width */}
-        <div className="flex-[2] flex flex-col justify-between p-2 leading-normal w-full">
-          <p className="text-sm text-black dark:text-gray-400 line-clamp-10">
+        <div className="flex-[2] flex flex-col justify-between p-2 leading-normal ">
+          <p className="text-sm text-black dark:text-gray-400 line-clamp-21">
             {testimonial.message}
           </p>
         </div>
