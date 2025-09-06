@@ -29,7 +29,7 @@ export function TestimonialsList(params: { subjectUserId: string }) {
   "
       >
         {testimonials.map((t) => {
-          const wide = (t.message?.length ?? 0) > 270; // tune threshold
+          const wide = (t.message?.length ?? 0) > 250; // tune threshold
           const high = (t.message?.length ?? 0) > 600; // tune threshold
           return (
             <li

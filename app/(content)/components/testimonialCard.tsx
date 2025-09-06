@@ -81,7 +81,7 @@ export default function TestimonialCard({
 
         {/* Text Container - 2/3 width */}
         <div className="flex-[2] flex flex-col justify-between p-2 leading-normal ">
-          <p className="text-sm text-black dark:text-gray-400 line-clamp-21">
+          <p className="text-sm text-black dark:text-gray-400 line-clamp-18">
             {testimonial.message}
           </p>
         </div>
