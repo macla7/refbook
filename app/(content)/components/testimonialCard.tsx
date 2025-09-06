@@ -51,7 +51,7 @@ export default function TestimonialCard({
         className="w-full h-full flex flex-row items-center bg-white border-1 border-gray-200 rounded-sm lg:min-h-[200px] lg:min-w-[300px] overflow-hidden shadow-lg hover:bg-ourLightBrown transition-all duration-300 ease-in-out cursor-pointer"
       >
         {/* SVG Container - 1/3 width */}
-        <div className="flex-[1] flex flex-col items-center justify-center w-full h-full ">
+        <div className="flex flex-col items-center justify-center h-full w-[120px]">
           <div className="w-20 h-20">
             <DP user={authorUser} />
           </div>
