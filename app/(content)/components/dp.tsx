@@ -16,7 +16,7 @@ export function DP({ user }: DPProps) {
     return initials || "U";
   };
 
-  const initials = getInitials(user.name);
+  const initials = "SB";
 
   return (
     <div className="w-full h-full rounded-full overflow-hidden border-2 border-transparent bg-gradient-to-r from-ourBrown via-ourBrown to-ourBrown">

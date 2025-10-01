@@ -26,7 +26,7 @@ export async function deleteUser(session, id) {
     }
 
     const response = await fetch(
-      `https://khgvbo341f.execute-api.ap-southeast-2.amazonaws.com/users/${id}`,
+      String(process.env.NEXT_PUBLIC_API_GATEWAY_INVOKE) + `/users/${id}`,
       {
         method: "DELETE",
         headers: {
