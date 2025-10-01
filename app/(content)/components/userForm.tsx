@@ -13,7 +13,6 @@ export function UserForm(params: { id: string }) {
     const session = await fetchAuthSession();
 
     let userParams = {
-      ...params,
       position: position,
       workplace: workplace,
       name: userName,
