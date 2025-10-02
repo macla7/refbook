@@ -194,7 +194,7 @@ export default function rootPage() {
       </div>
 
       <div className="relative flex justify-center pt-12 text-center items-center mb-10">
-        FOOTER
+        FOOTER !
       </div>
     </div>
   );
