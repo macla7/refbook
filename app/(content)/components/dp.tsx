@@ -4,6 +4,10 @@ import dp1 from "assets/default-dps/default-dp-1.svg";
 import dp2 from "assets/default-dps/default-dp-2.svg";
 import dp3 from "assets/default-dps/default-dp-3.svg";
 import dp4 from "assets/default-dps/default-dp-4.svg";
+import dp5 from "assets/default-dps/default-dp-5.svg";
+import dp6 from "assets/default-dps/default-dp-6.svg";
+import dp7 from "assets/default-dps/default-dp-7.svg";
+import dp8 from "assets/default-dps/default-dp-8.svg";
 
 type DPProps = {
   user: { name: string; image: string | StaticImageData | null; id: string };
@@ -25,16 +29,12 @@ export function DP({ user }: DPProps) {
   const initials = getInitials(user.name);
 
   // Import all images from assets/default-dps
-  const defaultDPs = [dp1, dp2, dp3, dp4];
+  const defaultDPs = [dp1, dp2, dp3, dp4, dp5, dp6, dp7, dp8];
 
   // Pick a default image based on createdAt
-  const numbers = user.id.match(/\d+/g)
-    ? user.id.match(/\d+/g)!.map(Number)
-    : [1, 2, 3];
-  const sum = numbers.reduce(
-    (accumulator, currentValue) => accumulator + currentValue, 0);
-  const dpNumber =
-    ((sum % defaultDPs.length) + defaultDPs.length) % defaultDPs.length;
+  const numbers = user.id.match(/\d+/g) ? user.id.match(/\d+/g)!.map(Number): [1, 2, 3];
+  const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  const dpNumber = ((sum % defaultDPs.length) + defaultDPs.length) % defaultDPs.length;
   const defaultDP = defaultDPs[dpNumber];
   // console.log(dpNumber);
 
