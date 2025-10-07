@@ -25,21 +25,27 @@ export function DP({ user }: DPProps) {
       .toUpperCase();
     return initials || "DU";
   };
-  
+
   const initials = getInitials(user.name);
 
   // Import all images from assets/default-dps
   const defaultDPs = [dp1, dp2, dp3, dp4, dp5, dp6, dp7, dp8];
 
   // Pick a default image based on createdAt
-  const numbers = user.id.match(/\d+/g) ? user.id.match(/\d+/g)!.map(Number): [1, 2, 3];
-  const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-  const dpNumber = ((sum % defaultDPs.length) + defaultDPs.length) % defaultDPs.length;
+  const numbers = user.id.match(/\d+/g)
+    ? user.id.match(/\d+/g)!.map(Number)
+    : [1, 2, 3];
+  const sum = numbers.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  const dpNumber =
+    ((sum % defaultDPs.length) + defaultDPs.length) % defaultDPs.length;
   const defaultDP = defaultDPs[dpNumber];
   // console.log(dpNumber);
 
   return (
-    <div className="w-full h-full rounded-full overflow-hidden border-2 border-transparent bg-gradient-to-r from-ourBrown via-ourBrown to-ourBrown">
+    <div className="w-full h-full rounded-full overflow-hidden ">
       <div className="relative text-center w-full h-full rounded-full bg-white flex items-center justify-center">
         {user.image ? (
           <Image
@@ -56,11 +62,14 @@ export function DP({ user }: DPProps) {
               alt="default profile pic"
               width={80}
               height={80}
-              className= "w-full h-full align-center object-cover rounded-full z-1"
-
+              className="w-full h-full align-center object-cover rounded-full z-1"
             />
             <div className="absolute inset-0 z-10 flex items-center justify-center">
-              <p className="text-3xl text-white text-shadow-10xl shadow-black">{initials}</p>
+              {/* <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center">
+                <p className="text-3xl text-ourBrown text-shadow-10xl shadow-black">
+                  {initials}
+                </p>
+              </div> */}
             </div>
           </div>
         )}
