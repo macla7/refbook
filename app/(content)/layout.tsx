@@ -12,7 +12,7 @@ import logo from "assets/rango3.svg";
 import openGraphRango from "assets/open-graph-rango.png";
 import { SearchProvider } from "app/context/SearchContext";
 import ScreenSizeWarning from "./components/screensizeWarning";
-import background from "assets/rangobg3.svg"
+import background from "assets/rangobg3.svg";
 import "app/config";
 
 export const metadata: Metadata = {
@@ -61,17 +61,13 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={cx(
-      "text-black",
-      GeistSans.variable,
-      GeistMono.variable
-      )}
+      className={cx("text-black", GeistSans.variable, GeistMono.variable)}
       style={{
-      backgroundImage: `url(${background.src})`,
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-      backgroundAttachment: "fixed", // This keeps the background fixed while scrolling
+        backgroundImage: `url(${background.src})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed", // This keeps the background fixed while scrolling
       }}
     >
       <ScreenSizeWarning />
@@ -90,10 +86,9 @@ export default async function RootLayout({
               <SpeedInsights />
             </main>
 
-            {/* 
-          <footer className="col-span-4">
-            <Footer />
-          </footer> */}
+            <footer className="col-span-4 bg-ourLightBrown border-t-1 border-solid border-gray-200">
+              <Footer />
+            </footer>
           </div>
         </SearchProvider>
       </body>

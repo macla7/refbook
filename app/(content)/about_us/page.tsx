@@ -36,7 +36,7 @@ export default function rootPage() {
         <div className="relative flex justify-center 2xl:pt-14 xl:pt-10 pt-8 pb-6 ">
           <div className="w-full m-6">
             <p className="2xl:text-8xl text-7xl text-ourBrown font-bold mb-4">
-              Mission Statement
+              Mission
             </p>
             <p className="2xl:text-6xl text-5xl text-ourBrown font-semibold mb-4">
               To help people showcase their amazing references
