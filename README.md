@@ -1,4 +1,12 @@
-# Portfolio Blog Starter
+# Rango Frontend
+
+This is a React webapp, hosted using vercel and nextjs. We use tailwind for styling.
+
+It is configured to work with our aws iaac backend.
+
+We are currently hosting all our internal tasks, documentation and notes in our private trello board. If you have any questions about Rango or the Stack, please feel free to reach out. There are contact details on the website 🤠.
+
+## Everything below is the template README
 
 This is a porfolio site template complete with a blog. Includes:
 

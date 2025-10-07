@@ -96,7 +96,7 @@ export default function rootPage() {
          */}
       </div>
 
-      <div className="flex items-center justify-center mb-10 py-12 bg-ourBone shadow-hover">
+      <div className="flex items-center justify-center py-12 bg-ourBone shadow-hover">
         <div className="grid grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
           {/* Left Column (Flexible) */}
           <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[238/100] border border-solid border-gray-200">
@@ -133,7 +133,7 @@ export default function rootPage() {
         </div>
       </div>
 
-      <div className="py-10 relative overflow-hidden">
+      <div className="py-14 relative overflow-hidden">
         {/* <Image      
           src={purpleBackground}
           alt="purple swirl background"
@@ -191,10 +191,6 @@ export default function rootPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
         </div>
-      </div>
-
-      <div className="relative flex justify-center pt-12 text-center items-center mb-10">
-        FOOTER
       </div>
     </div>
   );

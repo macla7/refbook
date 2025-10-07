@@ -135,7 +135,13 @@ export default function Page({ params }: { params: { id: string } }) {
             </p>
 
             <div className="mt-4 w-64 h-64 rounded-full overflow-hidden border-transparent">
-              <DP user={{ name: "placeholder", image: imageUrl }} />
+              <DP
+                user={{
+                  name: "placeholder",
+                  image: imageUrl,
+                  id: "no-id-to-be-seen-here",
+                }}
+              />
             </div>
 
             <div className="col-span-full">
