@@ -110,7 +110,7 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return user.id !== "unknown" ? (
-    <div className="w-full ">
+    <div className="w-screen">
       <div className="col-span-3 justify-items-center rounded-sm bg-white relative h-full p-12">
         <Image
           alt="Mountains"
@@ -124,7 +124,7 @@ export default function Page({ params }: { params: { id: string } }) {
           }}
         />
 
-        <form className="relative space-y-2 bg-white w-3xl rounded-sm border border-gray-900/10 ">
+        <form className="relative space-y-2 bg-white rounded-sm border border-gray-900/10 w-screen">
           <div className="p-12">
             <h2 className="text-base/7 font-semibold text-gray-900">
               User Details
@@ -135,13 +135,21 @@ export default function Page({ params }: { params: { id: string } }) {
             </p>
 
             <div className="mt-4 w-64 h-64 rounded-full overflow-hidden border-transparent">
+              {imageUrl ? (
               <DP
                 user={{
-                  name: "placeholder",
-                  image: imageUrl,
-                  id: "no-id-to-be-seen-here",
+                name: "placeholder",
+                image: imageUrl,
+                id: "no-id-to-be-seen-here",
                 }}
               />
+              ) : (
+              <div className="w-full h-full flex items-center justify-center bg-gray-50 text-center p-4">
+                <p className="text-sm text-gray-600">
+                choose a profile picture so people know it's you!
+                </p>
+              </div>
+              )}
             </div>
 
             <div className="col-span-full">
