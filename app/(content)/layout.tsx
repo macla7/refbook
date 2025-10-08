@@ -11,7 +11,7 @@ import logo from "assets/rango3.svg";
 // import background from "assets/iStock-2163734002-2.svg";
 import openGraphRango from "assets/open-graph-rango.png";
 import { SearchProvider } from "app/context/SearchContext";
-import ScreenSizeWarning from "./components/screensizeWarning";
+// import ScreenSizeWarning from "./components/screensizeWarning";
 import background from "assets/rangobg3.svg";
 import "app/config";
 
@@ -70,7 +70,7 @@ export default async function RootLayout({
         backgroundAttachment: "fixed", // This keeps the background fixed while scrolling
       }}
     >
-      <ScreenSizeWarning />
+      {/* <ScreenSizeWarning /> */}
       <body className="antialiased flex h-dvh ">
         <SearchProvider>
           <div className="grid grid-cols-4 grid-rows-[70px_1fr] grow">
