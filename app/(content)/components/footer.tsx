@@ -1,8 +1,8 @@
 function ArrowIcon() {
   return (
     <svg
-      width="12"
-      height="12"
+      width="8"
+      height="8"
       viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -17,39 +17,39 @@ function ArrowIcon() {
 
 export default function Footer() {
   return (
-    <footer className="mb-12">
-      <ul className="font-sm mt-12 flex justify-center gap-6 text-ourBrown">
+    <footer className="mb-6">
+      <ul className="font-sm mt-6 flex justify-center gap-6 text-ourBrown">
         <li>
           <a
-            className="flex items-center relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full"
+            className="flex items-center relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full"
             rel="noopener noreferrer"
             target="_blank"
             href="/about_us"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">About Us</p>
+            <p className="ml-2 text-sm">About Us</p>
           </a>
         </li>
         <li>
           <a
-            className="flex items-center relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full"
+            className="flex items-center relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full"
             rel="noopener noreferrer"
             target="_blank"
             href="/privacy_policy"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">Privacy Policy</p>
+            <p className="ml-2 text-sm">Privacy Policy</p>
           </a>
         </li>
         <li>
           <a
-            className="flex items-center relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full"
+            className="flex items-center relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full"
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/macla7/refbook"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">View Github Project</p>
+            <p className="ml-2 text-sm">View Github Project</p>
           </a>
         </li>
       </ul>

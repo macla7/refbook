@@ -13,9 +13,11 @@ import { Default } from "@aws-amplify/ui-react/dist/types/primitives/DropZone/Dr
 export default function TestimonialCard({
   testimonial,
   fakeUser,
+  tall,
 }: {
   testimonial: Testimonial;
   fakeUser?: User;
+  tall?: boolean;
 }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [authorUser, setAuthorUser] = useState<User | any>(userDefault);
@@ -65,9 +67,15 @@ export default function TestimonialCard({
 
         {/* Text Container - 2/3 width */}
         <div className="flex-[2] flex flex-col justify-between p-2 leading-normal ">
-          <p className="text-sm text-black dark:text-gray-400 line-clamp-18">
-            {testimonial.message}
-          </p>
+          {tall ? (
+            <p className="text-sm text-black dark:text-gray-400 line-clamp-18">
+              {testimonial.message}
+            </p>
+          ) : (
+            <p className="text-sm text-black dark:text-gray-400 line-clamp-8">
+              {testimonial.message}
+            </p>
+          )}
         </div>
       </button>
 

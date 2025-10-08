@@ -11,7 +11,9 @@ import Image from "next/image";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
-  const [activeTab, setActiveTab] = useState<"testimonials" | "sidebar">("testimonials");
+  const [activeTab, setActiveTab] = useState<"testimonials" | "sidebar">(
+    "testimonials"
+  );
   const userId: string = params.id;
 
   useEffect(() => {
@@ -23,7 +25,7 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="w-full max-w-full grow relative">
+    <div className="w-full max-w-full grow relative pb-10">
       {/* Tabs for small screens */}
       <div className="sm:hidden w-full flex border-b border-gray-200 bg-white">
         <button
@@ -49,9 +51,9 @@ export default function Page({ params }: { params: { id: string } }) {
       </div>
 
       {/* Tab content for small screens */}
-      <div className="sm:hidden">
+      <div className="sm:hidden h-full">
         {activeTab === "testimonials" && (
-          <div className="relative bg-white min-h-[300px]">
+          <div className="relative bg-white h-full">
             <Image
               alt="Mountains"
               src={background}
@@ -67,14 +69,14 @@ export default function Page({ params }: { params: { id: string } }) {
           </div>
         )}
         {activeTab === "sidebar" && (
-          <div className="bg-white min-h-[300px]">
+          <div className="bg-white h-full">
             <Sidebar user={user} />
           </div>
         )}
       </div>
 
       {/* Grid layout for medium and up */}
-      <div className="hidden sm:grid xl:grid-cols-7 grid-cols-5 grow mx-0">
+      <div className="hidden sm:grid xl:grid-cols-7 grid-cols-5 grow mx-0 h-full">
         <div className="xl:col-span-5 col-span-3 justify-items-center rounded-sm bg-white relative">
           <Image
             alt="Mountains"
@@ -89,7 +91,7 @@ export default function Page({ params }: { params: { id: string } }) {
           />
           <TestimonialsList subjectUserId={userId} />
         </div>
-        <div className="col-span-2 gbg-our-sidebar rounded-sm border-l-1 border-solid border-gray-200">
+        <div className="col-span-2 gbg-our-sidebar rounded-sm border-l-1 border-solid border-gray-200 h-full">
           <Sidebar user={user} />
         </div>
       </div>

@@ -22,25 +22,25 @@ export function TestimonialsList(params: { subjectUserId: string }) {
       <ul
         className="
           relative grid
-          grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]
+          grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]
           auto-rows-[200px] grid-flow-dense gap-6
           2xl:p-20 xl:p-12 p-4 w-full
         "
       >
         {testimonials.map((t) => {
-          const wide = (t.message?.length ?? 0) > 250;
+          const wide = (t.message?.length ?? 0) > 150;
           const high = (t.message?.length ?? 0) > 600;
           return (
             <li
               key={t.id}
-              className="flex justify-center items-center h-48 overflow-hidden"
+              className="flex justify-center items-center overflow-hidden"
               style={{
                 gridColumnEnd: `span ${wide ? 2 : 1}`,
                 gridRowEnd: `span ${high ? 2 : 1}`,
               }}
             >
               <div className="w-full h-full overflow-hidden flex">
-                <TestimonialCard testimonial={t} />
+                <TestimonialCard testimonial={t} tall={high} />
               </div>
             </li>
           );

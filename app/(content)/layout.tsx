@@ -98,7 +98,7 @@ export default async function RootLayout({
               <SpeedInsights />
             </main>
 
-            <footer className="md:block hidden col-span-4 bg-ourLightBrown border-t-1 border-solid border-gray-200">
+            <footer className="md:block hidden col-span-4 bg-white border-t-1 border-solid border-gray-200">
               <Footer />
             </footer>
 

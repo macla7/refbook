@@ -69,13 +69,13 @@ export function Navbar() {
       <div className="flex items-center justify-between w-full">
         {/* Left: Logo */}
         <div className="flex items-center">
-            <Link key={"/"} href={"/"}>
+          <Link key={"/"} href={"/"}>
             <Image
               src={logo}
               alt="Default Profile"
               className="lg:w-[150px] md:w-[125px]"
             />
-            </Link>
+          </Link>
         </div>
 
         {/* Center: Search + Nav items (will grow to fill available space) */}
@@ -141,13 +141,16 @@ export function Navbar() {
           // close when focus leaves this container (covers keyboard & mouse focus moves)
           onBlur={(e) => {
             const related = (e as any).relatedTarget as Node | null;
-            if (!related || !(e.currentTarget as HTMLElement).contains(related)) {
+            if (
+              !related ||
+              !(e.currentTarget as HTMLElement).contains(related)
+            ) {
               setIsMenuOpen(false);
             }
           }}
         >
           <button
-            className="w-12 h-12 flex items-center justify-center rounded-full overflow-hidden"
+            className="w-12 h-12 flex items-center justify-center rounded-full overflow-hidden cursor-pointer"
             onClick={() => setIsMenuOpen((open) => !open)}
             aria-label={isActive ? "Open user menu" : "Open menu"}
             aria-expanded={isMenuOpen}
