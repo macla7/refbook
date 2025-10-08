@@ -130,9 +130,13 @@ return (
                     aria-label="Open menu"
                     className="flex items-center p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-ourBrown"
                 >
-                    <div className="w-10 h-10">
-                        <DP user={dbUser} />
-                    </div>
+                    {isActive ? (
+                        <div className="w-10 h-10">
+                            <DP user={dbUser} />
+                        </div>
+                    ) : (
+                        <Menu className="w-6 h-6 text-ourBrown" />
+                    )}
                 </button>
 
                 {/* Dropdown menu */}

@@ -49,7 +49,7 @@ export default async function RootLayout({
     <html
       lang="en"
       className={cx(
-        "text-black bg-white text-black bg-stone-100",
+        "text-black bg-stone-100",
         GeistSans.variable,
         GeistMono.variable
       )}
