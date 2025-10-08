@@ -74,7 +74,7 @@ export default async function RootLayout({
       {/* <ScreenSizeWarning /> */}
       <body className="antialiased flex h-dvh ">
         <SearchProvider>
-          <div className="grid grid-cols-4 grid-rows-[70px_1fr] grow">
+          <div className="grid grid-cols-4 md:grid-rows-[70px_1fr] md:grid-rows-[1fr_70px] grow">
             <>
               {/* Desktop / tablet: Navbar stuck to top */}
               <nav className="hidden md:block col-span-4 bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -87,7 +87,7 @@ export default async function RootLayout({
               </nav>
 
               {/* Spacer so page content isn't hidden behind the fixed mobile nav */}
-              <div className="col-span-4 md:hidden h-16" aria-hidden />
+              <div className="col-span-4 md:block hidden h-16" aria-hidden />
             </>
 
             <main className="col-span-4 flex">
@@ -101,6 +101,8 @@ export default async function RootLayout({
             <footer className="col-span-4 bg-ourLightBrown border-t-1 border-solid border-gray-200">
               <Footer />
             </footer>
+
+            <div className="col-span-4 md:hidden h-16" aria-hidden />
           </div>
         </SearchProvider>
       </body>

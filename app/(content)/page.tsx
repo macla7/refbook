@@ -36,7 +36,7 @@ export default function rootPage() {
         <div className="relative lg:px-6 px-2 lg:pt-12 md:pt-6 pt-2">
           <div className="grid gap-x-4">
             {/* Row 1 */}
-            <div className="grid grid-cols-[1fr] gap-12 ">
+            <div className="grid grid-cols-[1fr] ">
               <div className="lg:py-4 md:py-2 py-1">
                 <p className="2xl:text-9xl xl:text-8xl lg:text-7xl md:text-6xl text-5xl text-ourBrown font-semibold my-4 text-center">
                   Let employers hear your <br /> coworkers' praise
@@ -74,7 +74,7 @@ export default function rootPage() {
         </div>
 
         {/* <div className="relative flex justify-end pt-12 pb-6 text-right">
-          <div className="p-6 ">
+          <div className="</div>p-6 ">
             <p className="text-8xl text-ourBrown font-semibold mb-4">
               Let employers hear your
             </p>
@@ -94,36 +94,39 @@ export default function rootPage() {
       </div>
 
       <div className="flex items-center justify-center py-12 bg-ourBone shadow-hover">
-        <div className="grid grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] lg:grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
           {/* Left Column (Flexible) */}
-          <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[238/100] border border-solid border-gray-200">
+          <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[16/9] md:aspect-[238/100] border border-solid border-gray-200 overflow-hidden">
             <Image
               alt="Gold yellow background"
               src={sample}
               quality={100}
               fill
               style={{ objectFit: "cover" }}
+              className="pointer-events-none select-none"
             />
           </div>
 
-          {/* Right Column (Fixed 500px) */}
-          <div className="grid grid-rows-3 grid-cols-[auto_1fr] 2xl:gap-x-6 xl:gap-x-4 gap-x-2 gap-y-8 items-center">
-            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
+          {/* Right Column (features) */}
+          <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] md:grid-rows-3 gap-x-2 gap-y-6 md:gap-y-8 items-center">
+            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
               <Image src={test_icon} alt="Testimonial Icon" />
             </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] text-center md:text-left">
               References left by your coworkers made accessible
             </div>
-            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
+
+            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
               <Image src={search_icon} alt="Search Icon" />
             </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] text-center md:text-left">
               Quickly find friends and coworkers, no log in required
             </div>
-            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto">
+
+            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
               <Image src={profile_icon} alt="Profile Icon" />
             </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px]">
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] text-center md:text-left">
               Profile area for a summary of who you are
             </div>
           </div>
