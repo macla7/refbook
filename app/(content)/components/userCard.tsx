@@ -12,7 +12,7 @@ export default function UserCard({ user }: { user: User }) {
   return (
     <div className="flex flex-row items-center">
       {/* DP stays fixed */}
-      <div className="w-20 h-20 m-10 flex-shrink-0">
+      <div className="w-20 h-20 md:m-10 m-4 flex-shrink-0">
         <DP user={user} />
       </div>
 

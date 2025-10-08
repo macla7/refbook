@@ -74,7 +74,7 @@ export default async function RootLayout({
       {/* <ScreenSizeWarning /> */}
       <body className="antialiased flex h-dvh ">
         <SearchProvider>
-          <div className="grid grid-cols-4 md:grid-rows-[70px_1fr] md:grid-rows-[1fr_70px] grow">
+          <div className="grid grid-cols-4 md:grid-rows-[70px_1fr] grid-rows-[1fr_70px] grow">
             <>
               {/* Desktop / tablet: Navbar stuck to top */}
               <nav className="hidden md:block col-span-4 bg-white border-b border-gray-200 sticky top-0 z-50">
