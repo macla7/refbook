@@ -32,7 +32,7 @@ export default function rootPage() {
 
   return (
     <div>
-      <div className="w-screen relative 2xl:h-[700px] xl:h-[600px] lg:h-[500px] md:h-[450px] h-[425px]">
+      <div className="w-screen relative 2xl:h-[700px] xl:h-[600px] lg:h-[500px] md:h-[400px] h-[500px]">
         <div className="relative lg:px-6 px-2 lg:pt-12 md:pt-6 pt-2">
           <div className="grid gap-x-4">
             {/* Row 1 */}
@@ -47,7 +47,7 @@ export default function rootPage() {
             {/* Row 2 */}
             <div className="grid grid-cols-1 gap-4 ">
               <div className="relative flex justify-center items-end h-full ">
-                <div className="lg:p-4 md:py-2 p-1 rounded-lg 2xl:text-5xl xl:text-4xl lg:text-3xl md:text-3xl text-2xl text-ourBrown font-semibold">
+                <div className="lg:p-4 p-2 rounded-lg 2xl:text-5xl xl:text-4xl lg:text-3xl md:text-3xl text-2xl text-ourBrown font-semibold">
                   <p className="text-center">
                     Put your references in the spotlight where your
                   </p>
@@ -96,7 +96,7 @@ export default function rootPage() {
       <div className="flex items-center justify-center py-12 bg-ourBone shadow-hover">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] lg:grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 2xl:mx-24 xl:mx-12 mx-6 w-full max-w-[1700px]">
           {/* Left Column (Flexible) */}
-          <div className="relative w-full max-w-[1200px] min-w-[300px] aspect-[16/9] md:aspect-[238/100] border border-solid border-gray-200 overflow-hidden">
+          <div className="md:block hidden relative w-full max-w-[1200px] min-w-[300px] aspect-[16/9] md:aspect-[238/100] border border-solid border-gray-200 overflow-hidden">
             <Image
               alt="Gold yellow background"
               src={sample}
@@ -133,7 +133,7 @@ export default function rootPage() {
         </div>
       </div>
 
-      <div className="py-14 relative overflow-hidden">
+      <div className="lg:py-12 py-4 relative overflow-hidden">
         {/* <Image      
           src={purpleBackground}
           alt="purple swirl background"
@@ -146,7 +146,7 @@ export default function rootPage() {
           className="pointer-events-none select-none"
         /> */}
         {/* Your content goes here */}
-        <div className="relative flex justify-center pt-12 text-center items-center ">
+        <div className="relative flex justify-center lg:pt-12 pt-4 text-center items-center ">
           <div className="flex flex-row items-center justify-center gap-4 flex-wrap">
             <p className="text-2xl text-ourBrown font-bold max-w-5xl">
               How can
@@ -158,36 +158,34 @@ export default function rootPage() {
           </div>
         </div>
 
-        <div className="relative flex w-2/3 items-center my-10 z-0 gap-20 mx-auto justify-center">
-          <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
-            <span className="flex items-center justify-center transition-opacity duration-300 opacity-100 group-hover:opacity-0 ">
+        <div className="relative flex flex-col md:flex-col lg:flex-row w-full max-w-4xl mx-auto items-center my-10 z-0 gap-6 lg:gap-20 justify-center px-4">
+          <div className="w-full lg:w-1/3 h-32 flex items-center justify-center shadow rounded-xl bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
+            <span className="flex items-center justify-center transition-opacity duration-300 opacity-100 group-hover:opacity-0 px-4 text-center">
               Reach Out
             </span>
-            <span className="absolute inset-10 flex items-center justify-center text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+            <span className="absolute inset-0 flex items-center justify-center p-4 text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               Makes it easy for coworkers to leave you a great reference
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
 
-          <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
-            <span className="transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+          <div className="w-full lg:w-1/3 h-32 flex items-center justify-center shadow rounded-xl bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
+            <span className="transition-opacity duration-300 opacity-100 group-hover:opacity-0 px-4 text-center">
               Store
             </span>
-            <span className="absolute inset-10 flex items-center justify-center text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+            <span className="absolute inset-0 flex items-center justify-center p-4 text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               Keep all your references in one place, no more lost emails
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
 
-          <div className="w-1/3 h-32 flex items-center justify-center shadow rounded-xl mx-0 bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
-            <span className="transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+          <div className="w-full lg:w-1/3 h-32 flex items-center justify-center shadow rounded-xl bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
+            <span className="transition-opacity duration-300 opacity-100 group-hover:opacity-0 px-4 text-center">
               Display
             </span>
-
-            <span className="absolute inset-10 flex items-center justify-center text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+            <span className="absolute inset-0 flex items-center justify-center p-4 text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
               Showcase your references on an accessible and shareable profile
             </span>
-
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
           </div>
         </div>

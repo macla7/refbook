@@ -87,7 +87,7 @@ export default async function RootLayout({
               </nav>
 
               {/* Spacer so page content isn't hidden behind the fixed mobile nav */}
-              <div className="col-span-4 md:block hidden h-16" aria-hidden />
+              {/* <div className="col-span-4 md:block hidden h-16" aria-hidden /> */}
             </>
 
             <main className="col-span-4 flex">
@@ -98,7 +98,7 @@ export default async function RootLayout({
               <SpeedInsights />
             </main>
 
-            <footer className="col-span-4 bg-ourLightBrown border-t-1 border-solid border-gray-200">
+            <footer className="md:block hidden col-span-4 bg-ourLightBrown border-t-1 border-solid border-gray-200">
               <Footer />
             </footer>
 
