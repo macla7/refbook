@@ -136,6 +136,14 @@ export function PhoneNavbar() {
               }
             }}
           >
+            {/* full-screen transparent overlay to catch touch/click-away on mobile */}
+            {isMenuOpen && (
+              <div
+                className="fixed inset-0 z-40 bg-transparent"
+                onMouseDown={() => setIsMenuOpen(false)}
+                onTouchStart={() => setIsMenuOpen(false)}
+              />
+            )}
             {/* DP as the hamburger/menu trigger */}
             <button
               onClick={() => setIsMenuOpen((s) => !s)}
