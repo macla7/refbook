@@ -32,17 +32,14 @@ export default function rootPage() {
 
   return (
     <div>
-      <div className="w-screen relative 2xl:h-[700px] xl:h-[600px] h-[500px]">
-        <div className="relative px-6 pt-12">
+      <div className="w-screen relative 2xl:h-[700px] xl:h-[600px] lg:h-[500px] md:h-[450px] h-[425px]">
+        <div className="relative lg:px-6 px-2 lg:pt-12 md:pt-6 pt-2">
           <div className="grid gap-x-4">
             {/* Row 1 */}
             <div className="grid grid-cols-[1fr] gap-12 ">
-              <div className="py-4">
-                <p className="2xl:text-9xl xl:text-8xl text-7xl text-ourBrown font-semibold my-4 text-center">
-                  Let employers hear your
-                </p>
-                <p className="2xl:text-9xl xl:text-8xl text-7xl text-ourBrown font-semibold mb-4 text-center">
-                  coworkers' praise
+              <div className="lg:py-4 md:py-2 py-1">
+                <p className="2xl:text-9xl xl:text-8xl lg:text-7xl md:text-6xl text-5xl text-ourBrown font-semibold my-4 text-center">
+                  Let employers hear your <br /> coworkers' praise
                 </p>
               </div>
             </div>
@@ -50,7 +47,7 @@ export default function rootPage() {
             {/* Row 2 */}
             <div className="grid grid-cols-1 gap-4 ">
               <div className="relative flex justify-center items-end h-full ">
-                <div className="p-4 rounded-lg 2xl:text-5xl xl:text-4xl text-3xl text-ourBrown font-semibold">
+                <div className="lg:p-4 md:py-2 p-1 rounded-lg 2xl:text-5xl xl:text-4xl lg:text-3xl md:text-3xl text-2xl text-ourBrown font-semibold">
                   <p className="text-center">
                     Put your references in the spotlight where your
                   </p>
