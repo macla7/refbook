@@ -65,70 +65,78 @@ export function Navbar() {
   }
 
   return (
-    <nav className="flex h-full justify-between items-center px-6 py-4 z-10 ">
-      {/* Left Logo Section */}
-      <div className="flex items-center">
-        <Link key={"/"} href={"/"}>
-          <Image src={logo} alt="Default Profile" width={150} />
-        </Link>
-      </div>
-
-      {/* Desktop Navigation */}
-      <div className="lg:flex flex-row items-center space-x-4">
-        <form
-          className=""
-          onSubmit={(e) => {
-            e.preventDefault();
-            router.push("/users");
-          }}
-        >
-          <div className="relative xl:w-xs w-2xs">
-            <input
-              type="search"
-              className="p-2 w-full border-1 border-solid border-gray-200 text-sm text-gray-900 rounded-sm focus:outline-none focus:ring-2 focus:ring-ourBrown"
-              placeholder="Search people"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
+    <nav className="flex h-full items-center px-6 py-4 z-10">
+      <div className="flex items-center justify-between w-full">
+        {/* Left: Logo */}
+        <div className="flex items-center">
+            <Link key={"/"} href={"/"}>
+            <Image
+              src={logo}
+              alt="Default Profile"
+              className="lg:w-[150px] md:w-[125px]"
             />
-            <Link
-              className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-ourBrown  rounded-e-sm border-1 border-solid border-gray-200"
-              key={"/users"}
-              href={"/users"}
-            >
-              <svg
-                className="w-8 h-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-              <span className="sr-only">Search</span>
             </Link>
-          </div>
-        </form>
+        </div>
 
-        {Object.entries(navItems).map(([path, { name }]) => (
-          <Link
-            key={path}
-            href={path}
-            className="rounded-md bg-transparent text-ourBrown xl:px-4 px-2 py-3 text-lg font-semibold transition"
+        {/* Center: Search + Nav items (will grow to fill available space) */}
+        <div className="flex items-center flex-1 justify-center space-x-8">
+          <form
+            className="flex-shrink-0"
+            onSubmit={(e) => {
+              e.preventDefault();
+              router.push("/users");
+            }}
           >
-            <span className="relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
-              {name}
-            </span>
-          </Link>
-        ))}
+            <div className="relative xl:w-xs w-2xs">
+              <input
+                type="search"
+                className="p-2 w-full border-1 border-solid border-gray-200 text-sm text-gray-900 rounded-sm focus:outline-none focus:ring-2 focus:ring-ourBrown"
+                placeholder="Search people"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <Link
+                className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-ourBrown rounded-e-sm border-1 border-solid border-gray-200"
+                key={"/users"}
+                href={"/users"}
+              >
+                <svg
+                  className="w-8 h-4"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                  />
+                </svg>
+                <span className="sr-only">Search</span>
+              </Link>
+            </div>
+          </form>
 
-        {/* Hamburger menu with DP as icon */}
-        <div className="relative">
+          <div className="flex items-center space-x-6">
+            {Object.entries(navItems).map(([path, { name }]) => (
+              <Link
+                key={path}
+                href={path}
+                className="rounded-md bg-transparent text-ourBrown xl:px-4 px-2 py-3 text-lg font-semibold transition"
+              >
+                <span className="relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
+                  {name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Right: Menu / DP */}
+        <div className="relative flex-shrink-0">
           <button
             className="w-12 h-12 flex items-center justify-center rounded-full overflow-hidden"
             onClick={() => setIsMenuOpen((open) => !open)}
@@ -147,14 +155,18 @@ export function Navbar() {
                 stroke="currentColor"
                 aria-hidden="true"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             )}
           </button>
           {isMenuOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
               <nav className="flex flex-col py-2">
-                {/* My Profile */}
                 {dbUser.id !== "unknown" && (
                   <Link
                     href={`/users/${dbUser.id}/profile`}
@@ -164,7 +176,6 @@ export function Navbar() {
                     My Profile
                   </Link>
                 )}
-                {/* Account */}
                 {dbUser.id !== "unknown" && (
                   <Link
                     href={`/users/${dbUser.id}/account`}
@@ -174,7 +185,6 @@ export function Navbar() {
                     Account
                   </Link>
                 )}
-                {/* Log In / Sign Out */}
                 <button
                   onClick={async () => {
                     setIsMenuOpen(false);
