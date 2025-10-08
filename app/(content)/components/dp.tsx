@@ -39,8 +39,7 @@ export function DP({ user }: DPProps) {
     (accumulator, currentValue) => accumulator + currentValue,
     0
   );
-  const dpNumber =
-    ((sum % defaultDPs.length) + defaultDPs.length) % defaultDPs.length;
+  const dpNumber = sum % defaultDPs.length;
   const defaultDP = defaultDPs[dpNumber];
   // console.log(dpNumber);
 
@@ -51,8 +50,8 @@ export function DP({ user }: DPProps) {
           <Image
             src={user.image}
             alt={"user profile picture"}
-            width={80}
-            height={80}
+            width={400}
+            height={400} 
             className="w-full h-full align-center object-cover rounded-full"
           />
         ) : (
@@ -60,8 +59,8 @@ export function DP({ user }: DPProps) {
             <Image
               src={defaultDP}
               alt="default profile pic"
-              width={80}
-              height={80}
+              width={1000}
+              height={1000}
               className="w-full h-full align-center object-cover rounded-full z-1"
             />
             <div className="absolute inset-0 z-10 flex items-center justify-center">
