@@ -136,7 +136,16 @@ export function Navbar() {
         </div>
 
         {/* Right: Menu / DP */}
-        <div className="relative flex-shrink-0">
+        <div
+          className="relative flex-shrink-0"
+          // close when focus leaves this container (covers keyboard & mouse focus moves)
+          onBlur={(e) => {
+            const related = (e as any).relatedTarget as Node | null;
+            if (!related || !(e.currentTarget as HTMLElement).contains(related)) {
+              setIsMenuOpen(false);
+            }
+          }}
+        >
           <button
             className="w-12 h-12 flex items-center justify-center rounded-full overflow-hidden"
             onClick={() => setIsMenuOpen((open) => !open)}

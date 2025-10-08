@@ -21,26 +21,27 @@ export function TestimonialsList(params: { subjectUserId: string }) {
     <>
       <ul
         className="
-    relative grid
-    grid-cols-[repeat(auto-fit,minmax(300px,1fr))]
-    auto-rows-[200px]     /* 👈 sets baseline row size */
-    grid-flow-dense gap-10
-    2xl:p-20 xl:p-12 p-6 w-full
-  "
+          relative grid
+          grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]
+          auto-rows-[200px] grid-flow-dense gap-6
+          2xl:p-20 xl:p-12 p-4 w-full
+        "
       >
         {testimonials.map((t) => {
-          const wide = (t.message?.length ?? 0) > 250; // tune threshold
-          const high = (t.message?.length ?? 0) > 600; // tune threshold
+          const wide = (t.message?.length ?? 0) > 250;
+          const high = (t.message?.length ?? 0) > 600;
           return (
             <li
               key={t.id}
-              className="flex justify-center items-center"
+              className="flex justify-center items-center h-48 overflow-hidden"
               style={{
                 gridColumnEnd: `span ${wide ? 2 : 1}`,
                 gridRowEnd: `span ${high ? 2 : 1}`,
               }}
             >
-              <TestimonialCard testimonial={t} />
+              <div className="w-full h-full overflow-hidden flex">
+                <TestimonialCard testimonial={t} />
+              </div>
             </li>
           );
         })}

@@ -61,22 +61,6 @@ export default function TestimonialCard({
           <p className="text-xs font-medium text-ourBrown w-full text-center padding-2">
             {authorUser.position} at {authorUser.workplace}
           </p>
-          {/* <a
-            href="https://www.linkedin.com/in/mitchel-clark-b26a02229/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="self-start pl-2"
-          >
-            <Image
-              src={InBug}
-              alt="Background Image"
-              priority
-              style={{
-                width: 32,
-                height: "auto", // Auto for maintaining aspect ratio
-              }}
-            />
-          </a> */}
         </div>
 
         {/* Text Container - 2/3 width */}
@@ -89,9 +73,19 @@ export default function TestimonialCard({
 
       {/* Modal Component */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-ourBrown/30">
-          {/* Modal card */}
-          <div className="relative w-full p-2 rounded-lg max-w-2xl max-h-[50vh] bg-white flex flex-col overflow-hidden">
+        // overlay handles clicks to close the modal
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-ourBrown/30"
+          aria-modal="true"
+          role="dialog"
+          onClick={() => setIsOpen(false)}
+        >
+          {/* Modal card — stop propagation so clicks inside do not close */}
+          <div
+            className="relative w-full p-2 rounded-lg max-w-2xl max-h-[50vh] bg-white flex flex-col overflow-hidden"
+            tabIndex={-1}
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Floating Close Button */}
             <button
               onClick={() => setIsOpen(false)}
