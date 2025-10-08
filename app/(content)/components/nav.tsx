@@ -86,7 +86,7 @@ export function Navbar() {
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden lg:flex flex-row items-center space-x-4">
+      <div className="lg:flex flex-row items-center space-x-4">
         <form
           className=""
           onSubmit={(e) => {

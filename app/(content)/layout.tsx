@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "./components/nav";
+import { PhoneNavbar } from "./components/phone-nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
@@ -74,9 +75,20 @@ export default async function RootLayout({
       <body className="antialiased flex h-dvh ">
         <SearchProvider>
           <div className="grid grid-cols-4 grid-rows-[70px_1fr] grow">
-            <nav className="col-span-4 h-full bg-white border-1 border-solid border-gray-200 sticky top-0 z-50">
-              <Navbar />
-            </nav>
+            <>
+              {/* Desktop / tablet: Navbar stuck to top */}
+              <nav className="hidden md:block col-span-4 bg-white border-b border-gray-200 sticky top-0 z-50">
+                <Navbar />
+              </nav>
+
+              {/* Mobile: PhoneNavbar stuck to bottom */}
+              <nav className="md:hidden col-span-4 bg-white border-t border-gray-200 fixed bottom-0 left-0 right-0 z-50">
+                <PhoneNavbar />
+              </nav>
+
+              {/* Spacer so page content isn't hidden behind the fixed mobile nav */}
+              <div className="col-span-4 md:hidden h-16" aria-hidden />
+            </>
 
             <main className="col-span-4 flex">
               {children}
