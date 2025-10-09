@@ -25,9 +25,9 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="w-full max-w-full grow relative pb-10">
+    <div className="w-full max-w-full grow relative ">
       {/* Tabs for small screens */}
-      <div className="sm:hidden w-full flex border-b border-gray-200 bg-white">
+      <div className="sm:hidden w-full flex border-b border-gray-200 bg-white ">
         <button
           className={`flex-1 py-3 text-center font-semibold transition ${
             activeTab === "testimonials"
@@ -51,7 +51,7 @@ export default function Page({ params }: { params: { id: string } }) {
       </div>
 
       {/* Tab content for small screens */}
-      <div className="sm:hidden h-full">
+      <div className="sm:hidden h-full pb-10">
         {activeTab === "testimonials" && (
           <div className="relative bg-white h-full">
             <Image
