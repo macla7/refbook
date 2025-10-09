@@ -15,6 +15,7 @@ export function TestimonialsList(params: { subjectUserId: string }) {
   async function fetchData() {
     const session = await fetchAuthSession();
     setTestimonials(await getTestimonials(session, params.subjectUserId));
+    console.log("these are the testimonials:", testimonials)
   }
 
   return (

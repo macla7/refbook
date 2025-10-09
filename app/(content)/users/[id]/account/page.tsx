@@ -110,13 +110,14 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return user.id !== "unknown" ? (
-    <div className="w-screen">
-      <div className="col-span-3 justify-items-center rounded-sm bg-white relative h-full p-12">
+    <div className="align-middle">
+      <div className="col-span-3 justify-items-center rounded-sm relative p-12">
         <Image
           alt="Mountains"
           src={background}
           quality={100}
           fill
+          className="-z-10 pointer-events-none"
           style={{
             margin: 0,
             objectFit: "cover",
@@ -124,43 +125,43 @@ export default function Page({ params }: { params: { id: string } }) {
           }}
         />
 
-        <form className="relative space-y-2 bg-white rounded-sm border border-gray-900/10 w-screen">
+        <form className="relative z-10 space-y-2 bg-white rounded-sm border border-gray-900/10 w-screen items-center">
           <div className="p-12">
-            <h2 className="text-base/7 font-semibold text-gray-900">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">
               User Details
             </h2>
-            <p className="mt-1 text-sm/6 text-gray-600">
+            <p className="mt-1 text-sm sm:text-base md:text-lg text-gray-600">
               This information will be displayed publicly so be careful what you
               share.
             </p>
 
-            <div className="mt-4 w-64 h-64 rounded-full overflow-hidden border-transparent">
+            <div className="mt-4 w-32 h-32  sm:w-64 sm:h-64 rounded-full overflow-hidden border-transparent relative z-20">
               {imageUrl ? (
-              <DP
-                user={{
-                name: "placeholder",
-                image: imageUrl,
-                id: "no-id-to-be-seen-here",
-                }}
-              />
+                <DP
+                  user={{
+                    name: "placeholder",
+                    image: imageUrl,
+                    id: "no-id-to-be-seen-here",
+                  }}
+                />
               ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gray-50 text-center p-4">
-                <p className="text-sm text-gray-600">
-                choose a profile picture so people know it's you!
-                </p>
-              </div>
+                <div className="w-full h-full flex items-center justify-center bg-gray-50 text-center p-4">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-600">
+                    choose a profile picture so people know it's you!
+                  </p>
+                </div>
               )}
             </div>
 
             <div className="col-span-full">
-              <label className="block text-sm/6 font-medium text-gray-900">
+              <label className="block text-sm sm:text-base md:text-lg font-medium text-gray-900">
                 Profile Picture
               </label>
 
               <div className="mt-2">
                 <label
                   htmlFor="file-upload"
-                  className="cursor-pointer rounded-md bg-ourPurple px-4 py-2 text-white text-sm font-medium hover:bg-indigo-700 transition"
+                  className="cursor-pointer rounded-md bg-ourPurple px-4 py-2 text-white text-sm sm:text-base md:text-lg font-medium hover:bg-indigo-700 transition"
                 >
                   Upload Image
                 </label>
@@ -180,13 +181,13 @@ export default function Page({ params }: { params: { id: string } }) {
                 />
 
                 {selectedFile && (
-                  <p className="mt-2 text-sm text-gray-700">
+                  <p className="mt-2 text-sm sm:text-base text-gray-700">
                     Selected: {selectedFile.name}
                   </p>
                 )}
               </div>
 
-              <p className="mt-1 text-sm/6 text-gray-600">
+              <p className="mt-1 text-sm sm:text-base md:text-lg text-gray-600">
                 Profile pictures help people recognise you
               </p>
             </div>
@@ -195,14 +196,14 @@ export default function Page({ params }: { params: { id: string } }) {
               <div className="col-span-full">
                 <label
                   htmlFor="about"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm sm:text-base md:text-lg font-medium text-gray-900"
                 >
                   Name
                 </label>
                 <div className="mt-2">
                   <textarea
                     rows={1}
-                    className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-sm bg-white px-3 py-1.5 text-base sm:text-lg md:text-lg text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                     id="inputBox"
                     name="inputBox"
                     required
@@ -210,7 +211,7 @@ export default function Page({ params }: { params: { id: string } }) {
                     value={name}
                   ></textarea>
                 </div>
-                <p className="mt-1 text-sm/6 text-gray-600">
+                <p className="mt-1 text-sm sm:text-base md:text-lg text-gray-600">
                   What is your name?
                 </p>
               </div>
@@ -220,14 +221,14 @@ export default function Page({ params }: { params: { id: string } }) {
               <div className="col-span-full">
                 <label
                   htmlFor="about"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm sm:text-base md:text-lg font-medium text-gray-900"
                 >
                   Position
                 </label>
                 <div className="mt-2">
                   <textarea
                     rows={1}
-                    className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-sm bg-white px-3 py-1.5 text-base sm:text-lg md:text-lg text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                     id="inputBox"
                     name="inputBox"
                     required
@@ -235,7 +236,7 @@ export default function Page({ params }: { params: { id: string } }) {
                     value={position}
                   ></textarea>
                 </div>
-                <p className="mt-1 text-sm/6 text-gray-600">
+                <p className="mt-1 text-sm sm:text-base md:text-lg text-gray-600">
                   What is your position?
                 </p>
               </div>
@@ -245,14 +246,14 @@ export default function Page({ params }: { params: { id: string } }) {
               <div className="col-span-full">
                 <label
                   htmlFor="about"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm sm:text-base md:text-lg font-medium text-gray-900"
                 >
                   Workplace
                 </label>
                 <div className="mt-2">
                   <textarea
                     rows={1}
-                    className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-sm bg-white px-3 py-1.5 text-base sm:text-lg md:text-lg text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                     id="inputBox"
                     name="inputBox"
                     required
@@ -260,7 +261,7 @@ export default function Page({ params }: { params: { id: string } }) {
                     value={workplace}
                   ></textarea>
                 </div>
-                <p className="mt-1 text-sm/6 text-gray-600">
+                <p className="mt-1 text-sm sm:text-base md:text-lg text-gray-600">
                   Where are you currently working?
                 </p>
               </div>
@@ -270,14 +271,14 @@ export default function Page({ params }: { params: { id: string } }) {
               <div className="col-span-full">
                 <label
                   htmlFor="about"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm sm:text-base md:text-lg font-medium text-gray-900"
                 >
                   Bio
                 </label>
                 <div className="mt-2">
                   <textarea
                     rows={1}
-                    className="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-sm bg-white px-3 py-1.5 text-base sm:text-lg md:text-lg text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                     id="inputBox"
                     name="inputBox"
                     required
@@ -285,7 +286,7 @@ export default function Page({ params }: { params: { id: string } }) {
                     value={bio}
                   ></textarea>
                 </div>
-                <p className="mt-1 text-sm/6 text-gray-600">
+                <p className="mt-1 text-sm sm:text-base md:text-lg text-gray-600">
                   Tell the world a bit about yourself.
                 </p>
               </div>
@@ -294,7 +295,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
           <div className="flex items-center justify-end gap-x-6 mr-12 mb-4 mt-0">
             <button
-              className="cursor-pointer rounded-md bg-ourPurple px-4 py-2 text-white text-sm font-medium hover:bg-indigo-700 transition"
+              className="cursor-pointer rounded-md bg-ourPurple px-4 py-2 text-white text-sm sm:text-base md:text-lg font-medium hover:bg-indigo-700 transition"
               type="button"
               onClick={handleClick}
             >

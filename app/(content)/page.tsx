@@ -32,7 +32,7 @@ export default function rootPage() {
 
   return (
     <div>
-      <div className="w-screen relative 2xl:h-[700px] xl:h-[600px] lg:h-[500px] md:h-[400px] h-[500px]">
+      <div className="w-full relative overflow-x-hidden 2xl:h-[700px] xl:h-[600px] lg:h-[500px] md:h-[400px] h-[500px]">
         <div className="relative lg:px-6 px-2 lg:pt-12 md:pt-6 pt-2">
           <div className="grid gap-x-4">
             {/* Row 1 */}
