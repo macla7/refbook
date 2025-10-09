@@ -110,8 +110,8 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return user.id !== "unknown" ? (
-    <div className="align-middle">
-      <div className="col-span-3 justify-items-center rounded-sm relative p-12">
+    <div className="align-middle w-full">
+      <div className="col-span-3 justify-items-center rounded-sm relative h-full">
         <Image
           alt="Mountains"
           src={background}
@@ -125,9 +125,9 @@ export default function Page({ params }: { params: { id: string } }) {
           }}
         />
 
-        <form className="relative z-10 space-y-2 bg-white rounded-sm border border-gray-900/10 w-screen items-center">
-          <div className="p-12">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">
+        <form className="relative z-10 space-y-2 bg-white rounded-sm border border-gray-900/10 items-center">
+          <div className="bg-blue p-12 ">
+            <h2 className=" text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">
               User Details
             </h2>
             <p className="mt-1 text-sm sm:text-base md:text-lg text-gray-600">
