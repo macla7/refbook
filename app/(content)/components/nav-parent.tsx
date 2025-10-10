@@ -26,25 +26,27 @@ export function NavParent() {
       const currentAuthUser = await getCurrentUser();
       setDBUser(await getUser(currentAuthUser.userId));
       setIsActive(true);
-      setDesktopHamburgerMenu(({
+      setDesktopHamburgerMenu({
         [`/users/${currentAuthUser?.userId}/profile`]: { name: "My Profile" },
-        [`/users/${currentAuthUser?.userId}/account`]: { name: "Account Settings" },
-      }));
-      setPhoneHamburgerMenu(({
+        [`/users/${currentAuthUser?.userId}/account`]: {
+          name: "Account Settings",
+        },
+      });
+      setPhoneHamburgerMenu({
         ["/about_us"]: { name: "About Us" },
         ["/users"]: { name: "People" },
         [`/users/${currentAuthUser?.userId}/profile`]: { name: "My Profile" },
-        [`/users/${currentAuthUser?.userId}/account`]: { name: "Account Settings" },
-
-      }));
+        [`/users/${currentAuthUser?.userId}/account`]: {
+          name: "Account Settings",
+        },
+      });
     } catch (error) {
       setIsActive(false);
-      setDesktopHamburgerMenu(({
-      }));
-      setPhoneHamburgerMenu(({
+      setDesktopHamburgerMenu({});
+      setPhoneHamburgerMenu({
         ["/about_us"]: { name: "About Us" },
         ["/users"]: { name: "People" },
-      }));
+      });
       setDBUser(userDefault);
     }
   }
@@ -66,7 +68,6 @@ export function NavParent() {
     }
   }
 
-
   return (
     <>
       <nav className="hidden md:block col-span-4 bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -75,10 +76,11 @@ export function NavParent() {
           isActive={isActive}
           desktopHamburgerMenu={desktopHamburgerMenu}
           handleClick={handleClick}
-        />              </nav>
+        />{" "}
+      </nav>
 
       {/* Mobile: PhoneNavbar stuck to bottom */}
-      <nav className="md:hidden col-span-4 bg-white border-t border-gray-200 fixed bottom-0 left-0 right-0 z-50">
+      <nav className="md:hidden col-span-4 bg-white border-t border-gray-200 fixed bottom-0 left-0 right-0 z-50 h-[70px]">
         <PhoneNav
           dbUser={dbUser}
           isActive={isActive}
@@ -89,5 +91,3 @@ export function NavParent() {
     </>
   );
 }
-
-
