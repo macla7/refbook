@@ -13,63 +13,24 @@ import { User } from "app/types";
 import { userDefault } from "app/defaults/user";
 import { getUser } from "app/api/users";
 
-export function PhoneNavbar() {
-  const [dbUser, setDBUser] = useState<User>(userDefault);
-  const router = useRouter();
-  const [isActive, setIsActive] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
-  const [navItems, setNavItems] = useState({
-    "/about_us": { name: "About Us" },
-    ["/users"]: { name: "People" },
-  });
+type MenuItems = Record<string, { name: string }>;
+
+interface PhoneNavProps {
+  dbUser: User;
+  isActive: Boolean;
+  phoneHamburgerMenu: MenuItems;
+  handleClick: () => Promise<void>;
+}
+
+export default function DesktopNav({
+  dbUser,
+  isActive,
+  phoneHamburgerMenu,
+  handleClick,
+}: PhoneNavProps) {
   const { search, setSearch } = useSearch();
-
-  useEffect(() => {
-    refreshUser();
-  }, [router]);
-
-  async function refreshUser() {
-    try {
-      // Check if user is logged in
-      const session = await fetchAuthSession();
-      const currentAuthUser = await getCurrentUser();
-      setIsActive(true);
-      setNavItems((prev) => ({
-        ...prev,
-        [`/users/${currentAuthUser.userId}/profile`]: { name: "My Profile" },
-        ["/users"]: { name: "People" },
-      }));
-      // Check if they exist in the db meaningfully
-      setDBUser(await getUser(currentAuthUser.userId));
-    } catch (error) {
-      setIsActive(false);
-      setNavItems({
-        "/about_us": { name: "About Us" },
-        ["/users"]: { name: "People" },
-      });
-      setDBUser(userDefault);
-    }
-  }
-
-  useEffect(() => {
-    let dbUserName = dbUser.name;
-    console.log(dbUser);
-    console.log("THIS IS THE DB USER NAME: " + dbUserName);
-    if (dbUserName == undefined) {
-      router.push("/auth/createUser");
-    }
-  }, [dbUser]);
-
-  async function handleClick() {
-    if (!isActive) {
-      router.push("/auth");
-    } else {
-      await signOut();
-      await refreshUser(); // re-check after signout
-
-      router.push("/");
-    }
-  }
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <nav className="flex h-full items-center px-3 py-4 z-10">
@@ -168,7 +129,7 @@ export function PhoneNavbar() {
             {isMenuOpen && (
               <div className="absolute right-0 bottom-full mb-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-50">
                 <nav className="flex flex-col py-2">
-                  {Object.entries(navItems).map(([path, { name }]) => (
+                  {Object.entries(phoneHamburgerMenu).map(([path, { name }]) => (
                     <Link
                       key={path}
                       href={path}

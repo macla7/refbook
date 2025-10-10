@@ -1,68 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { fetchAuthSession, getCurrentUser, signOut } from "aws-amplify/auth";
-import { useRouter } from "next/navigation";
 import { DP } from "./dp";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "assets/rango3.svg";
 import { useSearch } from "app/context/SearchContext";
 import { User } from "app/types";
-import { userDefault } from "app/defaults/user";
-import { getUser } from "app/api/users";
+import { useRouter } from "next/navigation";
 
-export function Navbar() {
-  const [dbUser, setDBUser] = useState<User>(userDefault);
-  const router = useRouter();
-  const [isActive, setIsActive] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [navItems, setNavItems] = useState({
-    "/about_us": { name: "About Us" },
-    ["/users"]: { name: "People" },
-  });
+
+type MenuItems = Record<string, { name: string }>;
+
+interface DesktopNavProps {
+  dbUser: User;
+  isActive: Boolean;
+  desktopHamburgerMenu: MenuItems;
+  handleClick: () => Promise<void>;
+}
+
+export default function DesktopNav({
+  dbUser,
+  isActive,
+  desktopHamburgerMenu,
+  handleClick,
+}: DesktopNavProps) {
   const { search, setSearch } = useSearch();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const desktopNavbarItems = {
+    "/about_us": { name: "About Us" },
+    "/users": { name: "People" },
+  };
 
-  useEffect(() => {
-    refreshUser();
-  }, [router]);
 
-  async function refreshUser() {
-    try {
-      const session = await fetchAuthSession();
-      const currentAuthUser = await getCurrentUser();
-      setIsActive(true);
-      setNavItems((prev) => ({
-        ...prev,
-        ["/users"]: { name: "People" },
-      }));
-      setDBUser(await getUser(currentAuthUser.userId));
-    } catch (error) {
-      setIsActive(false);
-      setNavItems({
-        "/about_us": { name: "About Us" },
-        ["/users"]: { name: "People" },
-      });
-      setDBUser(userDefault);
-    }
-  }
-
-  useEffect(() => {
-    let dbUserName = dbUser.name;
-    if (dbUserName == undefined) {
-      router.push("/auth/createUser");
-    }
-  }, [dbUser]);
-
-  async function handleClick() {
-    if (!isActive) {
-      router.push("/auth");
-    } else {
-      await signOut();
-      await refreshUser();
-      router.push("/");
-    }
-  }
 
   return (
     <nav className="flex h-full items-center px-6 py-4 z-10">
@@ -121,17 +92,16 @@ export function Navbar() {
           </form>
 
           <div className="flex items-center space-x-6">
-            {Object.entries(navItems).map(([path, { name }]) => (
-              <Link
-                key={path}
-                href={path}
-                className="rounded-md bg-transparent text-ourBrown xl:px-4 px-2 py-3 text-lg font-semibold transition"
-              >
-                <span className="relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
-                  {name}
-                </span>
-              </Link>
-            ))}
+            {Object.entries(desktopHamburgerMenu).map(([path, { name }]) => (
+                    <Link
+                      key={path}
+                      href={path}
+                      className="px-4 py-2 text-sm text-ourBrown hover:bg-gray-50"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {name}
+                    </Link>
+                  ))}
           </div>
         </div>
 
@@ -152,11 +122,11 @@ export function Navbar() {
           <button
             className="w-12 h-12 flex items-center justify-center rounded-full overflow-hidden cursor-pointer"
             onClick={() => setIsMenuOpen((open) => !open)}
-            aria-label={isActive ? "Open user menu" : "Open menu"}
+            aria-label={dbUser.id !== "unknown" ? "Open user menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             type="button"
           >
-            {isActive ? (
+            {dbUser.id !== "unknown" ? (
               <DP user={dbUser} />
             ) : (
               <svg
@@ -167,36 +137,23 @@ export function Navbar() {
                 stroke="currentColor"
                 aria-hidden="true"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
           </button>
           {isMenuOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
               <nav className="flex flex-col py-2">
-                {dbUser.id !== "unknown" && (
-                  <Link
-                    href={`/users/${dbUser.id}/profile`}
-                    className="px-4 py-2 text-sm text-ourBrown hover:bg-gray-50"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    My Profile
-                  </Link>
-                )}
-                {dbUser.id !== "unknown" && (
-                  <Link
-                    href={`/users/${dbUser.id}/account`}
-                    className="px-4 py-2 text-sm text-ourBrown hover:bg-gray-50"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Account
-                  </Link>
-                )}
+                  {Object.entries(desktopHamburgerMenu).map(([path, { name }]) => (
+                    <Link
+                      key={path}
+                      href={path}
+                      className="px-4 py-2 text-sm text-ourBrown hover:bg-gray-50"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {name}
+                    </Link>
+                  ))}
                 <button
                   onClick={async () => {
                     setIsMenuOpen(false);

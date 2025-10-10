@@ -2,8 +2,7 @@ import "../global.css";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Navbar } from "./components/nav";
-import { PhoneNavbar } from "./components/phone-nav";
+import { NavParent } from "./components/nav-parent";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
@@ -77,14 +76,7 @@ export default async function RootLayout({
           <div className="grid grid-cols-4 md:grid-rows-[70px_1fr] grid-rows-[1fr_70px] grow">
             <>
               {/* Desktop / tablet: Navbar stuck to top */}
-              <nav className="hidden md:block col-span-4 bg-white border-b border-gray-200 sticky top-0 z-50">
-                <Navbar />
-              </nav>
-
-              {/* Mobile: PhoneNavbar stuck to bottom */}
-              <nav className="md:hidden col-span-4 bg-white border-t border-gray-200 fixed bottom-0 left-0 right-0 z-50 h-[70px]">
-                <PhoneNavbar />
-              </nav>
+              <NavParent />
 
               {/* Spacer so page content isn't hidden behind the fixed mobile nav */}
               {/* <div className="col-span-4 md:block hidden h-16" aria-hidden /> */}
