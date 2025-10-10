@@ -56,38 +56,37 @@ export default function rootPage() {
           <p className="text-4xl text-ourBrown font-semibold">Meet the Team</p>
         </div>
 
-        <div className="relative grid md:grid-cols-2 grid-col-1 gap-24 pt-4 pb-6 place-items-center mx-4">
-            <div className="max-w-[750px] w-full">
-              <div className="relative w-full h-[500px]">
-                <Image
-                  src={sunny}
-                  alt="Sunny"
-                  fill
-                  className="object-cover rounded-sm"
-                  sizes="(max-width: 750px) 100vw, 750px"
-                />
-              </div>
-              <p className="text-3xl text-ourBrown font-semibold mt-4 text-left">
-                Sunny
-              </p>
+        <div className="relative grid md:grid-cols-2 grid-col-1 mg:gap-24 gap-6 pt-4 pb-6 place-items-center mx-4">
+          <div className="max-w-[750px] w-full">
+            <div className="relative w-full h-[500px]">
+              <Image
+                src={sunny}
+                alt="Sunny"
+                fill
+                className="object-cover rounded-sm"
+                sizes="(max-width: 750px) 100vw, 750px"
+              />
             </div>
+            <p className="text-3xl text-ourBrown font-semibold mt-4 text-left">
+              Sunny
+            </p>
+          </div>
 
-            <div className="max-w-[750px] w-full">
-              <div className="relative w-full h-[500px]">
-                <Image
-                  src={mitch}
-                  alt="Mitch"
-                  fill
-                  className="object-cover rounded-sm"
-                  sizes="(max-width: 750px) 100vw, 750px"
-                />
-              </div>
-              <p className="text-3xl text-ourBrown font-semibold mt-4 text-left">
-                Mitch
-              </p>
+          <div className="max-w-[750px] w-full">
+            <div className="relative w-full h-[500px]">
+              <Image
+                src={mitch}
+                alt="Mitch"
+                fill
+                className="object-cover rounded-sm"
+                sizes="(max-width: 750px) 100vw, 750px"
+              />
             </div>
+            <p className="text-3xl text-ourBrown font-semibold mt-4 text-left">
+              Mitch
+            </p>
+          </div>
         </div>
-
       </div>
     </div>
   );

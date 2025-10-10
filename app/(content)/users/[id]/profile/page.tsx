@@ -8,6 +8,8 @@ import { TestimonialsList } from "app/(content)/components/testimonialsList";
 import { Sidebar } from "app/(content)/components/sidebar";
 import background from "assets/rangobg4.svg";
 import Image from "next/image";
+import { DP } from "app/(content)/components/dp";
+import test_icon from "assets/testimonial-icon.svg";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
@@ -29,17 +31,20 @@ export default function Page({ params }: { params: { id: string } }) {
       {/* Tabs for small screens */}
       <div className="sm:hidden w-full flex border-b border-gray-200 bg-white ">
         <button
-          className={`flex-1 py-3 text-center font-semibold transition ${
+          className={`flex flex-1 py-3 text-center justify-center font-semibold transition ${
             activeTab === "testimonials"
               ? "border-b-2 border-ourBrown text-ourBrown"
               : "text-gray-500"
           }`}
           onClick={() => setActiveTab("testimonials")}
         >
-          Testimonials
+          References
+          {/* <div className="h-7 w-7 flex items-center justify-center rounded-full ml-2">
+            <Image src={test_icon} alt="Testimonial Icon" />
+          </div> */}
         </button>
         <button
-          className={`flex-1 py-3 text-center font-semibold transition ${
+          className={`flex flex-1 py-3 text-center justify-center font-semibold transition ${
             activeTab === "sidebar"
               ? "border-b-2 border-ourBrown text-ourBrown"
               : "text-gray-500"
@@ -47,11 +52,14 @@ export default function Page({ params }: { params: { id: string } }) {
           onClick={() => setActiveTab("sidebar")}
         >
           Profile
+          {/* <div className="w-7 h-7 ml-2">
+            <DP user={user} />
+          </div> */}
         </button>
       </div>
 
       {/* Tab content for small screens */}
-      <div className="sm:hidden h-full">
+      <div className="sm:hidden h-full mb-12">
         {activeTab === "testimonials" && (
           <div className="relative bg-white h-full">
             <Image

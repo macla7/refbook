@@ -53,7 +53,7 @@ export function Sidebar({ user }: { user: User }) {
             className="mt-8 cursor-pointer rounded-full bg-ourPurple px-6 text-lg font-semibold transition h-12 flex items-center justify-center "
           >
             <span className="relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
-              Make Testimonial
+              Write Reference
             </span>
           </Link>
         )}

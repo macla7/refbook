@@ -52,9 +52,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
     <form className="space-y-12 bg-white lg:p-12 md:p-6 p-0 w-3xl rounded-sm">
       <div className="">
         <div className="border-b border-gray-900/10 lg:p-12 md:p-8 p-6">
-          <h2 className="text-base/7 font-semibold text-gray-900">
-            Testimonial
-          </h2>
+          <h2 className="text-base/7 font-semibold text-gray-900">Reference</h2>
           <p className="mt-1 text-sm/6 text-gray-600">
             This information will be displayed publicly so be careful what you
             share.
@@ -66,7 +64,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
                 htmlFor="testimonial"
                 className="block text-sm/6 font-medium text-gray-900"
               >
-                Testimonal
+                Reference
               </label>
               <div className="mt-2">
                 <textarea
