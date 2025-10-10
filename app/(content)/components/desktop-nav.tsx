@@ -92,16 +92,17 @@ export default function DesktopNav({
           </form>
 
           <div className="flex items-center space-x-6">
-            {Object.entries(desktopHamburgerMenu).map(([path, { name }]) => (
-                    <Link
-                      key={path}
-                      href={path}
-                      className="px-4 py-2 text-sm text-ourBrown hover:bg-gray-50"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {name}
-                    </Link>
-                  ))}
+            {Object.entries(desktopNavbarItems).map(([path, { name }]) => (
+              <Link
+                key={path}
+                href={path}
+                className="rounded-md bg-transparent text-ourBrown xl:px-4 px-2 py-3 text-lg font-semibold transition"
+              >
+                <span className="relative text-ourBrown after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-ourBrown after:transition-all after:duration-1000 hover:after:w-full">
+                  {name}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -144,16 +145,16 @@ export default function DesktopNav({
           {isMenuOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
               <nav className="flex flex-col py-2">
-                  {Object.entries(desktopHamburgerMenu).map(([path, { name }]) => (
-                    <Link
-                      key={path}
-                      href={path}
-                      className="px-4 py-2 text-sm text-ourBrown hover:bg-gray-50"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {name}
-                    </Link>
-                  ))}
+                {Object.entries(desktopHamburgerMenu).map(([path, { name }]) => (
+                  <Link
+                    key={path}
+                    href={path}
+                    className="px-4 py-2 text-sm text-ourBrown hover:bg-gray-50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {name}
+                  </Link>
+                ))}
                 <button
                   onClick={async () => {
                     setIsMenuOpen(false);
