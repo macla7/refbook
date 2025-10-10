@@ -149,18 +149,6 @@ export default function DesktopNav({
                   >
                     {isActive ? "Sign Out" : "Log In"}
                   </button>
-
-                  {dbUser.id !== "unknown" ? (
-                    <Link
-                      href={`/users/${dbUser.id}/account`}
-                      className="px-4 py-2 hover:bg-gray-50"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <span className="text-sm text-ourBrown">Account</span>
-                      </div>
-                    </Link>
-                  ) : null}
                 </nav>
               </div>
             )}
