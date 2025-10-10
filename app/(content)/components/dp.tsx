@@ -14,34 +14,23 @@ type DPProps = {
 };
 
 export function DP({ user }: DPProps) {
-  const getInitials = (name: string): string => {
-    const nameSub = name == undefined ? "DU" : name;
-
-    const nameParts = nameSub.trim().split(" ");
-    const initials = nameParts
-      .map((part) => part[0])
-      .slice(0, 2)
-      .join("")
-      .toUpperCase();
-    return initials || "DU";
+  // Safe initials (optional)
+  const getInitials = (name?: string | null): string => {
+    const parts = (name ?? "DU").trim().split(/\s+/).filter(Boolean);
+    return (parts[0]?.[0] ?? "D") + (parts[1]?.[0] ?? "U");
   };
 
-  const initials = "SB";
+  // Stable hash instead of digits-only match
+  const idStr = String(user?.id ?? "");
+  let hash = 0;
+  for (let i = 0; i < idStr.length; i++)
+    hash = (hash * 31 + idStr.charCodeAt(i)) >>> 0;
 
-  // Import all images from assets/default-dps
   const defaultDPs = [dp1, dp2, dp3, dp4, dp5, dp6, dp7, dp8];
+  const dpIndex = defaultDPs.length ? hash % defaultDPs.length : 0;
+  const defaultDP = defaultDPs[dpIndex];
 
-  // Pick a default image based on createdAt
-  const numbers = user.id.match(/\d+/g)
-    ? user.id.match(/\d+/g)!.map(Number)
-    : [1, 2, 3];
-  const sum = numbers.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0
-  );
-  const dpNumber = sum % defaultDPs.length;
-  const defaultDP = defaultDPs[dpNumber];
-  // console.log(dpNumber);
+  const hasImage = Boolean(user?.image);
 
   return (
     <div className="w-full h-full rounded-full overflow-hidden ">
