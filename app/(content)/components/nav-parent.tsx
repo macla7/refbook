@@ -76,7 +76,7 @@ export function NavParent() {
           isActive={isActive}
           desktopHamburgerMenu={desktopHamburgerMenu}
           handleClick={handleClick}
-        />{" "}
+        />
       </nav>
 
       {/* Mobile: PhoneNavbar stuck to bottom */}

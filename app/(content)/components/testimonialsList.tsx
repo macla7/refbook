@@ -15,7 +15,7 @@ export function TestimonialsList(params: { subjectUserId: string }) {
   async function fetchData() {
     const session = await fetchAuthSession();
     setTestimonials(await getTestimonials(session, params.subjectUserId));
-    console.log("these are the testimonials:", testimonials)
+    console.log("these are the testimonials:", testimonials);
   }
 
   return (
@@ -23,7 +23,7 @@ export function TestimonialsList(params: { subjectUserId: string }) {
       <ul
         className="
           relative grid
-          grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]
+          grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(350px,1fr))]
           auto-rows-[200px] grid-flow-dense gap-6
           2xl:p-20 xl:p-12 p-4 w-full
         "
