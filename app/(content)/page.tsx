@@ -72,25 +72,6 @@ export default function rootPage() {
             </div>
           </div>
         </div>
-
-        {/* <div className="relative flex justify-end pt-12 pb-6 text-right">
-          <div className="</div>p-6 ">
-            <p className="text-8xl text-ourBrown font-semibold mb-4">
-              Let employers hear your
-            </p>
-            <p className="text-8xl text-ourBrown font-semibold mb-4">
-              coworkers' praise
-            </p>
-
-            <span className="text-5xl text-ourBrown font-bold">
-              from the start
-            </span>
-
-
-          </div>
-        </div>
-
-         */}
       </div>
 
       <div className="flex items-center justify-center py-12 bg-ourBone shadow-hover">
@@ -112,21 +93,21 @@ export default function rootPage() {
             <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
               <Image src={test_icon} alt="Testimonial Icon" />
             </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] text-center md:text-left">
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] justify-center text-center md:text-left">
               References left by your coworkers made accessible
             </div>
 
-            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
+            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center shadow rounded-full mx-auto md:mx-0">
               <Image src={search_icon} alt="Search Icon" />
             </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] text-center md:text-left">
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] justify-center text-center md:text-left">
               Quickly find friends and coworkers, no log in required
             </div>
 
             <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
               <Image src={profile_icon} alt="Profile Icon" />
             </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] text-center md:text-left">
+            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] justify-center text-center md:text-left">
               Profile area for a summary of who you are
             </div>
           </div>

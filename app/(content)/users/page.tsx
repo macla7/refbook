@@ -34,7 +34,7 @@ export default function usersPage() {
   // }, [router]); // Run once on mount
 
   return (
-    <section className="p-8 grow relative max-w-full w-full overflow-x-hidden">
+    <section className="lg:p-8 p-4 grow relative max-w-full w-full overflow-x-hidden">
       {/* <Image
         alt="Mountains"
         src={background}
@@ -49,7 +49,7 @@ export default function usersPage() {
 
       <div className="max-w-screen-lg w-full mx-auto">
         <div className="relative flex flex-col items-center w-full justify-center mb-4">
-          <div className="max-w-3xl w-full">
+          <div className="2xl:w-1/2 xl:w-3/5 lg:w-3/4 w-full">
             <p className="text-4xl text-ourBrown font-bold ">People Search</p>
             <p className="relative text-xl text-ourBrown font-bold mb-4">
               Search for people by their name or company
@@ -62,7 +62,7 @@ export default function usersPage() {
                 router.push("/users"); // navigate to users page
               }}
             >
-              <div className="relative w-full bg-white">
+              <div className="relative w-full bg-white md:w-[50%]">
                 <input
                   type="search"
                   className="p-2 w-full border-1 border-solid border-gray-200 text-sm text-gray-900 rounded-sm focus:outline-none focus:ring-2 focus:ring-ourBrown"

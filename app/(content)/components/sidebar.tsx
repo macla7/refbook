@@ -28,10 +28,8 @@ export function Sidebar({ user }: { user: User }) {
     checkUser();
   }, [router]);
 
-  console.log("user isss!!!!");
-  console.log(user);
   return (
-    <aside className="px-12 bg-white h-full w-full">
+    <aside className=" px-4 bg-white h-full w-full">
       <div className="grid justify-items-center">
         <div className="mt-8 w-64 h-64 rounded-full overflow-hidden border-transparent">
           <DP user={user} />

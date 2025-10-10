@@ -1,12 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
-import { User } from "app/types";
-import { userDefault } from "app/defaults/user";
-import { TestimonialForm } from "app/(content)/components/testimonialForm";
-import { getUser } from "app/api/users";
-import { TestimonialsList } from "app/(content)/components/testimonialsList";
+import { getCurrentUser } from "aws-amplify/auth";
 import { UserForm } from "app/(content)/components/userForm";
 
 export default function Page() {

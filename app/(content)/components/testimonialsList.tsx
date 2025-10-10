@@ -34,11 +34,11 @@ export function TestimonialsList(params: { subjectUserId: string }) {
           return (
             <li
               key={t.id}
-              className="flex justify-center items-center overflow-hidden"
-              style={{
-                gridColumnEnd: `span ${wide ? 2 : 1}`,
-                gridRowEnd: `span ${high ? 2 : 1}`,
-              }}
+              className={`flex justify-center items-center overflow-hidden ${
+                wide ? "lg:col-span-2" : "lg:col-span-1"
+              } ${
+                high ? "lg:row-span-2" : "lg:row-span-1"
+              } col-span-1 row-span-1`}
             >
               <div className="w-full h-full overflow-hidden flex">
                 <TestimonialCard testimonial={t} tall={high} />

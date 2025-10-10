@@ -27,17 +27,19 @@ export default function UserCard({ user }: { user: User }) {
         </div>
 
         {/* Bio wraps, then clamps when too tall */}
-        <p
-          className="text-sm text-gray-700 dark:text-gray-400 overflow-hidden text-ellipsis"
-          style={{
-            display: "-webkit-box",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: "8", // roughly how many lines before truncating
-            maxHeight: "80%", // ensures it doesn’t overflow parent
-          }}
-        >
-          {user.bio || "No bio available."}
-        </p>
+        <div className="hidden sm:block">
+          <p
+            className="text-sm text-gray-700 dark:text-gray-400 overflow-hidden text-ellipsis"
+            style={{
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: "8", // roughly how many lines before truncating
+              maxHeight: "80%", // ensures it doesn’t overflow parent
+            }}
+          >
+            {user.bio || "No bio available."}
+          </p>
+        </div>
       </div>
     </div>
   );

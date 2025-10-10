@@ -43,7 +43,7 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="w-full p-8 bg-ourCream flex justify-center">
+    <div className="w-full lg:p-8 md:p-4 bg-ourCream flex justify-center">
       <TestimonialForm subjectUserId={userId} />
     </div>
   );

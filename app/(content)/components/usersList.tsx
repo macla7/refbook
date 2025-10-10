@@ -57,7 +57,7 @@ export function UsersList() {
             key={user.id}
             className="2xl:w-1/2 xl:w-3/5 lg:w-3/4 w-full p-2 bg-white md:flex-row hover:bg-ourCream rounded-md bg-ourPurple"
           >
-            <div className="">
+            <div>
               <Link href={`/users/${user.id}/profile`}>
                 <UserCard user={user} />
               </Link>

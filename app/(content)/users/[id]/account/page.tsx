@@ -126,7 +126,7 @@ export default function Page({ params }: { params: { id: string } }) {
         />
 
         <form className="md:w-auto md:h-auto w-full h-full relative z-10 bg-white rounded-sm border border-gray-900/10 items-center pb-4">
-          <div className="lg:p-24 md:p-18 sm:p-12 p-8">
+          <div className="lg:p-24 md:p-18 sm:p-12 p-6">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">
               User Details
             </h2>

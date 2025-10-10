@@ -49,9 +49,9 @@ export function TestimonialForm(params: { subjectUserId: string }) {
   }
 
   return loggedInUser ? (
-    <form className="space-y-12 bg-white p-12 w-3xl rounded-sm">
+    <form className="space-y-12 bg-white lg:p-12 md:p-6 p-0 w-3xl rounded-sm">
       <div className="">
-        <div className="border-b border-gray-900/10 p-12">
+        <div className="border-b border-gray-900/10 lg:p-12 md:p-8 p-6">
           <h2 className="text-base/7 font-semibold text-gray-900">
             Testimonial
           </h2>
@@ -87,7 +87,7 @@ export function TestimonialForm(params: { subjectUserId: string }) {
         </div>
       </div>
 
-      <div className="mt-6 flex items-center justify-end gap-x-6">
+      <div className="my-6 flex items-center justify-end gap-x-6 lg:px-12 md:px-8 px-6">
         <button
           type="button"
           onClick={() => router.push(`/users/${params.subjectUserId}/profile`)}

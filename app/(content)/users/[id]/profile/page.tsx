@@ -51,7 +51,7 @@ export default function Page({ params }: { params: { id: string } }) {
       </div>
 
       {/* Tab content for small screens */}
-      <div className="sm:hidden h-full pb-10">
+      <div className="sm:hidden h-full">
         {activeTab === "testimonials" && (
           <div className="relative bg-white h-full">
             <Image
@@ -76,8 +76,8 @@ export default function Page({ params }: { params: { id: string } }) {
       </div>
 
       {/* Grid layout for medium and up */}
-      <div className="hidden sm:grid xl:grid-cols-7 grid-cols-5 grow mx-0 h-full">
-        <div className="xl:col-span-5 col-span-3 justify-items-center rounded-sm bg-white relative">
+      <div className="hidden sm:grid lg:grid-cols-7 grid-cols-5 grow mx-0 h-full">
+        <div className="lg:col-span-5 col-span-3 justify-items-center rounded-sm bg-white relative">
           <Image
             alt="Mountains"
             src={background}
@@ -91,7 +91,7 @@ export default function Page({ params }: { params: { id: string } }) {
           />
           <TestimonialsList subjectUserId={userId} />
         </div>
-        <div className="col-span-2 gbg-our-sidebar rounded-sm border-l-1 border-solid border-gray-200 h-full">
+        <div className="col-span-2 rounded-sm border-l-0 border-solid border-gray-200 h-full">
           <Sidebar user={user} />
         </div>
       </div>
