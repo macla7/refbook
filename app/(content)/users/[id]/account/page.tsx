@@ -110,14 +110,14 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return user.id !== "unknown" ? (
-    <div className="align-middle w-full">
-      <div className="col-span-3 justify-items-center rounded-sm relative h-full">
+    <div className="align-middle w-full h-full">
+      <div className="col-span-3 justify-items-center rounded-sm relative h-full md:p-6 lg:p-12">
         <Image
           alt="Mountains"
           src={background}
           quality={100}
           fill
-          className="-z-10 pointer-events-none"
+          className="z-10 pointer-events-none"
           style={{
             margin: 0,
             objectFit: "cover",
@@ -125,9 +125,9 @@ export default function Page({ params }: { params: { id: string } }) {
           }}
         />
 
-        <form className="relative z-10 space-y-2 bg-white rounded-sm border border-gray-900/10 items-center">
-          <div className="bg-blue p-12 ">
-            <h2 className=" text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">
+        <form className="md:w-auto md:h-auto w-full h-full relative z-10 bg-white rounded-sm border border-gray-900/10 items-center pb-4">
+          <div className="lg:p-24 md:p-18 sm:p-12 p-8">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900">
               User Details
             </h2>
             <p className="mt-1 text-sm sm:text-base md:text-lg text-gray-600">

@@ -51,7 +51,7 @@ export function DP({ user }: DPProps) {
             src={user.image}
             alt={"user profile picture"}
             width={400}
-            height={400} 
+            height={400}
             className="w-full h-full align-center object-cover rounded-full"
           />
         ) : (

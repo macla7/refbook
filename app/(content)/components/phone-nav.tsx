@@ -129,9 +129,13 @@ export function PhoneNavbar() {
             className="relative"
             onBlur={(e) => {
               // relatedTarget is the element receiving focus
-              const related = (e as React.FocusEvent).relatedTarget as Node | null;
+              const related = (e as React.FocusEvent)
+                .relatedTarget as Node | null;
               // if focus moved outside the current container, close the menu
-              if (!related || !(e.currentTarget as HTMLElement).contains(related)) {
+              if (
+                !related ||
+                !(e.currentTarget as HTMLElement).contains(related)
+              ) {
                 setIsMenuOpen(false);
               }
             }}

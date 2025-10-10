@@ -82,7 +82,7 @@ export default async function RootLayout({
               </nav>
 
               {/* Mobile: PhoneNavbar stuck to bottom */}
-              <nav className="md:hidden col-span-4 bg-white border-t border-gray-200 fixed bottom-0 left-0 right-0 z-50">
+              <nav className="md:hidden col-span-4 bg-white border-t border-gray-200 fixed bottom-0 left-0 right-0 z-50 h-[70px]">
                 <PhoneNavbar />
               </nav>
 
@@ -102,7 +102,7 @@ export default async function RootLayout({
               <Footer />
             </footer>
 
-            <div className="col-span-4 md:hidden h-16" aria-hidden />
+            <div className="col-span-4 md:hidden h-[70px]" aria-hidden />
           </div>
         </SearchProvider>
       </body>
