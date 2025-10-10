@@ -52,7 +52,6 @@ export async function getUser(userId) {
     );
 
     const data = await response.json();
-    console.log("response from server:", data);
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

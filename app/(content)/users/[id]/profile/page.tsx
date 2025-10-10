@@ -31,30 +31,30 @@ export default function Page({ params }: { params: { id: string } }) {
       {/* Tabs for small screens */}
       <div className="sm:hidden w-full flex border-b border-gray-200 bg-white ">
         <button
-          className={`flex flex-1 py-3 text-center justify-center font-semibold transition ${
+          className={`flex flex-col flex-1 py-3 text-center justify-center items-center font-semibold transition ${
             activeTab === "testimonials"
               ? "border-b-2 border-ourBrown text-ourBrown"
               : "text-gray-500"
           }`}
           onClick={() => setActiveTab("testimonials")}
         >
-          References
           {/* <div className="h-7 w-7 flex items-center justify-center rounded-full ml-2">
             <Image src={test_icon} alt="Testimonial Icon" />
           </div> */}
+          References
         </button>
         <button
-          className={`flex flex-1 py-3 text-center justify-center font-semibold transition ${
+          className={`flex flex-col flex-1 py-3 text-center justify-center items-center font-semibold transition ${
             activeTab === "sidebar"
               ? "border-b-2 border-ourBrown text-ourBrown"
               : "text-gray-500"
           }`}
           onClick={() => setActiveTab("sidebar")}
         >
-          Profile
           {/* <div className="w-7 h-7 ml-2">
             <DP user={user} />
           </div> */}
+          Profile
         </button>
       </div>
 

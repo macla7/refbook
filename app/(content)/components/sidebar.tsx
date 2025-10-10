@@ -17,7 +17,6 @@ export function Sidebar({ user }: { user: User }) {
     async function checkUser() {
       try {
         const currentUser = await getCurrentUser();
-        console.log("current user is: ", currentUser);
         setLoggedInUser(currentUser);
       } catch (error) {
         // console.log("User not authenticated");

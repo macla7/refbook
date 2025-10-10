@@ -17,7 +17,6 @@ export function TestimonialsList(params: { subjectUserId: string }) {
     async function checkUser() {
       try {
         const currentUser = await getCurrentUser();
-        console.log("current user is: ", currentUser);
         setLoggedInUser(currentUser);
       } catch (error) {
         // console.log("User not authenticated");
@@ -35,7 +34,6 @@ export function TestimonialsList(params: { subjectUserId: string }) {
   async function fetchData() {
     const session = await fetchAuthSession();
     setTestimonials(await getTestimonials(session, params.subjectUserId));
-    console.log("these are the testimonials:", testimonials);
   }
 
   return (
