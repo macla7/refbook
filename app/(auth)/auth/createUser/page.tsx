@@ -27,7 +27,7 @@ export default function Page() {
   }, []); // Runs once when the component mounts
 
   return (
-    <div className="w-full p-8 bg-ourCream flex justify-center">
+    <div className="w-full lg:p-16 md:p-12 bg-ourCream flex justify-center">
       <UserForm id={userId} />
     </div>
   );
