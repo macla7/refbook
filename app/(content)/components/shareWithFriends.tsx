@@ -33,17 +33,10 @@ export default function ShareWithFriends(params: {
         Share your profile with colleagues, teammates or anybody else who can
         write a great reference for you!
       </p>
-      <button
-        className="cursor-pointer rounded-md bg-ourPurple px-4 py-2 text-white text-sm sm:text-base md:text-lg font-medium transition"
-        type="button"
-        onClick={copyProfileLink}
-      >
-        {copied ? "Copied!" : "Copy profile link"}
-      </button>
       <ShareButton
         url={`https://www.rango.com.au/users/${params.subjectUserId}/profile`}
         title="Rango reference"
-        text="This helped me a ton"
+        text="Hey, can you write me a reference on Rango?"
       />
     </div>
   );
