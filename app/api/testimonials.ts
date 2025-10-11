@@ -63,6 +63,7 @@ export async function getTestimonials(session, userId) {
     }
 
     const data = await response.json();
+    console.log("testimonial data is: ", data);
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

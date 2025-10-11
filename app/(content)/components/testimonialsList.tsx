@@ -41,7 +41,7 @@ export function TestimonialsList(params: { subjectUserId: string }) {
       {testimonials.length === 0 ? (
         loggedInUser?.userId == params.subjectUserId ? (
           <div className="relative flex justify-center items-center h-full w-full ">
-            <ShareWithFriends />
+            <ShareWithFriends subjectUserId={params.subjectUserId} />
           </div>
         ) : (
           <div className="relative flex justify-center items-center h-full w-full ">

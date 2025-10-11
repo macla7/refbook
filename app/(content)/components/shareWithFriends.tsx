@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import ShareButton from "./shareButton";
 
-export default function ShareWithFriends(): JSX.Element {
+export default function ShareWithFriends(params: {
+  subjectUserId: string;
+}): JSX.Element {
   const [copied, setCopied] = useState(false);
 
   const copyProfileLink = async () => {
@@ -37,6 +40,11 @@ export default function ShareWithFriends(): JSX.Element {
       >
         {copied ? "Copied!" : "Copy profile link"}
       </button>
+      <ShareButton
+        url={`https://www.rango.com.au/users/${params.subjectUserId}/profile`}
+        title="Rango reference"
+        text="This helped me a ton"
+      />
     </div>
   );
 }

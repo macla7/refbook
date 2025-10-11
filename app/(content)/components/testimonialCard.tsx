@@ -66,13 +66,13 @@ export default function TestimonialCard({
         </div>
 
         {/* Text Container - 2/3 width */}
-        <div className="flex-[2] flex flex-col justify-between p-2 leading-normal ">
+        <div className="flex-[2] flex flex-col justify-between p-2 leading-normal min-w-0 w-full">
           {tall ? (
-            <p className="text-sm text-black dark:text-gray-400 line-clamp-18">
+            <p className="w-full overflow-hidden break-words whitespace-pre-line text-sm text-black dark:text-gray-400 lg:line-clamp-18 line-clamp-8">
               {testimonial.message}
             </p>
           ) : (
-            <p className="text-sm text-black dark:text-gray-400 line-clamp-8">
+            <p className="w-full overflow-hidden break-words whitespace-pre-line text-sm text-black dark:text-gray-400 line-clamp-8">
               {testimonial.message}
             </p>
           )}
