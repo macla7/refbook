@@ -3,30 +3,15 @@
 import Link from "next/link";
 import { User } from "app/types";
 import { DP } from "./dp";
-import { AuthUser, getCurrentUser } from "@aws-amplify/auth";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { userDefault } from "app/defaults/user";
+import { AuthUser } from "@aws-amplify/auth";
 
-export function Sidebar({ user }: { user: User }) {
-  const [loggedInUser, setLoggedInUser] = useState<AuthUser>();
-  const router = useRouter(); // Next.js router for navigation
-
-  useEffect(() => {
-    async function checkUser() {
-      try {
-        const currentUser = await getCurrentUser();
-        setLoggedInUser(currentUser);
-      } catch (error) {
-        // console.log("User not authenticated");
-        // router.push("/"); // Redirect to authentication page
-      }
-    }
-
-    checkUser();
-  }, [router]);
-
+export function Sidebar({
+  user,
+  loggedInUser,
+}: {
+  user: User;
+  loggedInUser?: AuthUser;
+}) {
   return (
     <aside className=" px-4 bg-white h-full w-full">
       <div className="grid justify-items-center">

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { Testimonial } from "app/types";
 import { getTestimonials } from "app/api/testimonials";
 import TestimonialCard from "./testimonialCard";
-import ShareWithFriends from "./shareWithFriends";
 import { AuthUser, getCurrentUser } from "@aws-amplify/auth";
 import { useRouter } from "next/navigation";
 
@@ -41,7 +40,12 @@ export function TestimonialsList(params: { subjectUserId: string }) {
       {testimonials.length === 0 ? (
         loggedInUser?.userId == params.subjectUserId ? (
           <div className="relative flex justify-center items-center h-full w-full ">
-            <ShareWithFriends subjectUserId={params.subjectUserId} />
+            <div className="flex bg-white border-1 border-gray-200 rounded-sm flex-col items-center justify-center space-y-4 p-6 md:p-8 m-8">
+              <p>
+                Share your profile with colleagues, teammates or anybody else
+                who can write a great reference for you!
+              </p>
+            </div>
           </div>
         ) : (
           <div className="relative flex justify-center items-center h-full w-full ">

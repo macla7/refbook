@@ -10,6 +10,9 @@ import background from "assets/rangobg4.svg";
 import Image from "next/image";
 import { DP } from "app/(content)/components/dp";
 import test_icon from "assets/testimonial-icon.svg";
+import ShareButton from "app/(content)/components/shareButton";
+import { AuthUser, getCurrentUser } from "@aws-amplify/auth";
+import { useRouter } from "next/navigation";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [user, setUser] = useState<User>(userDefault);
@@ -17,6 +20,23 @@ export default function Page({ params }: { params: { id: string } }) {
     "testimonials"
   );
   const userId: string = params.id;
+
+  const [loggedInUser, setLoggedInUser] = useState<AuthUser>();
+  const router = useRouter(); // Next.js router for navigation
+
+  useEffect(() => {
+    async function checkUser() {
+      try {
+        const currentUser = await getCurrentUser();
+        setLoggedInUser(currentUser);
+      } catch (error) {
+        // console.log("User not authenticated");
+        // router.push("/"); // Redirect to authentication page
+      }
+    }
+
+    checkUser();
+  }, [router]);
 
   useEffect(() => {
     fetchData();
@@ -59,6 +79,7 @@ export default function Page({ params }: { params: { id: string } }) {
       </div>
 
       {/* Tab content for small screens */}
+
       <div className="sm:hidden h-full mb-12">
         {activeTab === "testimonials" && (
           <div className="relative bg-white h-full">
@@ -78,9 +99,20 @@ export default function Page({ params }: { params: { id: string } }) {
         )}
         {activeTab === "sidebar" && (
           <div className="bg-white h-full">
-            <Sidebar user={user} />
+            <Sidebar user={user} loggedInUser={loggedInUser} />
           </div>
         )}
+
+        {loggedInUser?.userId == user.id && (
+          <div className="fixed bg-white rounded-2xl bottom-20 left-2 z-50">
+            <ShareButton
+              url={`https://www.rango.com.au/users/${userId}/profile`}
+              title="Rango reference"
+              text="Hey, can you write me a reference on Rango?"
+            />
+          </div>
+        )}
+        {/* Floating share button (small screens) */}
       </div>
 
       {/* Grid layout for medium and up */}
@@ -98,9 +130,19 @@ export default function Page({ params }: { params: { id: string } }) {
             }}
           />
           <TestimonialsList subjectUserId={userId} />
+
+          {loggedInUser?.userId == user.id && (
+            <div className="fixed bg-white rounded-2xl bottom-24 right-8 z-50">
+              <ShareButton
+                url={`https://www.rango.com.au/users/${userId}/profile`}
+                title="Rango reference"
+                text="Hey, can you write me a reference on Rango?"
+              />
+            </div>
+          )}
         </div>
         <div className="col-span-2 rounded-sm border-l-0 border-solid border-gray-200 h-full">
-          <Sidebar user={user} />
+          <Sidebar user={user} loggedInUser={loggedInUser} />
         </div>
       </div>
     </div>
