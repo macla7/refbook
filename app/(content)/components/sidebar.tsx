@@ -41,10 +41,19 @@ export function Sidebar({
             </span>
           </Link>
         )}
-
         <div>
           <p className="pt-8 text-center">{user.bio || "No bio available."}</p>
         </div>
+        {loggedInUser?.userId == user.id && (
+          <Link
+            href={`/users/${user.id}/account`}
+            className="my-8 cursor-pointer rounded-full bg-ourPurple px-6 font-semibold h-8 md:h-10 flex items-center justify-center"
+          >
+            <span className="relative text-white text-sm md:text-lg">
+              Edit Account
+            </span>
+          </Link>
+        )}
       </div>
     </aside>
   );

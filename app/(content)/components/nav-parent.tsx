@@ -28,17 +28,17 @@ export function NavParent() {
       setIsActive(true);
       setDesktopHamburgerMenu({
         [`/users/${currentAuthUser?.userId}/profile`]: { name: "My Profile" },
-        [`/users/${currentAuthUser?.userId}/account`]: {
-          name: "Account Settings",
-        },
+        // [`/users/${currentAuthUser?.userId}/account`]: {
+        //   name: "Account Settings",
+        // },
       });
       setPhoneHamburgerMenu({
         ["/about_us"]: { name: "About Us" },
         ["/users"]: { name: "People" },
         [`/users/${currentAuthUser?.userId}/profile`]: { name: "My Profile" },
-        [`/users/${currentAuthUser?.userId}/account`]: {
-          name: "Account Settings",
-        },
+        // [`/users/${currentAuthUser?.userId}/account`]: {
+        //   name: "Account Settings",
+        // },
       });
     } catch (error) {
       setIsActive(false);
