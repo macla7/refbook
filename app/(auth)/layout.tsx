@@ -9,6 +9,7 @@ import { baseUrl } from "../sitemap";
 import "app/config";
 // import ScreenSizeWarning from "../(content)/components/screensizeWarning";
 
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
