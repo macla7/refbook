@@ -71,9 +71,9 @@ export default async function RootLayout({
       }}
     >
       {/* <ScreenSizeWarning /> */}
-      <body className="antialiased flex h-dvh w-screen">
+      <body className="antialiased flex h-dvh">
         <SearchProvider>
-          <div className="grid grid-cols-4 md:grid-rows-[70px_1fr] grid-rows-[1fr_70px] w-full h-full">
+          <div className="grid grid-cols-4 md:grid-rows-[70px_1fr] grid-rows-[1fr_70px] grow">
             <>
               {/* Desktop / tablet: Navbar stuck to top */}
               <NavParent />
@@ -82,7 +82,7 @@ export default async function RootLayout({
               {/* <div className="col-span-4 md:block hidden h-16" aria-hidden /> */}
             </>
 
-            <main className="col-span-4 flex w-full">
+            <main className="col-span-4 flex-col w-screen overflow-x-hidden">
               {children}
 
               {/* No idea what these two components show... so just gonna leave them there for a second */}
@@ -90,7 +90,7 @@ export default async function RootLayout({
               <SpeedInsights />
             </main>
 
-            <footer className="md:block hidden col-span-4 bg-white border-t border-solid border-gray-200 w-full">
+            <footer className="md:block hidden col-span-4 bg-white border-t-1 border-solid border-gray-200">
               <Footer />
             </footer>
 
