@@ -8,6 +8,7 @@ import logo from "assets/rango3.svg";
 import { useSearch } from "app/context/SearchContext";
 import { User } from "app/types";
 import { useRouter } from "next/navigation";
+import MorphingLogo from "./morphing-logo";
 
 
 type MenuItems = Record<string, { name: string }>;
@@ -41,12 +42,17 @@ export default function DesktopNav({
         {/* Left: Logo */}
         <div className="flex items-center">
           <Link key={"/"} href={"/"}>
-            <Image
+            {/* <Image
               src={logo}
               alt="Default Profile"
-              className="lg:w-[150px] md:w-[125px]"
-            />
+              className="lg:w-[160px] md:w-[125px]"
+            /> */}
+            <MorphingLogo size={160} alt="Rango Homepage" />
           </Link>
+        </div>
+
+        <div>
+
         </div>
 
         {/* Center: Search + Nav items (will grow to fill available space) */}

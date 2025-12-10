@@ -47,7 +47,7 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="w-full max-w-full grow relative ">
+    <div className="w-full max-w-full h-full grow relative">
       {/* Tabs for small screens */}
       <div className="sm:hidden w-full flex border-b border-gray-200 bg-white ">
         <button
@@ -129,10 +129,10 @@ export default function Page({ params }: { params: { id: string } }) {
               padding: "0",
             }}
           />
-          <TestimonialsList subjectUserId={userId} />
+            <TestimonialsList subjectUserId={userId} />
 
           {loggedInUser?.userId == user.id && (
-            <div className="fixed bg-white rounded-2xl bottom-24 right-8 z-50">
+            <div className="fixed bg-white rounded-2xl bottom-24 left-8 z-50">
               <ShareButton
                 url={`https://www.rango.com.au/users/${userId}/profile`}
                 title="Rango reference"
