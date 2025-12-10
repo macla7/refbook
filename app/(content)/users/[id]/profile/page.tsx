@@ -47,7 +47,7 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="w-full max-w-full grow relative">
+    <div className="w-full max-w-full h-full grow relative">
       {/* Tabs for small screens */}
       <div className="sm:hidden w-full flex border-b border-gray-200 bg-white ">
         <button
