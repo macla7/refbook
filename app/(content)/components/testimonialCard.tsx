@@ -53,7 +53,10 @@ export default function TestimonialCard({
         className="w-full h-full flex flex-row items-center bg-white border-1 border-gray-200 rounded-sm lg:min-h-[200px] lg:min-w-[300px] overflow-hidden shadow-lg hover:bg-ourLightBrown transition-all duration-300 ease-in-out cursor-pointer"
       >
         {/* SVG Container - 1/3 width */}
-        <div className="flex flex-col items-center justify-center h-full w-[120px]">
+        <Link
+          href={`/users/${authorUser.id}/profile`}
+          className="flex flex-col items-center justify-center h-full w-[120px] hover:underline "
+        >
           <div className="w-20 h-20">
             <DP user={authorUser} />
           </div>
@@ -63,7 +66,7 @@ export default function TestimonialCard({
           <p className="text-xs font-medium text-ourBrown w-full text-center padding-2">
             {authorUser.position} at {authorUser.workplace}
           </p>
-        </div>
+        </Link>
 
         {/* Text Container - 2/3 width */}
         <div className="flex-[2] flex flex-col justify-between p-2 leading-normal min-w-0 w-full">
@@ -119,17 +122,20 @@ export default function TestimonialCard({
             {/* Scrollable content */}
             <div className="flex-1 overflow-y-auto p-4 scrollbar-custom">
               <div className="flex flex-col md:flex-row items-start gap-4">
-                <div className="flex-[1] flex flex-col items-center justify-center w-full h-full ">
+                <Link
+                  href={`/users/${authorUser.id}/profile`}
+                  className="flex-[1] flex flex-col items-center justify-center w-full h-full hover:underline"
+                >
                   <div className="w-20 h-20">
                     <DP user={authorUser} />
                   </div>
-                  <p className="text-sm font-medium text-ourBrown w-full text-center padding-2">
+                  <p className="text-xs font-medium text-ourBrown w-full text-center padding-2">
                     {authorUser.name},
                   </p>
-                  <p className="text-sm font-medium text-ourBrown w-full text-center padding-2">
+                  <p className="text-xs font-medium text-ourBrown w-full text-center padding-2">
                     {authorUser.position} at {authorUser.workplace}
                   </p>
-                </div>
+                </Link>
 
                 <div className="flex-[2] w-full">
                   <p className="text-sm text-black dark:text-gray-400 whitespace-pre-line break-words">
