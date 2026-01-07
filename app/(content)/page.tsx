@@ -77,7 +77,7 @@ export default function rootPage() {
       <div className="flex items-center justify-center py-12 bg-ourBone shadow-hover">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] lg:grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 2xl:mx-24 xl:mx-12 mx-6 w-screen max-w-[1700px]">
           {/* Left Column (Flexible) */}
-          <div className="md:block hidden relative w-screen max-w-[1200px] min-w-[300px] aspect-[16/9] md:aspect-[238/100] border border-solid border-gray-200 overflow-hidden">
+          <div className="md:block hidden relative max-w-[1200px] min-w-[300px] aspect-[16/9] md:aspect-[238/100] border border-solid border-gray-200 overflow-hidden">
             <Image
               alt="Gold yellow background"
               src={sample}
@@ -174,4 +174,3 @@ export default function rootPage() {
     </div>
   );
 }
-

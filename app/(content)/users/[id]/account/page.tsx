@@ -110,8 +110,8 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return user.id !== "unknown" ? (
-    <div className="align-middle w-full h-full">
-      <div className="col-span-3 justify-items-center rounded-sm relative h-full md:p-6 lg:p-12">
+    <div className="align-middle">
+      <div className="col-span-3 justify-items-center rounded-sm relative md:p-6 lg:p-12">
         <Image
           alt="Mountains"
           src={background}
