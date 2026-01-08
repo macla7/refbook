@@ -127,47 +127,58 @@ export default function rootPage() {
           className="pointer-events-none select-none"
         /> */}
         {/* Your content goes here */}
-        <div className="relative flex justify-center lg:pt-12 pt-4 text-center items-center ">
+        <div className="relative flex justify-center lg:pt-6 pt-4 text-center items-center ">
           <div className="flex flex-row items-center justify-center gap-4 flex-wrap">
             <p className="text-2xl text-ourBrown font-bold max-w-5xl">
-              How can
+              3 steps to use
             </p>
             <Image src={logo} alt="Default Profile" width={150} />
             <p className="text-2xl text-ourBrown font-bold max-w-5xl">
-              help you get employed?
+              to help you get employed?
             </p>
           </div>
         </div>
 
-        <div className="relative flex flex-col md:flex-col lg:flex-row w-screen max-w-4xl mx-auto items-center my-10 z-0 gap-6 lg:gap-20 justify-center px-4">
-          <div className="lg:w-1/3 h-32 flex items-center justify-center shadow rounded-xl bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
-            <span className="flex items-center justify-center transition-opacity duration-300 opacity-100 group-hover:opacity-0 px-4 text-center">
-              Reach Out
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center p-4 text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-              Makes it easy for coworkers to leave you a great reference
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
+        <div className="relative flex flex-col w-screen max-w-4xl mx-auto items-center my-10 z-0 gap-4 lg:gap-8 justify-center px-4 md:px-8 ">
+          <div className="flex flex-col md:flex-row md:gap-6 md:gap-10 w-full bg-ourBone rounded-lg shadow items-stretch">
+            <div className="bg-white md:p-10 p-4 shadow rounded-lg md:w-1/3 w-full flex items-center justify-center">
+              <p className="text-xl text-ourBrown font-bold max-w-5xl whitespace-nowrap text-center md:text-left">
+                1. Create Profile
+              </p>
+            </div>
+            <div className="xl:p-4 md:p-6 p-4 flex justify-center items-center text-center md:text-left md:w-2/3 w-full">
+              <p className="text-lg text-ourBrown font-bold max-w-5xl">
+                This creates a board for your basic info and where you can
+                showcase your references
+              </p>
+            </div>
           </div>
 
-          <div className="lg:w-1/3 h-32 flex items-center justify-center shadow rounded-xl bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
-            <span className="transition-opacity duration-300 opacity-100 group-hover:opacity-0 px-4 text-center">
-              Store
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center p-4 text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-              Keep all your references in one place, no more lost emails
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
+          <div className="flex flex-col md:flex-row md:gap-6 md:gap-10 w-full bg-ourBone rounded-lg shadow items-stretch">
+            <div className="bg-white md:p-10 p-4 shadow rounded-lg md:w-1/3 w-full flex items-center justify-center">
+              <p className="text-xl text-ourBrown font-bold max-w-5xl whitespace-nowrap text-center md:text-left">
+                2. Get References
+              </p>
+            </div>
+
+            <div className="xl:p-4 md:p-6 p-4 flex justify-center items-center text-center md:text-left md:w-2/3 w-full">
+              <p className="text-lg text-ourBrown font-bold max-w-5xl">
+                Ask coworkers to leave you references that help you stand out
+              </p>
+            </div>
           </div>
 
-          <div className="lg:w-1/3 h-32 flex items-center justify-center shadow rounded-xl bg-ourBone font-bold group relative cursor-pointer transition overflow-hidden">
-            <span className="transition-opacity duration-300 opacity-100 group-hover:opacity-0 px-4 text-center">
-              Display
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center p-4 text-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-              Showcase your references on an accessible and shareable profile
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent -translate-x-full animate-shimmer opacity-100 group-hover:opacity-0"></div>
+          <div className="flex flex-col md:flex-row md:gap-6 md:gap-10 w-full bg-ourBone rounded-lg shadow items-stretch">
+            <div className="bg-white md:p-10 p-4 shadow rounded-lg md:w-1/3 w-full flex items-center justify-center">
+              <p className="text-xl text-ourBrown font-bold max-w-5xl whitespace-nowrap text-center md:text-left">
+                3. Share Profile
+              </p>
+            </div>
+            <div className="xl:p-4 md:p-6 p-4 flex justify-center items-center text-center md:text-left md:w-2/3 w-full">
+              <p className="text-lg text-ourBrown font-bold max-w-5xl">
+                Attach to your resume, linkedin or share the link directly
+              </p>
+            </div>
           </div>
         </div>
       </div>
