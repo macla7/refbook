@@ -52,6 +52,7 @@
     --sh-keyword: #f47067;
     --sh-string: #0fa295;
   }
+
   html {
     color-scheme: dark;
   }
@@ -84,7 +85,7 @@ html {
   content: "#";
 }
 
-.prose *:hover > .anchor {
+.prose *:hover>.anchor {
   @apply visible;
 }
 
@@ -143,7 +144,7 @@ html {
   @apply list-decimal pl-6;
 }
 
-.prose > :first-child {
+.prose> :first-child {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
@@ -154,8 +155,10 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Remove Safari input shadow on mobile */
@@ -179,11 +182,15 @@ table {
 
 .background-div {
   width: 100%;
-  height: screen; /* Adjust as needed */
+  height: screen;
+  /* Adjust as needed */
   background-image: url("/images/heropage.jpg");
-  background-size: cover; /* Ensures the image covers the div */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents tiling */
+  background-size: cover;
+  /* Ensures the image covers the div */
+  background-position: center;
+  /* Centers the image */
+  background-repeat: no-repeat;
+  /* Prevents tiling */
 }
 
 /* globals.css */
@@ -209,10 +216,12 @@ table {
   0% {
     transform: translateX(-100%);
   }
+
   20% {
     transform: translateX(180%);
   }
-  50%{
+
+  50% {
     transform: translateX(-100%);
   }
 }
@@ -222,7 +231,7 @@ table {
 }
 
 @theme {
-  --shadow-hover: 35px 0px 35px 0px rgba(0, 0, 0, 0.25); 
+  --shadow-hover: 35px 0px 35px 0px rgba(0, 0, 0, 0.25);
 }
 
 ::-webkit-scrollbar {
@@ -231,11 +240,29 @@ table {
 }
 
 body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 html {
-  overflow-y: scroll; /* keeps layout consistent */
-  scrollbar-color: transparent transparent; /* Firefox transparent scrollbar */
+  overflow-y: scroll;
+  /* keeps layout consistent */
+  scrollbar-color: transparent transparent;
+  /* Firefox transparent scrollbar */
+}
+
+body:has(.ref-icon:hover) .explainer-image, body:has(.search-icon:hover) .explainer-image, body:has(.profile-icon:hover) .explainer-image {
+  filter: brightness(0.5);
+  /* transition: filter 0.3s ease-in-out; */
+}
+
+body:has(.ref-icon:hover) .ref-icon-target, body:has(.search-icon:hover) .search-icon-target, body:has(.profile-icon:hover) .profile-icon-target {
+  background: white;
+  mix-blend-mode: overlay;
+  opacity: 1;
+  box-shadow: inset 0 0 5px rgba(1, 1, 1, 1);
+  border-radius: 10px;
+  /* transition: mix-blend-mode 0.5s ease-in-out; */
 }

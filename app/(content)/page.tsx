@@ -75,42 +75,55 @@ export default function rootPage() {
       </div>
 
       <div className="flex items-center justify-center py-12 bg-ourBone shadow-hover">
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] lg:grid-cols-[3fr_1fr] 2xl:gap-18 xl:gap-12 gap-6 2xl:mx-24 xl:mx-12 mx-6 w-screen max-w-[1700px]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] lg:grid-cols-[1fr_3fr] 2xl:gap-18 xl:gap-12 gap-6 2xl:mx-24 xl:mx-12 mx-6 w-screen max-w-[1700px]">
+         
+         <div className="grid grid-cols-1 gap-x-2 gap-y-6 md:gap-y-8 items-center">
+            <div className="grid grid-cols-1  md:grid-cols-[auto_1fr] items-center gap-x-2 gap-y-3 md:gap-y-0 ref-icon">
+              <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
+                <Image src={test_icon} alt="Testimonial Icon" />
+              </div>
+              <div className=" bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] justify-center text-center md:text-left">
+                References left by your coworkers made accessible
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1  md:grid-cols-[auto_1fr] items-center gap-x-2 gap-y-3 md:gap-y-0 search-icon">
+              <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center shadow rounded-full mx-auto md:mx-0">
+                <Image src={search_icon} alt="Search Icon" />
+              </div>
+              <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] justify-center text-center md:text-left">
+                Quickly find friends and coworkers, no log in required
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1  md:grid-cols-[auto_1fr] items-center gap-x-2 gap-y-3 md:gap-y-0 profile-icon">
+              <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
+                <Image src={profile_icon} alt="Profile Icon" />
+              </div>
+              <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] justify-center text-center md:text-left">
+                Profile area for a summary of who you are
+              </div>
+            </div>
+          </div>
+
           {/* Left Column (Flexible) */}
-          <div className="md:block hidden relative max-w-[1200px] min-w-[300px] aspect-[16/9] md:aspect-[238/100] border border-solid border-gray-200 overflow-hidden">
+          <div className=" md:block hidden relative max-w-[1200px] min-w-[300px] aspect-[16/9] md:aspect-[238/100] border border-solid border-gray-200 overflow-hidden">
             <Image
               alt="Gold yellow background"
               src={sample}
               quality={100}
               fill
               style={{ objectFit: "cover" }}
-              className="pointer-events-none select-none"
+              className="pointer-events-none select-none explainer-image"
             />
+
+            <div className="ref-icon-target absolute top-18.5/48 left-25.5/96 w-1.1/5 h-1.2/4"></div>
+            <div className="search-icon-target absolute top-0 left-57/96 w-1.6/10 h-1.2/8"></div>
+            <div className="profile-icon-target absolute top-0 right-0 w-1/4 h-1/1"></div>
+            
           </div>
 
           {/* Right Column (features) */}
-          <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] md:grid-rows-3 gap-x-2 gap-y-6 md:gap-y-8 items-center">
-            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
-              <Image src={test_icon} alt="Testimonial Icon" />
-            </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] justify-center text-center md:text-left">
-              References left by your coworkers made accessible
-            </div>
-
-            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center shadow rounded-full mx-auto md:mx-0">
-              <Image src={search_icon} alt="Search Icon" />
-            </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] justify-center text-center md:text-left">
-              Quickly find friends and coworkers, no log in required
-            </div>
-
-            <div className="2xl:h-16 2xl:w-16 xl:h-12 xl:w-12 h-10 w-10 flex items-center justify-center shadow rounded-full mx-auto md:mx-0">
-              <Image src={profile_icon} alt="Profile Icon" />
-            </div>
-            <div className="bg-white xl:p-4 p-2 shadow rounded-lg flex items-center min-h-[64px] justify-center text-center md:text-left">
-              Profile area for a summary of who you are
-            </div>
-          </div>
         </div>
       </div>
 
@@ -140,7 +153,7 @@ export default function rootPage() {
         </div>
 
         <div className="relative flex flex-col w-screen max-w-4xl mx-auto items-center my-10 z-0 gap-4 lg:gap-8 justify-center px-4 md:px-8 ">
-          <div className="flex flex-col md:flex-row md:gap-6 md:gap-10 w-full bg-ourBone rounded-lg shadow items-stretch">
+          <div className="flex flex-col md:flex-row md:gap-6 w-full bg-ourBone rounded-lg shadow items-stretch">
             <div className="bg-white md:p-10 p-4 shadow rounded-lg md:w-1/3 w-full flex items-center justify-center">
               <p className="text-xl text-ourBrown font-bold max-w-5xl whitespace-nowrap text-center md:text-left">
                 1. Create Profile
@@ -154,7 +167,7 @@ export default function rootPage() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:gap-6 md:gap-10 w-full bg-ourBone rounded-lg shadow items-stretch">
+          <div className="flex flex-col md:flex-row md:gap-6 w-full bg-ourBone rounded-lg shadow items-stretch">
             <div className="bg-white md:p-10 p-4 shadow rounded-lg md:w-1/3 w-full flex items-center justify-center">
               <p className="text-xl text-ourBrown font-bold max-w-5xl whitespace-nowrap text-center md:text-left">
                 2. Get References
@@ -168,7 +181,7 @@ export default function rootPage() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:gap-6 md:gap-10 w-full bg-ourBone rounded-lg shadow items-stretch">
+          <div className="flex flex-col md:flex-row md:gap-6 w-full bg-ourBone rounded-lg shadow items-stretch">
             <div className="bg-white md:p-10 p-4 shadow rounded-lg md:w-1/3 w-full flex items-center justify-center">
               <p className="text-xl text-ourBrown font-bold max-w-5xl whitespace-nowrap text-center md:text-left">
                 3. Share Profile
