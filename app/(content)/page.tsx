@@ -153,13 +153,13 @@ export default function rootPage() {
         </div>
 
         <div className="relative flex flex-col w-screen max-w-4xl mx-auto items-center my-10 z-0 gap-4 lg:gap-8 justify-center px-4 md:px-8 ">
-          <div className="flex flex-col md:flex-row md:gap-6 w-full bg-ourBone rounded-lg shadow items-stretch">
+          <div className="flex flex-col md:flex-row w-full bg-ourBone rounded-lg shadow items-stretch">
             <div className="bg-white md:p-10 p-4 shadow rounded-lg md:w-1/3 w-full flex items-center justify-center">
               <p className="text-xl text-ourBrown font-bold max-w-5xl whitespace-nowrap text-center md:text-left">
                 1. Create Profile
               </p>
             </div>
-            <div className="xl:p-4 md:p-6 p-4 flex justify-center items-center text-center md:text-left md:w-2/3 w-full">
+            <div className="xl:p-4 md:p-6 p-4 flex items-center text-center md:text-left md:w-2/3 w-full ml-2">
               <p className="text-lg text-ourBrown font-bold max-w-5xl">
                 This creates a board for your basic info and where you can
                 showcase your references
@@ -167,27 +167,27 @@ export default function rootPage() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:gap-6 w-full bg-ourBone rounded-lg shadow items-stretch">
+          <div className="flex flex-col md:flex-row w-full bg-ourBone rounded-lg shadow items-stretch">
             <div className="bg-white md:p-10 p-4 shadow rounded-lg md:w-1/3 w-full flex items-center justify-center">
               <p className="text-xl text-ourBrown font-bold max-w-5xl whitespace-nowrap text-center md:text-left">
                 2. Get References
               </p>
             </div>
 
-            <div className="xl:p-4 md:p-6 p-4 flex justify-center items-center text-center md:text-left md:w-2/3 w-full">
+            <div className="xl:p-4 md:p-6 p-4 flex items-center text-center md:text-left md:w-2/3 w-full ml-2">
               <p className="text-lg text-ourBrown font-bold max-w-5xl">
                 Ask coworkers to leave you references that help you stand out
               </p>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:gap-6 w-full bg-ourBone rounded-lg shadow items-stretch">
+          <div className="flex flex-col md:flex-row w-full bg-ourBone rounded-lg shadow items-stretch">
             <div className="bg-white md:p-10 p-4 shadow rounded-lg md:w-1/3 w-full flex items-center justify-center">
               <p className="text-xl text-ourBrown font-bold max-w-5xl whitespace-nowrap text-center md:text-left">
                 3. Share Profile
               </p>
             </div>
-            <div className="xl:p-4 md:p-6 p-4 flex justify-center items-center text-center md:text-left md:w-2/3 w-full">
+            <div className="xl:p-4 md:p-6 p-4 flex items-center text-center md:text-left md:w-2/3 w-full ml-2">
               <p className="text-lg text-ourBrown font-bold max-w-5xl">
                 Attach to your resume, linkedin or share the link directly
               </p>
